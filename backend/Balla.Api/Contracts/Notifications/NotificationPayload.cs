@@ -6,6 +6,7 @@ public static class NotificationType
     public const string Rating = "rating";
     public const string Message = "message";
     public const string Offer = "offer";
+    public const string Order = "order";
 }
 
 public record NotificationPayload(

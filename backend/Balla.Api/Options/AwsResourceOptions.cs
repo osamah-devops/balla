@@ -13,6 +13,7 @@ public class AwsResourceOptions
     public required string ConversationMessagesTableName { get; set; }
     public required string NotificationsTableName { get; set; }
     public required string OffersTableName { get; set; }
+    public required string OrdersTableName { get; set; }
     public required string UploadsBucketName { get; set; }
 
     /// <summary>Base URL (e.g. the CloudFront domain) uploaded images are served from.</summary>

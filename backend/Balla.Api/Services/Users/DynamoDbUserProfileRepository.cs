@@ -21,4 +21,7 @@ public class DynamoDbUserProfileRepository : IUserProfileRepository
 
     public Task<UserProfile?> GetAsync(string userId, CancellationToken ct) =>
         _context.LoadAsync<UserProfile?>(userId, _config, ct);
+
+    public async Task<IReadOnlyList<UserProfile>> ListAllAsync(CancellationToken ct) =>
+        await _context.ScanAsync<UserProfile>([], _config).GetRemainingAsync(ct);
 }

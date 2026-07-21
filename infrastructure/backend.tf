@@ -277,6 +277,41 @@ resource "aws_iam_role_policy_attachment" "ecs_task_execution" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
 }
 
+resource "aws_ssm_parameter" "stripe_secret_key" {
+  name  = "/${local.name}/stripe/secret-key"
+  type  = "SecureString"
+  value = var.stripe_secret_key
+  tags  = local.tags
+}
+
+resource "aws_ssm_parameter" "stripe_webhook_secret" {
+  name  = "/${local.name}/stripe/webhook-secret"
+  type  = "SecureString"
+  value = var.stripe_webhook_secret
+  tags  = local.tags
+}
+
+# The ECS agent resolves `secrets` (as opposed to plain `environment` vars) using the
+# execution role, before the container starts — not the task's own application role.
+resource "aws_iam_role_policy" "ecs_task_execution_ssm" {
+  name = "${local.name}-ecs-task-execution-ssm"
+  role = aws_iam_role.ecs_task_execution.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Action   = "ssm:GetParameters"
+        Effect   = "Allow"
+        Resource = [
+          aws_ssm_parameter.stripe_secret_key.arn,
+          aws_ssm_parameter.stripe_webhook_secret.arn,
+        ]
+      }
+    ]
+  })
+}
+
 resource "aws_iam_role" "ecs_task_application" {
   name = "${local.name}-ecs-task-application-role"
 
@@ -331,6 +366,8 @@ resource "aws_iam_policy" "ecs_task_application" {
           aws_dynamodb_table.conversation_messages.arn,
           aws_dynamodb_table.notifications.arn,
           aws_dynamodb_table.offers.arn,
+          aws_dynamodb_table.orders.arn,
+          "${aws_dynamodb_table.orders.arn}/index/*",
         ]
       },
       {
@@ -407,10 +444,18 @@ resource "aws_ecs_task_definition" "api" {
         { name = "AwsResources__ConversationMessagesTableName", value = aws_dynamodb_table.conversation_messages.name },
         { name = "AwsResources__NotificationsTableName", value = aws_dynamodb_table.notifications.name },
         { name = "AwsResources__OffersTableName", value = aws_dynamodb_table.offers.name },
+        { name = "AwsResources__OrdersTableName", value = aws_dynamodb_table.orders.name },
         { name = "AwsResources__UploadsBucketName", value = module.uploads_bucket.s3_bucket_id },
         { name = "AwsResources__PublicAssetsBaseUrl", value = "https://${local.frontend_domain}" },
         { name = "Cors__AllowedOrigin", value = "https://${local.frontend_domain}" },
         { name = "Ses__FromAddress", value = "notifications@${aws_ses_domain_identity.notifications.domain}" },
+        { name = "Stripe__SuccessUrl", value = "https://${local.frontend_domain}/checkout/success?session_id={CHECKOUT_SESSION_ID}" },
+        { name = "Stripe__CancelUrl", value = "https://${local.frontend_domain}/checkout/cancelled" },
+      ]
+
+      secrets = [
+        { name = "Stripe__SecretKey", valueFrom = aws_ssm_parameter.stripe_secret_key.arn },
+        { name = "Stripe__WebhookSecret", valueFrom = aws_ssm_parameter.stripe_webhook_secret.arn },
       ]
 
       logConfiguration = {

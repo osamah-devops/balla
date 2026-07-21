@@ -65,3 +65,7 @@ output "dynamodb_notifications_table_name" {
 output "dynamodb_offers_table_name" {
   value = aws_dynamodb_table.offers.name
 }
+
+output "dynamodb_orders_table_name" {
+  value = aws_dynamodb_table.orders.name
+}

@@ -8,6 +8,10 @@ import { ForgetPassword } from './pages/forget-password/forget-password';
 import { Profile } from './pages/profile/profile';
 import { Messages } from './pages/messages/messages';
 import { Favorites } from './pages/favorites/favorites';
+import { Cart } from './pages/cart/cart';
+import { CheckoutSuccess } from './pages/checkout-success/checkout-success';
+import { CheckoutCancelled } from './pages/checkout-cancelled/checkout-cancelled';
+import { MyOrders } from './pages/my-orders/my-orders';
 import { Categories } from './pages/categories/categories';
 import { Category } from './pages/category/category';
 import { AdminDashboard } from './pages/admin-dashboard/admin-dashboard';
@@ -37,6 +41,10 @@ export const routes: Routes = [
   { path: 'profile', component: Profile, canActivate: [authGuard] },
   { path: 'messages', component: Messages, canActivate: [authGuard] },
   { path: 'favorites', component: Favorites },
+  { path: 'cart', component: Cart },
+  { path: 'checkout/success', component: CheckoutSuccess, canActivate: [authGuard] },
+  { path: 'checkout/cancelled', component: CheckoutCancelled },
+  { path: 'orders', component: MyOrders, canActivate: [authGuard] },
   { path: 'admin-dashboard', component: AdminDashboard, canActivate: [roleGuard('admin')] },
   { path: 'seller-dashboard', component: SellerDashboard, canActivate: [roleGuard('seller')] },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },

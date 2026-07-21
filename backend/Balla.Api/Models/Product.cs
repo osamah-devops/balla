@@ -24,6 +24,7 @@ public class Product
 
     public double AverageRating { get; set; }
     public int RatingCount { get; set; }
+    public bool Hidden { get; set; }
 
     public string CreatedAt { get; set; } = default!;
 }

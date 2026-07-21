@@ -13,13 +13,16 @@ using Balla.Api.Services.Messaging;
 using Balla.Api.Services.Moderation;
 using Balla.Api.Services.Notifications;
 using Balla.Api.Services.Offers;
+using Balla.Api.Services.Orders;
 using Balla.Api.Services.Owners;
+using Balla.Api.Services.Payments;
 using Balla.Api.Services.Products;
 using Balla.Api.Services.Ratings;
 using Balla.Api.Services.Storage;
 using Balla.Api.Services.Users;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Stripe;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +30,8 @@ builder.Services.Configure<CognitoOptions>(builder.Configuration.GetSection(Cogn
 builder.Services.Configure<AwsResourceOptions>(builder.Configuration.GetSection(AwsResourceOptions.SectionName));
 builder.Services.Configure<SesOptions>(builder.Configuration.GetSection(SesOptions.SectionName));
 builder.Services.Configure<ModerationOptions>(builder.Configuration.GetSection(ModerationOptions.SectionName));
+builder.Services.Configure<StripeOptions>(builder.Configuration.GetSection(StripeOptions.SectionName));
+StripeConfiguration.ApiKey = builder.Configuration[$"{StripeOptions.SectionName}:SecretKey"];
 
 builder.Services.AddDefaultAWSOptions(builder.Configuration.GetAWSOptions());
 builder.Services.AddAWSService<IAmazonCognitoIdentityProvider>();
@@ -46,6 +51,8 @@ builder.Services.AddScoped<IConversationRepository, DynamoDbConversationReposito
 builder.Services.AddScoped<IConversationMessageRepository, DynamoDbConversationMessageRepository>();
 builder.Services.AddScoped<IConversationMessenger, ConversationMessenger>();
 builder.Services.AddScoped<IOfferRepository, DynamoDbOfferRepository>();
+builder.Services.AddScoped<IOrderRepository, DynamoDbOrderRepository>();
+builder.Services.AddScoped<IStripeCheckoutService, StripeCheckoutService>();
 builder.Services.AddScoped<INotificationRepository, DynamoDbNotificationRepository>();
 builder.Services.AddScoped<ISesEmailSender, SesEmailSender>();
 builder.Services.AddScoped<IContentModerationService, RekognitionContentModerationService>();

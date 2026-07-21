@@ -6,6 +6,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { provideIcons, NgIcon } from '@ng-icons/core';
 import {
+  faSolidCartPlus,
   faSolidChevronLeft,
   faSolidChevronRight,
   faSolidCommentDots,
@@ -21,6 +22,7 @@ import { ProductsService } from '../../services/products.service';
 import { ConversationsService } from '../../services/conversations.service';
 import { OffersService } from '../../services/offers.service';
 import { AuthService } from '../../services/auth.service';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-product',
@@ -29,6 +31,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './product.css',
   providers: [
     provideIcons({
+      faSolidCartPlus,
       faSolidChevronLeft,
       faSolidChevronRight,
       faSolidCommentDots,
@@ -46,6 +49,7 @@ export class Product {
   private readonly conversationsService = inject(ConversationsService);
   private readonly offersService = inject(OffersService);
   private readonly authService = inject(AuthService);
+  private readonly cartService = inject(CartService);
   private readonly fb = inject(FormBuilder);
 
   // Angular's default RouteReuseStrategy reuses this component across /product/:id ->
@@ -101,6 +105,8 @@ export class Product {
   readonly offerSubmitting = signal(false);
   readonly offerSent = signal(false);
 
+  readonly addedToCart = signal(false);
+
   constructor() {
     toObservable(this.product)
       .pipe(
@@ -114,6 +120,7 @@ export class Product {
           this.activeImage.set(null);
           this.lightboxOpen.set(false);
           this.selectedOptions.set({});
+          this.addedToCart.set(false);
         }),
         switchMap((product) => this.productsService.getComments(product.id)),
       )
@@ -144,6 +151,20 @@ export class Product {
 
   selectOption(name: string, value: string): void {
     this.selectedOptions.update((selected) => ({ ...selected, [name]: value }));
+  }
+
+  addToCart(): void {
+    const product = this.product();
+    this.cartService.add({
+      productId: product.id,
+      title: product.title,
+      image: product.image,
+      price: product.price,
+      sellerId: product.owner.id,
+      sellerName: product.owner.name,
+      selectedOptions: Object.keys(this.selectedOptions()).length > 0 ? this.selectedOptions() : undefined,
+    });
+    this.addedToCart.set(true);
   }
 
   rate(stars: number): void {
@@ -177,7 +198,7 @@ export class Product {
   }
 
   /** Prefixes buyer-selected variants (e.g. "Size: M, Color: Blue") so the seller has context
-   * without a real cart/checkout flow to carry that state through. */
+   * on a message/offer, which — unlike a cart checkout — has no structured place for them. */
   private withSelectedOptions(text: string): string {
     const entries = Object.entries(this.selectedOptions());
     if (entries.length === 0) {

@@ -18,6 +18,7 @@ public static class ProductMapper
         product.Options?.Select(o => new ProductOptionResponse(o.Name, o.Values)).ToList(),
         new ProductOwnerResponse(product.OwnerId, product.OwnerName, product.OwnerLocation),
         product.AverageRating,
-        product.RatingCount
+        product.RatingCount,
+        product.Hidden
     );
 }

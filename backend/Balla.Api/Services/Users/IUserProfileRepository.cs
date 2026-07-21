@@ -6,4 +6,5 @@ public interface IUserProfileRepository
 {
     Task PutAsync(UserProfile profile, CancellationToken ct);
     Task<UserProfile?> GetAsync(string userId, CancellationToken ct);
+    Task<IReadOnlyList<UserProfile>> ListAllAsync(CancellationToken ct);
 }

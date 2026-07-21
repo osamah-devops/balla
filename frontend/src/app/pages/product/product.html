@@ -149,6 +149,15 @@
                 </div>
             }
 
+            <button
+                type="button"
+                (click)="addToCart()"
+                class="flex items-center justify-center gap-2 rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-indigo-700"
+            >
+                <ng-icon name="faSolidCartPlus" size="0.9rem"></ng-icon>
+                {{ addedToCart() ? 'Added to cart ✓' : 'Add to Cart' }}
+            </button>
+
             @if (isAuthenticated()) {
                 <div class="flex flex-col gap-3 sm:flex-row">
                     <button type="button" (click)="messageOpen.set(!messageOpen()); offerOpen.set(false)" class="flex flex-1 items-center justify-center gap-2 rounded-lg border border-slate-200 px-4 py-2.5 text-sm font-semibold text-slate-700 transition-colors duration-150 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800">

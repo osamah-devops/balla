@@ -1,6 +1,5 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, computed, signal, inject } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { provideIcons, NgIcon } from '@ng-icons/core';
 import {
   faSolidBan,
@@ -13,9 +12,8 @@ import {
   faSolidUsers,
 } from '@ng-icons/font-awesome/solid';
 import { StatCard } from '../../components/stat-card/stat-card';
-import { UsersService } from '../../services/users.service';
+import { AdminService } from '../../services/admin.service';
 import { ProductsService } from '../../services/products.service';
-import { OrdersService } from '../../services/orders.service';
 import { Product } from '../../models/product.model';
 import { Owner } from '../../models/owner.model';
 import { Order } from '../../models/order.model';
@@ -47,41 +45,43 @@ interface SellerRow extends Owner {
   ],
 })
 export class AdminDashboard {
-  private readonly usersService = inject(UsersService);
+  private readonly adminService = inject(AdminService);
   private readonly productsService = inject(ProductsService);
-  private readonly ordersService = inject(OrdersService);
 
   readonly tab = signal<AdminTab>('overview');
 
-  // Triggers the load; the users table itself reads usersService.users so
-  // that admin actions (suspend/activate) update the view reactively.
-  private readonly usersLoaded = toSignal(this.usersService.getUsers(), { initialValue: [] as User[] });
-  readonly users = this.usersService.users;
+  readonly users = signal<User[]>([]);
+  readonly products = signal<Product[]>([]);
+  readonly orders = signal<Order[]>([]);
+  private readonly owners = signal<Owner[]>([]);
 
-  readonly products = toSignal(this.productsService.getProducts(), { initialValue: [] as Product[] });
-  private readonly owners = toSignal(this.productsService.getOwners(), { initialValue: [] as Owner[] });
-  private readonly orders = toSignal(this.ordersService.getOrders(), { initialValue: [] as Order[] });
-
-  readonly hiddenProductIds = signal<Set<string>>(new Set());
+  constructor() {
+    this.adminService.listUsers().subscribe((users) => this.users.set(users));
+    this.adminService.listProducts().subscribe((products) => this.products.set(products));
+    this.adminService.listOrders().subscribe((orders) => this.orders.set(orders));
+    this.productsService.getOwners().subscribe((owners) => this.owners.set(owners));
+  }
 
   readonly totalAdmins = computed(() => this.users().filter((user) => user.role === 'admin').length);
   readonly totalSellers = computed(() => this.users().filter((user) => user.role === 'seller').length);
   readonly totalCustomers = computed(() => this.users().filter((user) => user.role === 'customer').length);
   readonly suspendedUsers = computed(() => this.users().filter((user) => user.status === 'suspended').length);
-  readonly pendingOrders = computed(() => this.orders().filter((order) => order.status === 'pending').length);
-  readonly totalRevenue = computed(() =>
-    this.orders()
-      .filter((order) => order.status !== 'cancelled')
-      .reduce((sum, order) => sum + order.total, 0),
+  readonly pendingOrders = computed(() => this.orders().filter((order) => order.status === 'paid').length);
+  readonly totalRevenue = computed(
+    () =>
+      this.orders()
+        .filter((order) => order.status !== 'cancelled')
+        .reduce((sum, order) => sum + order.totalCents, 0) / 100,
   );
 
   readonly sellerRows = computed<SellerRow[]>(() =>
     this.owners().map((owner) => ({
       ...owner,
       productCount: this.products().filter((product) => product.owner.id === owner.id).length,
-      revenue: this.orders()
-        .filter((order) => order.sellerId === owner.id && order.status !== 'cancelled')
-        .reduce((sum, order) => sum + order.total, 0),
+      revenue:
+        this.orders()
+          .filter((order) => order.sellerId === owner.id && order.status !== 'cancelled')
+          .reduce((sum, order) => sum + order.totalCents, 0) / 100,
     })),
   );
 
@@ -91,22 +91,28 @@ export class AdminDashboard {
 
   toggleUserStatus(user: User): void {
     const next: UserStatus = user.status === 'active' ? 'suspended' : 'active';
-    this.usersService.setStatus(user.id, next);
+    this.adminService.updateUserStatus(user.id, next).subscribe((updated) => {
+      this.users.update((list) => list.map((u) => (u.id === updated.id ? updated : u)));
+    });
   }
 
   toggleProductVisibility(productId: string): void {
-    this.hiddenProductIds.update((ids) => {
-      const next = new Set(ids);
-      if (next.has(productId)) {
-        next.delete(productId);
-      } else {
-        next.add(productId);
-      }
-      return next;
+    const product = this.products().find((p) => p.id === productId);
+    if (!product) {
+      return;
+    }
+    this.adminService.updateProductVisibility(productId, !product.hidden).subscribe((updated) => {
+      this.products.update((list) => list.map((p) => (p.id === updated.id ? updated : p)));
     });
   }
 
   isProductHidden(productId: string): boolean {
-    return this.hiddenProductIds().has(productId);
+    return this.products().find((p) => p.id === productId)?.hidden ?? false;
+  }
+
+  toggleSellerVerification(seller: Owner): void {
+    this.adminService.updateOwnerVerification(seller.id, !seller.verified).subscribe((updated) => {
+      this.owners.update((list) => list.map((o) => (o.id === updated.id ? updated : o)));
+    });
   }
 }

@@ -179,6 +179,48 @@ resource "aws_dynamodb_table" "offers" {
   tags = local.tags
 }
 
+resource "aws_dynamodb_table" "orders" {
+  name         = "${local.name}-orders"
+  billing_mode = "PAY_PER_REQUEST"
+  hash_key     = "OrderId"
+
+  attribute {
+    name = "OrderId"
+    type = "S"
+  }
+
+  attribute {
+    name = "BuyerId"
+    type = "S"
+  }
+
+  attribute {
+    name = "SellerId"
+    type = "S"
+  }
+
+  attribute {
+    name = "CreatedAt"
+    type = "S"
+  }
+
+  global_secondary_index {
+    name            = "buyer-index"
+    hash_key        = "BuyerId"
+    range_key       = "CreatedAt"
+    projection_type = "ALL"
+  }
+
+  global_secondary_index {
+    name            = "seller-index"
+    hash_key        = "SellerId"
+    range_key       = "CreatedAt"
+    projection_type = "ALL"
+  }
+
+  tags = local.tags
+}
+
 module "uploads_bucket" {
   source  = "terraform-aws-modules/s3-bucket/aws"
   version = "~> 5.0"

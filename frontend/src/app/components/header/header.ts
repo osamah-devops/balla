@@ -5,11 +5,12 @@ import { MainNav } from './main-nav/main-nav';
 import { AuthNav } from './auth-nav/auth-nav';
 import { ThemeToggler } from './theme-toggler/theme-toggler';
 import { MobileMenuButton } from './mobile-menu-button/mobile-menu-button';
+import { CartLink } from './cart-link/cart-link';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [Logo, CommonModule, MainNav, AuthNav, ThemeToggler, MobileMenuButton],
+  imports: [Logo, CommonModule, MainNav, AuthNav, ThemeToggler, MobileMenuButton, CartLink],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })

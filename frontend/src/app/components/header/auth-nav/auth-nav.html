@@ -46,6 +46,14 @@
             </li>
             <li [ngClass]="mobile ? 'w-full' : ''">
                 <a
+                    routerLink="/orders"
+                    (click)="linkClick.emit()"
+                    [ngClass]="mobile ? 'block w-full text-center' : 'inline-block'"
+                    class="cursor-pointer rounded-lg px-3 py-1.5 text-sm font-semibold text-slate-600 transition-colors duration-150 hover:bg-slate-100 hover:text-indigo-600 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-indigo-400"
+                >My Orders</a>
+            </li>
+            <li [ngClass]="mobile ? 'w-full' : ''">
+                <a
                     routerLink="/profile"
                     (click)="linkClick.emit()"
                     [ngClass]="mobile ? 'block w-full text-center' : 'inline-block'"

@@ -8,10 +8,12 @@
 
         <div class="flex items-center gap-2 sm:gap-3">
             @if (!isMobile) {
+                <app-cart-link></app-cart-link>
                 <app-auth-nav [currentPath]="currentPath"></app-auth-nav>
                 <app-theme-toggler></app-theme-toggler>
             }
             @if (isMobile) {
+                <app-cart-link></app-cart-link>
                 <app-theme-toggler></app-theme-toggler>
                 <app-mobile-menu-button [isOpen]="mobileMenuOpen" (toggle)="toggleMobileMenu()"></app-mobile-menu-button>
             }

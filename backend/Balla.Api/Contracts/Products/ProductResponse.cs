@@ -18,5 +18,6 @@ public record ProductResponse(
     IReadOnlyList<ProductOptionResponse>? Options,
     ProductOwnerResponse Owner,
     double AverageRating,
-    int RatingCount
+    int RatingCount,
+    bool Hidden
 );

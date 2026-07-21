@@ -76,6 +76,10 @@ public class AuthController(ICognitoAuthService authService, IUserProfileReposit
         {
             throw new AuthException("PROFILE_NOT_FOUND", 404, "No profile found for this account.");
         }
+        if (profile.Status == "suspended")
+        {
+            throw new AuthException("ACCOUNT_SUSPENDED", 403, "This account has been suspended.");
+        }
 
         return Ok(new LoginResponse(tokens.AccessToken, tokens.IdToken, tokens.RefreshToken, tokens.ExpiresIn, profile.ToResponse()));
     }
@@ -84,6 +88,14 @@ public class AuthController(ICognitoAuthService authService, IUserProfileReposit
     public async Task<ActionResult<AuthTokensResponse>> Refresh(RefreshRequest request, CancellationToken ct)
     {
         var tokens = await authService.RefreshAsync(request.RefreshToken, ct);
+
+        var userId = await authService.GetUserIdAsync(tokens.AccessToken, ct);
+        var profile = await userProfileRepository.GetAsync(userId, ct);
+        if (profile?.Status == "suspended")
+        {
+            throw new AuthException("ACCOUNT_SUSPENDED", 403, "This account has been suspended.");
+        }
+
         return Ok(new AuthTokensResponse(tokens.AccessToken, tokens.IdToken, tokens.RefreshToken, tokens.ExpiresIn));
     }
 

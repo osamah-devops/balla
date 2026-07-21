@@ -44,7 +44,7 @@ public class ProductsController(
     public async Task<ActionResult<IReadOnlyList<ProductResponse>>> List(CancellationToken ct)
     {
         var products = await productRepository.ListAsync(ct);
-        return Ok(products.Select(p => p.ToResponse()));
+        return Ok(products.Where(p => !p.Hidden).Select(p => p.ToResponse()));
     }
 
     [HttpGet("{id}")]

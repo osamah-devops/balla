@@ -1,19 +1,21 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, map, shareReplay } from 'rxjs';
-import { Order } from '../models/order.model';
+import { Observable } from 'rxjs';
+import { Order, UpdateOrderStatusRequest } from '../models/order.model';
 
 @Injectable({ providedIn: 'root' })
 export class OrdersService {
   private readonly http = inject(HttpClient);
-  private orders$?: Observable<Order[]>;
 
-  getOrders(): Observable<Order[]> {
-    this.orders$ ??= this.http.get<Order[]>('/data/orders.json').pipe(shareReplay(1));
-    return this.orders$;
+  getMyOrders(): Observable<Order[]> {
+    return this.http.get<Order[]>('/api/orders/mine');
   }
 
-  getOrdersBySeller(sellerId: string): Observable<Order[]> {
-    return this.getOrders().pipe(map((orders) => orders.filter((order) => order.sellerId === sellerId)));
+  getSellingOrders(): Observable<Order[]> {
+    return this.http.get<Order[]>('/api/orders/selling');
+  }
+
+  updateStatus(orderId: string, request: UpdateOrderStatusRequest): Observable<Order> {
+    return this.http.patch<Order>(`/api/orders/${orderId}/status`, request);
   }
 }

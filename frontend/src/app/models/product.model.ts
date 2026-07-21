@@ -24,6 +24,7 @@ export interface Product {
   options?: ProductOption[];
   averageRating: number;
   ratingCount: number;
+  hidden: boolean;
 }
 
 export interface CreateProductRequest {

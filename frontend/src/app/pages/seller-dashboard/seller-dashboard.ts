@@ -72,7 +72,6 @@ export class SellerDashboard {
   readonly categories = this.categoriesService.getCategories();
 
   private readonly allProducts = toSignal(this.productsService.getProducts(), { initialValue: [] as Product[] });
-  private readonly allOrders = toSignal(this.ordersService.getOrders(), { initialValue: [] as Order[] });
   private readonly allOwners = toSignal(this.productsService.getOwners(), { initialValue: [] as Owner[] });
 
   // Products created this session aren't in allProducts() until its cached observable
@@ -84,7 +83,8 @@ export class SellerDashboard {
     return [...added, ...fromServer];
   });
 
-  readonly myOrders = computed<Order[]>(() => this.allOrders().filter((order) => order.sellerId === this.ownerId()));
+  readonly myOrders = signal<Order[]>([]);
+  readonly orderActionPending = signal<string | null>(null);
 
   readonly currentOwner = computed<Owner | undefined>(() =>
     this.allOwners().find((owner) => owner.id === this.ownerId()),
@@ -93,10 +93,10 @@ export class SellerDashboard {
   readonly revenue = computed(() =>
     this.myOrders()
       .filter((order) => order.status !== 'cancelled')
-      .reduce((sum, order) => sum + order.total, 0),
+      .reduce((sum, order) => sum + order.totalCents, 0) / 100,
   );
 
-  readonly pendingOrders = computed(() => this.myOrders().filter((order) => order.status === 'pending').length);
+  readonly pendingOrders = computed(() => this.myOrders().filter((order) => order.status === 'paid').length);
 
   readonly showAddProduct = signal(false);
   readonly addProductSubmitting = signal(false);
@@ -146,11 +146,22 @@ export class SellerDashboard {
         return 'bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400';
       case 'shipped':
         return 'bg-sky-50 text-sky-700 dark:bg-sky-500/10 dark:text-sky-400';
-      case 'pending':
+      case 'paid':
         return 'bg-amber-50 text-amber-700 dark:bg-amber-500/10 dark:text-amber-400';
       case 'cancelled':
         return 'bg-rose-50 text-rose-700 dark:bg-rose-500/10 dark:text-rose-400';
     }
+  }
+
+  updateOrderStatus(order: Order, status: 'shipped' | 'delivered' | 'cancelled'): void {
+    this.orderActionPending.set(order.id);
+    this.ordersService.updateStatus(order.id, { status }).subscribe({
+      next: (updated) => {
+        this.myOrders.update((list) => list.map((o) => (o.id === updated.id ? updated : o)));
+        this.orderActionPending.set(null);
+      },
+      error: () => this.orderActionPending.set(null),
+    });
   }
 
   onProductImageSelected(event: Event): void {
@@ -283,5 +294,6 @@ export class SellerDashboard {
   private loadInboxes(): void {
     this.conversationsService.listConversations().subscribe((conversations) => this.recentConversations.set(conversations.slice(0, 5)));
     this.offersService.getInbox().subscribe((offers) => this.offers.set(offers));
+    this.ordersService.getSellingOrders().subscribe((orders) => this.myOrders.set(orders));
   }
 }

@@ -1,0 +1,68 @@
+<section class="mx-auto flex w-full max-w-4xl flex-col gap-6 bg-white px-4 py-6 sm:px-6 lg:px-8 dark:bg-slate-950">
+    <h1 class="flex items-center gap-2 text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+        <ng-icon name="faSolidCartShopping" size="1.1rem" class="text-indigo-600 dark:text-indigo-400"></ng-icon>
+        Your Cart
+    </h1>
+
+    @if (items().length === 0) {
+        <div class="flex flex-col items-center gap-3 rounded-xl border border-slate-200 py-16 text-center dark:border-slate-800">
+            <p class="text-sm text-slate-500 dark:text-slate-400">Your cart is empty.</p>
+            <a routerLink="/products" class="text-sm font-semibold text-indigo-600 hover:text-indigo-700 dark:text-indigo-400">Browse products</a>
+        </div>
+    } @else {
+        <div class="flex flex-col gap-3">
+            @for (item of items(); track $index) {
+                <div class="flex items-center gap-4 rounded-xl border border-slate-200 p-4 dark:border-slate-800">
+                    <img [src]="item.image" [alt]="item.title" class="h-16 w-16 shrink-0 rounded-lg object-cover" />
+                    <div class="min-w-0 flex-1">
+                        <p class="line-clamp-1 font-semibold text-slate-900 dark:text-white">{{ item.title }}</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Sold by {{ item.sellerName }}</p>
+                        @if (item.selectedOptions && (item.selectedOptions | keyvalue)?.length) {
+                            <p class="text-xs text-indigo-600 dark:text-indigo-400">
+                                @for (entry of item.selectedOptions | keyvalue; track entry.key) {
+                                    {{ entry.key }}: {{ entry.value }}{{ $last ? '' : ', ' }}
+                                }
+                            </p>
+                        }
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button type="button" (click)="decrement(item.productId, item.selectedOptions, item.quantity)" class="flex h-7 w-7 items-center justify-center rounded-full border border-slate-200 text-slate-600 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800">
+                            <ng-icon name="faSolidMinus" size="0.65rem"></ng-icon>
+                        </button>
+                        <span class="w-6 text-center text-sm font-semibold text-slate-900 dark:text-white">{{ item.quantity }}</span>
+                        <button type="button" (click)="increment(item.productId, item.selectedOptions, item.quantity)" class="flex h-7 w-7 items-center justify-center rounded-full border border-slate-200 text-slate-600 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800">
+                            <ng-icon name="faSolidPlus" size="0.65rem"></ng-icon>
+                        </button>
+                    </div>
+                    <p class="w-20 shrink-0 text-right font-semibold text-slate-900 dark:text-white">${{ lineTotal(item.price, item.quantity) | number: '1.2-2' }}</p>
+                    <button type="button" (click)="remove(item.productId, item.selectedOptions)" class="shrink-0 text-slate-400 hover:text-rose-600 dark:hover:text-rose-400">
+                        <ng-icon name="faSolidTrash" size="0.9rem"></ng-icon>
+                    </button>
+                </div>
+            }
+        </div>
+
+        <div class="flex flex-col gap-3 self-end rounded-xl border border-slate-200 p-4 sm:w-80 dark:border-slate-800">
+            <div class="flex items-center justify-between text-sm">
+                <span class="text-slate-500 dark:text-slate-400">Subtotal</span>
+                <span class="font-bold text-slate-900 dark:text-white">${{ subtotal() | number: '1.2-2' }}</span>
+            </div>
+
+            @if (!isAuthenticated()) {
+                <p class="text-xs text-slate-400 dark:text-slate-500"><a routerLink="/login" [queryParams]="{ redirectTo: '/cart' }" class="font-semibold text-indigo-600 hover:text-indigo-700 dark:text-indigo-400">Sign in</a> to check out.</p>
+            } @else {
+                @if (errorMessage()) {
+                    <p class="text-xs font-medium text-red-600 dark:text-red-400">{{ errorMessage() }}</p>
+                }
+                <button
+                    type="button"
+                    (click)="checkout()"
+                    [disabled]="checkingOut()"
+                    class="rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-indigo-700 disabled:opacity-60"
+                >
+                    {{ checkingOut() ? 'Redirecting to checkout…' : 'Checkout' }}
+                </button>
+            }
+        </div>
+    }
+</section>

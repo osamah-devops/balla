@@ -1,0 +1,42 @@
+<section class="mx-auto flex w-full max-w-4xl flex-col gap-6 bg-white px-4 py-6 sm:px-6 lg:px-8 dark:bg-slate-950">
+    <h1 class="flex items-center gap-2 text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+        <ng-icon name="faSolidBoxOpen" size="1.1rem" class="text-indigo-600 dark:text-indigo-400"></ng-icon>
+        My Orders
+    </h1>
+
+    <div class="flex flex-col gap-3">
+        @for (order of orders(); track order.id) {
+            <div class="flex flex-col gap-3 rounded-xl border border-slate-200 p-4 dark:border-slate-800">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                    <div>
+                        <p class="text-sm font-semibold text-slate-900 dark:text-white">Sold by {{ order.sellerName }}</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">{{ order.createdAt | date: 'mediumDate' }} &middot; {{ order.id }}</p>
+                    </div>
+                    <span class="inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-semibold capitalize" [class]="statusClass(order.status)">
+                        <ng-icon name="faSolidTruck" size="0.75rem"></ng-icon>
+                        {{ order.status }}
+                    </span>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    @for (item of order.items; track item.productId) {
+                        <div class="flex items-center gap-3">
+                            <img [src]="item.productImage" [alt]="item.productTitle" class="h-10 w-10 rounded-lg object-cover" />
+                            <div class="min-w-0 flex-1">
+                                <p class="line-clamp-1 text-sm font-medium text-slate-900 dark:text-white">{{ item.productTitle }}</p>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">Qty {{ item.quantity }}</p>
+                            </div>
+                            <p class="text-sm font-semibold text-slate-900 dark:text-white">${{ (item.unitPriceCents * item.quantity) / 100 | number: '1.2-2' }}</p>
+                        </div>
+                    }
+                </div>
+
+                <div class="flex justify-end border-t border-slate-100 pt-2 text-sm font-bold text-slate-900 dark:border-slate-800 dark:text-white">
+                    Total: ${{ order.totalCents / 100 | number: '1.2-2' }}
+                </div>
+            </div>
+        } @empty {
+            <p class="px-4 py-8 text-center text-sm text-slate-500 dark:text-slate-400">No orders yet.</p>
+        }
+    </div>
+</section>
