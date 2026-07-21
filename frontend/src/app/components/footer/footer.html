@@ -1,0 +1,43 @@
+<footer class="border-t border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-950">
+    <div class="mx-auto grid w-full max-w-10xl grid-cols-2 gap-8 px-4 py-10 sm:px-6 md:grid-cols-4 lg:px-8">
+        <div class="col-span-2 flex flex-col gap-3 md:col-span-1">
+            <h2 class="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white">Balla</h2>
+            <p class="max-w-xs text-sm text-slate-500 dark:text-slate-400">
+                A marketplace for buying and selling directly with people in your community.
+            </p>
+        </div>
+
+        <div class="flex flex-col gap-3">
+            <h3 class="text-xs font-bold tracking-wider text-slate-400 uppercase dark:text-slate-500">Shop</h3>
+            <ul class="flex flex-col gap-2">
+                <li><a routerLink="/home" class="text-sm text-slate-600 transition-colors duration-150 hover:text-indigo-600 dark:text-slate-300 dark:hover:text-indigo-400">Home</a></li>
+                <li><a routerLink="/products" class="text-sm text-slate-600 transition-colors duration-150 hover:text-indigo-600 dark:text-slate-300 dark:hover:text-indigo-400">All Products</a></li>
+                <li><a routerLink="/categories" class="text-sm text-slate-600 transition-colors duration-150 hover:text-indigo-600 dark:text-slate-300 dark:hover:text-indigo-400">Categories</a></li>
+                <li><a routerLink="/favorites" class="text-sm text-slate-600 transition-colors duration-150 hover:text-indigo-600 dark:text-slate-300 dark:hover:text-indigo-400">Favorites</a></li>
+            </ul>
+        </div>
+
+        <div class="flex flex-col gap-3">
+            <h3 class="text-xs font-bold tracking-wider text-slate-400 uppercase dark:text-slate-500">Categories</h3>
+            <ul class="flex flex-col gap-2">
+                @for (category of featuredCategories; track category.slug) {
+                    <li><a [routerLink]="['/category', category.slug]" class="text-sm text-slate-600 transition-colors duration-150 hover:text-indigo-600 dark:text-slate-300 dark:hover:text-indigo-400">{{ category.name }}</a></li>
+                }
+            </ul>
+        </div>
+
+        <div class="flex flex-col gap-3">
+            <h3 class="text-xs font-bold tracking-wider text-slate-400 uppercase dark:text-slate-500">Account</h3>
+            <ul class="flex flex-col gap-2">
+                <li><a routerLink="/profile" class="text-sm text-slate-600 transition-colors duration-150 hover:text-indigo-600 dark:text-slate-300 dark:hover:text-indigo-400">My Profile</a></li>
+                <li><a routerLink="/messages" class="text-sm text-slate-600 transition-colors duration-150 hover:text-indigo-600 dark:text-slate-300 dark:hover:text-indigo-400">Messages</a></li>
+                <li><a routerLink="/login" class="text-sm text-slate-600 transition-colors duration-150 hover:text-indigo-600 dark:text-slate-300 dark:hover:text-indigo-400">Sign In</a></li>
+                <li><a routerLink="/register" class="text-sm text-slate-600 transition-colors duration-150 hover:text-indigo-600 dark:text-slate-300 dark:hover:text-indigo-400">Create Account</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="border-t border-slate-200 px-4 py-4 sm:px-6 lg:px-8 dark:border-slate-800">
+        <p class="text-center text-xs text-slate-400 dark:text-slate-500">&copy; {{ year }} Balla. All rights reserved.</p>
+    </div>
+</footer>

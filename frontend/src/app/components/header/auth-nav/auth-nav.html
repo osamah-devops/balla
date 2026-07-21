@@ -1,0 +1,65 @@
+<nav>
+    <ul [ngClass]="mobile ? 'flex flex-col items-center gap-1' : 'flex flex-row items-center gap-2 sm:gap-3'">
+        @if (!isAuthenticated()) {
+            <li [ngClass]="mobile ? 'w-full' : ''">
+                <a
+                    routerLink="/login"
+                    (click)="linkClick.emit()"
+                    class="auth-link"
+                    [class.auth-link--active]="isLoginPage"
+                    [ngClass]="mobile ? 'block w-full text-center' : 'inline-block'"
+                >Login</a>
+            </li>
+            <li [ngClass]="mobile ? 'w-full' : ''">
+                <a
+                    routerLink="/register"
+                    (click)="linkClick.emit()"
+                    class="auth-link"
+                    [class.auth-link--active]="isRegisterPage"
+                    [ngClass]="mobile ? 'block w-full text-center' : 'inline-block'"
+                >Register</a>
+            </li>
+        }
+        @if (isAuthenticated()) {
+            @if (dashboardLink) {
+                <li [ngClass]="mobile ? 'w-full' : ''">
+                    <a
+                        [routerLink]="dashboardLink"
+                        (click)="linkClick.emit()"
+                        [ngClass]="mobile ? 'block w-full text-center' : 'inline-block'"
+                        class="cursor-pointer rounded-lg px-3 py-1.5 text-sm font-semibold text-slate-600 transition-colors duration-150 hover:bg-slate-100 hover:text-indigo-600 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-indigo-400"
+                    >Dashboard</a>
+                </li>
+            }
+            <li [ngClass]="mobile ? 'w-full' : ''">
+                <a
+                    routerLink="/messages"
+                    (click)="linkClick.emit()"
+                    [ngClass]="mobile ? 'block w-full text-center' : 'relative inline-block'"
+                    class="cursor-pointer rounded-lg px-3 py-1.5 text-sm font-semibold text-slate-600 transition-colors duration-150 hover:bg-slate-100 hover:text-indigo-600 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-indigo-400"
+                >
+                    Messages
+                    @if (unreadCount() > 0) {
+                        <span class="ml-1 inline-flex h-4 min-w-4 items-center justify-center rounded-full bg-rose-500 px-1 text-[10px] font-bold text-white">{{ unreadCount() }}</span>
+                    }
+                </a>
+            </li>
+            <li [ngClass]="mobile ? 'w-full' : ''">
+                <a
+                    routerLink="/profile"
+                    (click)="linkClick.emit()"
+                    [ngClass]="mobile ? 'block w-full text-center' : 'inline-block'"
+                    class="cursor-pointer rounded-lg px-3 py-1.5 text-sm font-semibold text-slate-600 transition-colors duration-150 hover:bg-slate-100 hover:text-indigo-600 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-indigo-400"
+                >Profile</a>
+            </li>
+            <li [ngClass]="mobile ? 'w-full' : ''">
+                <a
+                    href="#"
+                    (click)="logout()"
+                    [ngClass]="mobile ? 'block w-full text-center' : ''"
+                    class="inline-block cursor-pointer rounded-lg px-3 py-1.5 text-sm font-semibold text-slate-600 transition-colors duration-150 hover:bg-slate-100 hover:text-indigo-600 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-indigo-400"
+                >Logout</a>
+            </li>
+        }
+    </ul>
+</nav>

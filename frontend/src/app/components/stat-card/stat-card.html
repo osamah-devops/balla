@@ -1,0 +1,12 @@
+<div class="flex items-center gap-3 rounded-xl bg-white p-4 ring-1 ring-slate-200 shadow-sm dark:bg-slate-900 dark:ring-slate-800">
+    <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg" [class]="accentClass">
+        <ng-icon [name]="icon()" size="1.1rem"></ng-icon>
+    </span>
+    <div class="flex min-w-0 flex-col">
+        <span class="truncate text-xs font-semibold tracking-wide text-slate-500 uppercase dark:text-slate-400">{{ label() }}</span>
+        <span class="truncate text-xl font-extrabold text-slate-900 dark:text-white">{{ value() }}</span>
+        @if (hint()) {
+            <span class="truncate text-xs text-slate-400 dark:text-slate-500">{{ hint() }}</span>
+        }
+    </div>
+</div>

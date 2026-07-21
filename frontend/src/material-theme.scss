@@ -1,0 +1,50 @@
+// Include theming for Angular Material with `mat.theme()`.
+// This Sass mixin will define CSS variables that are used for styling Angular Material
+// components according to the Material 3 design spec.
+// Learn more about theming and how to use it for your application's
+// custom components at https://material.angular.dev/guide/theming
+@use '@angular/material' as mat;
+
+html {
+  height: 100%;
+
+  // `mat.theme` emits its system variables using the CSS `light-dark()`
+  // function (the default `theme-type: color-scheme` behavior), so which
+  // branch is active is controlled entirely by the `color-scheme` property
+  // below. `color-scheme` is inherited, so toggling it once here cascades
+  // through every Material component automatically.
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    )
+  );
+
+  // Default the application to a light color theme.
+  color-scheme: light;
+
+  // The header's theme toggle (see `theme-toggler.ts`) adds/removes this
+  // `.dark` class on `<html>`; Tailwind's `dark:` variant is configured to
+  // key off the same class (see `styles.css`), so this is the single source
+  // of truth for both Material and Tailwind dark mode.
+  &.dark {
+    color-scheme: dark;
+  }
+}
+
+body {
+  // Set a default background, font and text colors for the application using
+  // Angular Material's system-level CSS variables. Learn more about these
+  // variables at https://material.angular.dev/guide/system-variables
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font: var(--mat-sys-body-medium);
+
+  // Reset the user agent margin.
+  margin: 0;
+  height: 100%;
+}

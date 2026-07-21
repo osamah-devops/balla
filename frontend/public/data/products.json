@@ -1,0 +1,4322 @@
+[
+  {
+    "id": "PROD-AUT-001",
+    "category": "Automotive",
+    "title": "Apex Ventus All-Season Tire",
+    "price": "$165.00",
+    "currency": "USD",
+    "full_description": "Premium grand touring tire built with a deep high-grip multi-directional tread pattern.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-AUT-01",
+      "name": "Apex AutoWorks",
+      "location": "Detroit, MI"
+    },
+    "categorySlug": "automotive",
+    "image": "/images/products/PROD-AUT-001.png"
+  },
+  {
+    "id": "PROD-AUT-002",
+    "category": "Automotive",
+    "title": "Titan Chrome Vanadium Wrench",
+    "price": "$32.00",
+    "currency": "USD",
+    "full_description": "Professional grade dual open-ended wrench polished to a mirror-like chrome shine.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-AUT-02",
+      "name": "TrackSide Garage Supply",
+      "location": "Charlotte, NC"
+    },
+    "categorySlug": "automotive",
+    "image": "/images/products/PROD-AUT-002.png"
+  },
+  {
+    "id": "PROD-AUT-003",
+    "category": "Automotive",
+    "title": "SynthGold Fully Synthetic 5W-30",
+    "price": "$42.00",
+    "currency": "USD",
+    "full_description": "One-gallon jug of advanced fully synthetic motor oil topped with a tight gold seal.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-AUT-01",
+      "name": "Apex AutoWorks",
+      "location": "Detroit, MI"
+    },
+    "categorySlug": "automotive",
+    "image": "/images/products/PROD-AUT-003.png"
+  },
+  {
+    "id": "PROD-AUT-004",
+    "category": "Automotive",
+    "title": "VoltMax 12V AGM Battery",
+    "price": "$180.00",
+    "currency": "USD",
+    "full_description": "High-performance maintenance-free car battery fitted with protected heavy brass terminals.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-AUT-02",
+      "name": "TrackSide Garage Supply",
+      "location": "Charlotte, NC"
+    },
+    "categorySlug": "automotive",
+    "image": "/images/products/PROD-AUT-004.png"
+  },
+  {
+    "id": "PROD-AUT-005",
+    "category": "Automotive",
+    "title": "Omni Pressure Digital Gauge",
+    "price": "$24.00",
+    "currency": "USD",
+    "full_description": "Backlit ergonomic tire pressure monitor boasting precise diagnostic sensors.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-AUT-01",
+      "name": "Apex AutoWorks",
+      "location": "Detroit, MI"
+    },
+    "categorySlug": "automotive",
+    "image": "/images/products/PROD-AUT-005.png"
+  },
+  {
+    "id": "PROD-AUT-006",
+    "category": "Automotive",
+    "title": "AeroX Microfiber Detail Towels",
+    "price": "$18.00",
+    "currency": "USD",
+    "full_description": "Six-pack of edge-less scratch-free ultra-plush car washing cloths.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-AUT-02",
+      "name": "TrackSide Garage Supply",
+      "location": "Charlotte, NC"
+    },
+    "categorySlug": "automotive",
+    "image": "/images/products/PROD-AUT-006.png"
+  },
+  {
+    "id": "PROD-AUT-007",
+    "category": "Automotive",
+    "title": "HyperGloss Carnauba Car Wax",
+    "price": "$29.00",
+    "currency": "USD",
+    "full_description": "Premium liquid paint sealant paste mixed with authentic Brazillian palm leaves.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-AUT-01",
+      "name": "Apex AutoWorks",
+      "location": "Detroit, MI"
+    },
+    "categorySlug": "automotive",
+    "image": "/images/products/PROD-AUT-007.png"
+  },
+  {
+    "id": "PROD-AUT-008",
+    "category": "Automotive",
+    "title": "Titan Hydraulic Bottle Jack",
+    "price": "$55.00",
+    "currency": "USD",
+    "full_description": "Heavy-duty compact steel car lift capable of raising vehicles smoothly up to 4 tons.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-AUT-02",
+      "name": "TrackSide Garage Supply",
+      "location": "Charlotte, NC"
+    },
+    "categorySlug": "automotive",
+    "image": "/images/products/PROD-AUT-008.png"
+  },
+  {
+    "id": "PROD-AUT-009",
+    "category": "Automotive",
+    "title": "Cortex OBD2 Code Scanner",
+    "price": "$75.00",
+    "currency": "USD",
+    "full_description": "Universal vehicular diagnostic reader outputting real-time engine health telemetry.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-AUT-01",
+      "name": "Apex AutoWorks",
+      "location": "Detroit, MI"
+    },
+    "categorySlug": "automotive",
+    "image": "/images/products/PROD-AUT-009.png"
+  },
+  {
+    "id": "PROD-AUT-010",
+    "category": "Automotive",
+    "title": "Nomad All-Weather Floor Mats",
+    "price": "$85.00",
+    "currency": "USD",
+    "full_description": "Four-piece heavy vulcanized rubber deep-dish protective vehicle floor carpets.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-AUT-02",
+      "name": "TrackSide Garage Supply",
+      "location": "Charlotte, NC"
+    },
+    "categorySlug": "automotive",
+    "image": "/images/products/PROD-AUT-010.png"
+  },
+  {
+    "id": "PROD-BEA-001",
+    "category": "Beauty",
+    "title": "Ambre Nuit Eau de Parfum",
+    "price": "$125.00",
+    "currency": "USD",
+    "full_description": "Luxurious heavy-glass perfume bottle containing notes of warm translucent amber and wood.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-BEA-01",
+      "name": "GlowLab Cosmetics",
+      "location": "Los Angeles, CA"
+    },
+    "categorySlug": "beauty",
+    "image": "/images/products/PROD-BEA-001.png"
+  },
+  {
+    "id": "PROD-BEA-002",
+    "category": "Beauty",
+    "title": "Velvet Crimson Lipstick",
+    "price": "$38.00",
+    "currency": "USD",
+    "full_description": "Bold, hydrating matte red lipstick housed in a heavy magnetic metal case.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-BEA-02",
+      "name": "Pure Radiance Co.",
+      "location": "Miami, FL"
+    },
+    "categorySlug": "beauty",
+    "image": "/images/products/PROD-BEA-002.png"
+  },
+  {
+    "id": "PROD-BEA-003",
+    "category": "Beauty",
+    "title": "Aura Powder Brush",
+    "price": "$28.00",
+    "currency": "USD",
+    "full_description": "Plush, ultra-soft synthetic powder brush with a sustainably sourced walnut handle.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-BEA-01",
+      "name": "GlowLab Cosmetics",
+      "location": "Los Angeles, CA"
+    },
+    "categorySlug": "beauty",
+    "image": "/images/products/PROD-BEA-003.png"
+  },
+  {
+    "id": "PROD-BEA-004",
+    "category": "Beauty",
+    "title": "HydraGlow Elixir Dropper",
+    "price": "$65.00",
+    "currency": "USD",
+    "full_description": "Deeply hydrating face serum bottle made of minimalist frosted glass with a white dropper.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-BEA-02",
+      "name": "Pure Radiance Co.",
+      "location": "Miami, FL"
+    },
+    "categorySlug": "beauty",
+    "image": "/images/products/PROD-BEA-004.png"
+  },
+  {
+    "id": "PROD-BEA-005",
+    "category": "Beauty",
+    "title": "Silk Peptide Eye Cream",
+    "price": "$52.00",
+    "currency": "USD",
+    "full_description": "Anti-aging eye treatment cream packaged in a pristine matte-coated white glass jar.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-BEA-01",
+      "name": "GlowLab Cosmetics",
+      "location": "Los Angeles, CA"
+    },
+    "categorySlug": "beauty",
+    "image": "/images/products/PROD-BEA-005.png"
+  },
+  {
+    "id": "PROD-BEA-006",
+    "category": "Beauty",
+    "title": "Rose Quartz Facial Roller",
+    "price": "$32.00",
+    "currency": "USD",
+    "full_description": "Dual-ended calming facial massage roller carved from authentic crystalline rose quartz.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-BEA-02",
+      "name": "Pure Radiance Co.",
+      "location": "Miami, FL"
+    },
+    "categorySlug": "beauty",
+    "image": "/images/products/PROD-BEA-006.png"
+  },
+  {
+    "id": "PROD-BEA-007",
+    "category": "Beauty",
+    "title": "Botanical Cleansing Oil",
+    "price": "$42.00",
+    "currency": "USD",
+    "full_description": "Gentle emulsifying facial cleanser infused with premium cold-pressed plant extracts.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-BEA-01",
+      "name": "GlowLab Cosmetics",
+      "location": "Los Angeles, CA"
+    },
+    "categorySlug": "beauty",
+    "image": "/images/products/PROD-BEA-007.png"
+  },
+  {
+    "id": "PROD-BEA-008",
+    "category": "Beauty",
+    "title": "Lumiere Highlighter Palette",
+    "price": "$48.00",
+    "currency": "USD",
+    "full_description": "Quad-pan powder highlighting palette encased in a slim rose gold compact with a mirror.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-BEA-02",
+      "name": "Pure Radiance Co.",
+      "location": "Miami, FL"
+    },
+    "categorySlug": "beauty",
+    "image": "/images/products/PROD-BEA-008.png"
+  },
+  {
+    "id": "PROD-BEA-009",
+    "category": "Beauty",
+    "title": "Mineral Ultra Shield SPF 50",
+    "price": "$36.00",
+    "currency": "USD",
+    "full_description": "Lightweight, non-greasy broad spectrum zinc sun protection lotion in a clean tube.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-BEA-01",
+      "name": "GlowLab Cosmetics",
+      "location": "Los Angeles, CA"
+    },
+    "categorySlug": "beauty",
+    "image": "/images/products/PROD-BEA-009.png"
+  },
+  {
+    "id": "PROD-BEA-010",
+    "category": "Beauty",
+    "title": "Agave Lip Scrub & Balm Set",
+    "price": "$24.00",
+    "currency": "USD",
+    "full_description": "Two-piece hydrating lip care set featuring raw organic cane sugar and rich agave nectar.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-BEA-02",
+      "name": "Pure Radiance Co.",
+      "location": "Miami, FL"
+    },
+    "categorySlug": "beauty",
+    "image": "/images/products/PROD-BEA-010.png"
+  },
+  {
+    "id": "PROD-BOO-001",
+    "category": "Books & Education",
+    "title": "Linen Classic Literature Set",
+    "price": "$90.00",
+    "currency": "USD",
+    "full_description": "Collection of three timeless novels elegantly bound in heavy textured linen covers.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-BOO-01",
+      "name": "Lantern & Ink Booksellers",
+      "location": "Portland, OR"
+    },
+    "categorySlug": "books_education",
+    "image": "/images/products/PROD-BOO-001.png"
+  },
+  {
+    "id": "PROD-BOO-002",
+    "category": "Books & Education",
+    "title": "Chronicle Leather Journal",
+    "price": "$35.00",
+    "currency": "USD",
+    "full_description": "A5 refillable notebook holding thick 120gsm cream paper behind a soft leather spine.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-BOO-02",
+      "name": "Scholar’s Nook Press",
+      "location": "Boston, MA"
+    },
+    "categorySlug": "books_education",
+    "image": "/images/products/PROD-BOO-002.png"
+  },
+  {
+    "id": "PROD-BOO-003",
+    "category": "Books & Education",
+    "title": "Craftsman Graphite Pencil Set",
+    "price": "$18.00",
+    "currency": "USD",
+    "full_description": "Twelve premium graded drawing pencils encased in a raw natural cedar wood shell.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-BOO-01",
+      "name": "Lantern & Ink Booksellers",
+      "location": "Portland, OR"
+    },
+    "categorySlug": "books_education",
+    "image": "/images/products/PROD-BOO-003.png"
+  },
+  {
+    "id": "PROD-BOO-004",
+    "category": "Books & Education",
+    "title": "Academy Mortarboard & Tassel",
+    "price": "$45.00",
+    "currency": "USD",
+    "full_description": "Traditional academic graduation cap sewn from premium matte black felt with a silk tassel.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-BOO-02",
+      "name": "Scholar’s Nook Press",
+      "location": "Boston, MA"
+    },
+    "categorySlug": "books_education",
+    "image": "/images/products/PROD-BOO-004.png"
+  },
+  {
+    "id": "PROD-BOO-005",
+    "category": "Books & Education",
+    "title": "Omni Ergo Desk Organizer",
+    "price": "$38.00",
+    "currency": "USD",
+    "full_description": "Sleek magnetic desktop tray system sculpted from eco-friendly matte bio-plastics.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-BOO-01",
+      "name": "Lantern & Ink Booksellers",
+      "location": "Portland, OR"
+    },
+    "categorySlug": "books_education",
+    "image": "/images/products/PROD-BOO-005.png"
+  },
+  {
+    "id": "PROD-BOO-006",
+    "category": "Books & Education",
+    "title": "Apex Fountain Pen",
+    "price": "$120.00",
+    "currency": "USD",
+    "full_description": "Luxury handwriting fountain pen featuring an iridium nib and brushed brass barrel.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-BOO-02",
+      "name": "Scholar’s Nook Press",
+      "location": "Boston, MA"
+    },
+    "categorySlug": "books_education",
+    "image": "/images/products/PROD-BOO-006.png"
+  },
+  {
+    "id": "PROD-BOO-007",
+    "category": "Books & Education",
+    "title": "Veritas Visual Student Atlas",
+    "price": "$55.00",
+    "currency": "USD",
+    "full_description": "Hardcover oversized educational guide featuring detailed geopolitical high-fidelity mapping.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-BOO-01",
+      "name": "Lantern & Ink Booksellers",
+      "location": "Portland, OR"
+    },
+    "categorySlug": "books_education",
+    "image": "/images/products/PROD-BOO-007.png"
+  },
+  {
+    "id": "PROD-BOO-008",
+    "category": "Books & Education",
+    "title": "Aura Book Accessory Lamp",
+    "price": "$24.00",
+    "currency": "USD",
+    "full_description": "Rechargeable clip-on amber night reading light with step-less dimming control.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-BOO-02",
+      "name": "Scholar’s Nook Press",
+      "location": "Boston, MA"
+    },
+    "categorySlug": "books_education",
+    "image": "/images/products/PROD-BOO-008.png"
+  },
+  {
+    "id": "PROD-BOO-009",
+    "category": "Books & Education",
+    "title": "Sigma Scientific Calculator",
+    "price": "$85.00",
+    "currency": "USD",
+    "full_description": "Advanced graphing calculator featuring a high-contrast backlit LCD screen.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-BOO-01",
+      "name": "Lantern & Ink Booksellers",
+      "location": "Portland, OR"
+    },
+    "categorySlug": "books_education",
+    "image": "/images/products/PROD-BOO-009.png"
+  },
+  {
+    "id": "PROD-BOO-010",
+    "category": "Books & Education",
+    "title": "Nomad Minimalist Document Case",
+    "price": "$60.00",
+    "currency": "USD",
+    "full_description": "Slim protective sleeve designed to shield luxury legal pads and modern tech tablets.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-BOO-02",
+      "name": "Scholar’s Nook Press",
+      "location": "Boston, MA"
+    },
+    "categorySlug": "books_education",
+    "image": "/images/products/PROD-BOO-010.png"
+  },
+  {
+    "id": "PROD-ELE-001",
+    "category": "Electronics",
+    "title": "AeroPhone X1 Pro",
+    "price": "$999.00",
+    "currency": "USD",
+    "full_description": "Flagship leather-backed smartphone with a custom 3D glass edge display.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-ELE-01",
+      "name": "CircuitForge Electronics",
+      "location": "San Jose, CA"
+    },
+    "categorySlug": "electronics",
+    "image": "/images/products/PROD-ELE-001.png"
+  },
+  {
+    "id": "PROD-ELE-002",
+    "category": "Electronics",
+    "title": "TitanBook 14 Air",
+    "price": "$1499.00",
+    "currency": "USD",
+    "full_description": "Ultra-thin matte aluminum laptop with a vibrant high-refresh display.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-ELE-02",
+      "name": "NimbusTech Supply",
+      "location": "Austin, TX"
+    },
+    "categorySlug": "electronics",
+    "image": "/images/products/PROD-ELE-002.png"
+  },
+  {
+    "id": "PROD-ELE-003",
+    "category": "Electronics",
+    "title": "Chronos Smartwatch S4",
+    "price": "$299.00",
+    "currency": "USD",
+    "full_description": "Sleek biometric smartwatch with a soft-touch midnight blue silicone band.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-ELE-01",
+      "name": "CircuitForge Electronics",
+      "location": "San Jose, CA"
+    },
+    "categorySlug": "electronics",
+    "image": "/images/products/PROD-ELE-003.png"
+  },
+  {
+    "id": "PROD-ELE-004",
+    "category": "Electronics",
+    "title": "AuraPods True Wireless",
+    "price": "$179.00",
+    "currency": "USD",
+    "full_description": "True wireless earbuds featuring advanced active noise cancellation in a glossy case.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-ELE-02",
+      "name": "NimbusTech Supply",
+      "location": "Austin, TX"
+    },
+    "categorySlug": "electronics",
+    "image": "/images/products/PROD-ELE-004.png"
+  },
+  {
+    "id": "PROD-ELE-005",
+    "category": "Electronics",
+    "title": "Nexus Charge Pad",
+    "price": "$49.00",
+    "currency": "USD",
+    "full_description": "Minimalist multi-device charging mat wrapped in premium textured fabric.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-ELE-01",
+      "name": "CircuitForge Electronics",
+      "location": "San Jose, CA"
+    },
+    "categorySlug": "electronics",
+    "image": "/images/products/PROD-ELE-005.png"
+  },
+  {
+    "id": "PROD-ELE-006",
+    "category": "Electronics",
+    "title": "VisionHub Display 27",
+    "price": "$599.00",
+    "currency": "USD",
+    "full_description": "Ultra-thin 4K professional designer monitor with zero-bezel glass.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-ELE-02",
+      "name": "NimbusTech Supply",
+      "location": "Austin, TX"
+    },
+    "categorySlug": "electronics",
+    "image": "/images/products/PROD-ELE-006.png"
+  },
+  {
+    "id": "PROD-ELE-007",
+    "category": "Electronics",
+    "title": "SoundCore Studio Bar",
+    "price": "$349.00",
+    "currency": "USD",
+    "full_description": "Minimalist anodized aluminum soundbar with deep integrated subwoofers.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-ELE-01",
+      "name": "CircuitForge Electronics",
+      "location": "San Jose, CA"
+    },
+    "categorySlug": "electronics",
+    "image": "/images/products/PROD-ELE-007.png"
+  },
+  {
+    "id": "PROD-ELE-008",
+    "category": "Electronics",
+    "title": "Cortex Portable SSD",
+    "price": "$129.00",
+    "currency": "USD",
+    "full_description": "Pocket-sized shockproof solid state drive in a rugged ceramic enclosure.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-ELE-02",
+      "name": "NimbusTech Supply",
+      "location": "Austin, TX"
+    },
+    "categorySlug": "electronics",
+    "image": "/images/products/PROD-ELE-008.png"
+  },
+  {
+    "id": "PROD-ELE-009",
+    "category": "Electronics",
+    "title": "AeroTab 11 Ultra",
+    "price": "$699.00",
+    "currency": "USD",
+    "full_description": "Premium lightweight creator tablet with precise stylus input support.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-ELE-01",
+      "name": "CircuitForge Electronics",
+      "location": "San Jose, CA"
+    },
+    "categorySlug": "electronics",
+    "image": "/images/products/PROD-ELE-009.png"
+  },
+  {
+    "id": "PROD-ELE-010",
+    "category": "Electronics",
+    "title": "OmniRouter Mesh Pro",
+    "price": "$249.00",
+    "currency": "USD",
+    "full_description": "Sleek, pillar-style high-speed home network router with zero exposed antennas.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-ELE-02",
+      "name": "NimbusTech Supply",
+      "location": "Austin, TX"
+    },
+    "categorySlug": "electronics",
+    "image": "/images/products/PROD-ELE-010.png"
+  },
+  {
+    "id": "PROD-FAS-001",
+    "category": "Fashion",
+    "title": "Saffiano Lux Handbag",
+    "price": "$450.00",
+    "currency": "USD",
+    "full_description": "Structured designer bag crafted from fine-grain saffiano leather with rose gold clasps.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-FAS-01",
+      "name": "Meridian Atelier",
+      "location": "New York, NY"
+    },
+    "categorySlug": "fashion",
+    "image": "/images/products/PROD-FAS-001.png"
+  },
+  {
+    "id": "PROD-FAS-002",
+    "category": "Fashion",
+    "title": "Stratus Minimalist Trainer",
+    "price": "$135.00",
+    "currency": "USD",
+    "full_description": "Crisp modern leather sneakers featuring subtle premium cream suede overlays.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-FAS-02",
+      "name": "Thread & Form Studio",
+      "location": "Seattle, WA"
+    },
+    "categorySlug": "fashion",
+    "image": "/images/products/PROD-FAS-002.png"
+  },
+  {
+    "id": "PROD-FAS-003",
+    "category": "Fashion",
+    "title": "Aviator Shadow Sunglasses",
+    "price": "$160.00",
+    "currency": "USD",
+    "full_description": "Sleek black acetate aviator sunglasses with high-clarity gradient lenses.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-FAS-01",
+      "name": "Meridian Atelier",
+      "location": "New York, NY"
+    },
+    "categorySlug": "fashion",
+    "image": "/images/products/PROD-FAS-003.png"
+  },
+  {
+    "id": "PROD-FAS-004",
+    "category": "Fashion",
+    "title": "Vanguard Tailored Bomber",
+    "price": "$195.00",
+    "currency": "USD",
+    "full_description": "Perfectly fitted modern bomber jacket made from heavy, water-resistant cotton weave.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-FAS-02",
+      "name": "Thread & Form Studio",
+      "location": "Seattle, WA"
+    },
+    "categorySlug": "fashion",
+    "image": "/images/products/PROD-FAS-004.png"
+  },
+  {
+    "id": "PROD-FAS-005",
+    "category": "Fashion",
+    "title": "Monarch Cashmere Scarf",
+    "price": "$85.00",
+    "currency": "USD",
+    "full_description": "Ultra-soft raw Mongolian cashmere scarf with fine frayed edges.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-FAS-01",
+      "name": "Meridian Atelier",
+      "location": "New York, NY"
+    },
+    "categorySlug": "fashion",
+    "image": "/images/products/PROD-FAS-005.png"
+  },
+  {
+    "id": "PROD-FAS-006",
+    "category": "Fashion",
+    "title": "Apex Chrono Timepiece",
+    "price": "$320.00",
+    "currency": "USD",
+    "full_description": "Minimalist automatic dress watch with a genuine tan leather strap.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-FAS-02",
+      "name": "Thread & Form Studio",
+      "location": "Seattle, WA"
+    },
+    "categorySlug": "fashion",
+    "image": "/images/products/PROD-FAS-006.png"
+  },
+  {
+    "id": "PROD-FAS-007",
+    "category": "Fashion",
+    "title": "Hampton Linen Button-Down",
+    "price": "$75.00",
+    "currency": "USD",
+    "full_description": "Breathable, premium tailored pure linen shirt designed for casual elegance.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-FAS-01",
+      "name": "Meridian Atelier",
+      "location": "New York, NY"
+    },
+    "categorySlug": "fashion",
+    "image": "/images/products/PROD-FAS-007.png"
+  },
+  {
+    "id": "PROD-FAS-008",
+    "category": "Fashion",
+    "title": "Chelsea Heritage Boot",
+    "price": "$210.00",
+    "currency": "USD",
+    "full_description": "Classic ankle-high slip-on boots crafted in rich oil-tanned nubuck leather.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-FAS-02",
+      "name": "Thread & Form Studio",
+      "location": "Seattle, WA"
+    },
+    "categorySlug": "fashion",
+    "image": "/images/products/PROD-FAS-008.png"
+  },
+  {
+    "id": "PROD-FAS-009",
+    "category": "Fashion",
+    "title": "Siena Silk Slip Dress",
+    "price": "$180.00",
+    "currency": "USD",
+    "full_description": "Elegantly draped evening dress made from pure, bias-cut mulberry silk.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-FAS-01",
+      "name": "Meridian Atelier",
+      "location": "New York, NY"
+    },
+    "categorySlug": "fashion",
+    "image": "/images/products/PROD-FAS-009.png"
+  },
+  {
+    "id": "PROD-FAS-010",
+    "category": "Fashion",
+    "title": "Nomad Canvas Weekender",
+    "price": "$145.00",
+    "currency": "USD",
+    "full_description": "Heavyweight waxed cotton canvas travel duffel accented with bridle leather trim.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-FAS-02",
+      "name": "Thread & Form Studio",
+      "location": "Seattle, WA"
+    },
+    "categorySlug": "fashion",
+    "image": "/images/products/PROD-FAS-010.png"
+  },
+  {
+    "id": "PROD-GAM-001",
+    "category": "Gaming",
+    "title": "Apex Aura Wireless Controller",
+    "price": "$65.00",
+    "currency": "USD",
+    "full_description": "Ergonomic Bluetooth game pad featuring linear trigger sensors and macro textured grips.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-GAM-01",
+      "name": "PixelForge Gear",
+      "location": "San Francisco, CA"
+    },
+    "categorySlug": "gaming",
+    "image": "/images/products/PROD-GAM-001.png"
+  },
+  {
+    "id": "PROD-GAM-002",
+    "category": "Gaming",
+    "title": "Cortex Pro Gaming Headset",
+    "price": "$120.00",
+    "currency": "USD",
+    "full_description": "Over-ear spatial audio headset padded with sweat-wicking memory foam ear cushions.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-GAM-02",
+      "name": "RespawnPoint Supply Co.",
+      "location": "Denver, CO"
+    },
+    "categorySlug": "gaming",
+    "image": "/images/products/PROD-GAM-002.png"
+  },
+  {
+    "id": "PROD-GAM-003",
+    "category": "Gaming",
+    "title": "Matrix Mechanical Keyboard",
+    "price": "$145.00",
+    "currency": "USD",
+    "full_description": "60% layout hot-swappable clicky keyboard glowing with subtle customizable amber LEDs.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-GAM-01",
+      "name": "PixelForge Gear",
+      "location": "San Francisco, CA"
+    },
+    "categorySlug": "gaming",
+    "image": "/images/products/PROD-GAM-003.png"
+  },
+  {
+    "id": "PROD-GAM-004",
+    "category": "Gaming",
+    "title": "AeroVR Standalone Headset",
+    "price": "$499.00",
+    "currency": "USD",
+    "full_description": "All-in-one virtual reality visor showcasing ultra-high-definition lenses and tracking bands.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-GAM-02",
+      "name": "RespawnPoint Supply Co.",
+      "location": "Denver, CO"
+    },
+    "categorySlug": "gaming",
+    "image": "/images/products/PROD-GAM-004.png"
+  },
+  {
+    "id": "PROD-GAM-005",
+    "category": "Gaming",
+    "title": "Stratus Speed Gaming Mouse",
+    "price": "$75.00",
+    "currency": "USD",
+    "full_description": "Ultra-lightweight skeleton gaming mouse housing an industry-leading 26k DPI sensor.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-GAM-01",
+      "name": "PixelForge Gear",
+      "location": "San Francisco, CA"
+    },
+    "categorySlug": "gaming",
+    "image": "/images/products/PROD-GAM-005.png"
+  },
+  {
+    "id": "PROD-GAM-006",
+    "category": "Gaming",
+    "title": "Titanium Ergonomic Desk Chair",
+    "price": "$349.00",
+    "currency": "USD",
+    "full_description": "High-back lumbar-support racing-style chair upholstered in clean matte faux leather.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-GAM-02",
+      "name": "RespawnPoint Supply Co.",
+      "location": "Denver, CO"
+    },
+    "categorySlug": "gaming",
+    "image": "/images/products/PROD-GAM-006.png"
+  },
+  {
+    "id": "PROD-GAM-007",
+    "category": "Gaming",
+    "title": "Chronos Capture Card 4K",
+    "price": "$160.00",
+    "currency": "USD",
+    "full_description": "Low-latency external streaming hub processing uncompressed crisp video inputs.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-GAM-01",
+      "name": "PixelForge Gear",
+      "location": "San Francisco, CA"
+    },
+    "categorySlug": "gaming",
+    "image": "/images/products/PROD-GAM-007.png"
+  },
+  {
+    "id": "PROD-GAM-008",
+    "category": "Gaming",
+    "title": "Vanguard RGB LED Desk Mat",
+    "price": "$35.00",
+    "currency": "USD",
+    "full_description": "Extended micro-woven fabric table pad rimmed with an elegant light-emitting strip.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-GAM-02",
+      "name": "RespawnPoint Supply Co.",
+      "location": "Denver, CO"
+    },
+    "categorySlug": "gaming",
+    "image": "/images/products/PROD-GAM-008.png"
+  },
+  {
+    "id": "PROD-GAM-009",
+    "category": "Gaming",
+    "title": "OmniHub Controller Stand",
+    "price": "$24.00",
+    "currency": "USD",
+    "full_description": "Sleek heavy-cast aluminum tower neatly displaying two gamepads and a headset.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-GAM-01",
+      "name": "PixelForge Gear",
+      "location": "San Francisco, CA"
+    },
+    "categorySlug": "gaming",
+    "image": "/images/products/PROD-GAM-009.png"
+  },
+  {
+    "id": "PROD-GAM-010",
+    "category": "Gaming",
+    "title": "Vector Pro Arcade Stick",
+    "price": "$180.00",
+    "currency": "USD",
+    "full_description": "Tournament-grade authentic arcade fighting stick built using genuine Sanwa components.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-GAM-02",
+      "name": "RespawnPoint Supply Co.",
+      "location": "Denver, CO"
+    },
+    "categorySlug": "gaming",
+    "image": "/images/products/PROD-GAM-010.png"
+  },
+  {
+    "id": "PROD-GAR-001",
+    "category": "Garden",
+    "title": "Artisan Ribbed Ceramic Pot",
+    "price": "$32.00",
+    "currency": "USD",
+    "full_description": "Elegant planter molded from high-fire clay finished in a partial matte sage glaze.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-GAR-01",
+      "name": "Rootbound Garden Co.",
+      "location": "Asheville, NC"
+    },
+    "categorySlug": "garden",
+    "image": "/images/products/PROD-GAR-001.png"
+  },
+  {
+    "id": "PROD-GAR-002",
+    "category": "Garden",
+    "title": "Heritage Stainless Watering Can",
+    "price": "$45.00",
+    "currency": "USD",
+    "full_description": "Vintage-inspired indoor watering can showcasing an elongated drip-free precision spout.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-GAR-02",
+      "name": "Greenfield Homestead Supply",
+      "location": "Boise, ID"
+    },
+    "categorySlug": "garden",
+    "image": "/images/products/PROD-GAR-002.png"
+  },
+  {
+    "id": "PROD-GAR-003",
+    "category": "Garden",
+    "title": "Craftsman Ashwood Hand Trowel",
+    "price": "$22.00",
+    "currency": "USD",
+    "full_description": "Heavy-duty carbon-steel digging shovel integrated into an oiled ashwood grip.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-GAR-01",
+      "name": "Rootbound Garden Co.",
+      "location": "Asheville, NC"
+    },
+    "categorySlug": "garden",
+    "image": "/images/products/PROD-GAR-003.png"
+  },
+  {
+    "id": "PROD-GAR-004",
+    "category": "Garden",
+    "title": "Live Monstera Deliciosa Leaves",
+    "price": "$28.00",
+    "currency": "USD",
+    "full_description": "Lush, rooted tropical indoor plant displaying iconic broad split green foliage.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-GAR-02",
+      "name": "Greenfield Homestead Supply",
+      "location": "Boise, ID"
+    },
+    "categorySlug": "garden",
+    "image": "/images/products/PROD-GAR-004.png"
+  },
+  {
+    "id": "PROD-GAR-005",
+    "category": "Garden",
+    "title": "AeroPrune Bypass Shears",
+    "price": "$26.00",
+    "currency": "USD",
+    "full_description": "Titanium-coated razor-sharp gardening clippers engineered with spring-loaded locks.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-GAR-01",
+      "name": "Rootbound Garden Co.",
+      "location": "Asheville, NC"
+    },
+    "categorySlug": "garden",
+    "image": "/images/products/PROD-GAR-005.png"
+  },
+  {
+    "id": "PROD-GAR-006",
+    "category": "Garden",
+    "title": "TerraCotta Classic Seed Trays",
+    "price": "$18.00",
+    "currency": "USD",
+    "full_description": "Five-pack of breathable unglazed soil cups ideal for organic seedling cultivation.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-GAR-02",
+      "name": "Greenfield Homestead Supply",
+      "location": "Boise, ID"
+    },
+    "categorySlug": "garden",
+    "image": "/images/products/PROD-GAR-006.png"
+  },
+  {
+    "id": "PROD-GAR-007",
+    "category": "Garden",
+    "title": "Nomad Heavy Canvas Garden Apron",
+    "price": "$38.00",
+    "currency": "USD",
+    "full_description": "Waxed canvas utility vest loaded with tool slots and steel fastener rivets.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-GAR-01",
+      "name": "Rootbound Garden Co.",
+      "location": "Asheville, NC"
+    },
+    "categorySlug": "garden",
+    "image": "/images/products/PROD-GAR-007.png"
+  },
+  {
+    "id": "PROD-GAR-008",
+    "category": "Garden",
+    "title": "OmniDrip Smart Soil Monitor",
+    "price": "$49.00",
+    "currency": "USD",
+    "full_description": "Wireless moisture, lighting, and nutrient tracker syncing directly to mobile screens.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-GAR-02",
+      "name": "Greenfield Homestead Supply",
+      "location": "Boise, ID"
+    },
+    "categorySlug": "garden",
+    "image": "/images/products/PROD-GAR-008.png"
+  },
+  {
+    "id": "PROD-GAR-009",
+    "category": "Garden",
+    "title": "Nesta Braided Macrame Hanger",
+    "price": "$20.00",
+    "currency": "USD",
+    "full_description": "Hand-woven natural cotton rope structure designed to hold cascading indoor foliage.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-GAR-01",
+      "name": "Rootbound Garden Co.",
+      "location": "Asheville, NC"
+    },
+    "categorySlug": "garden",
+    "image": "/images/products/PROD-GAR-009.png"
+  },
+  {
+    "id": "PROD-GAR-010",
+    "category": "Garden",
+    "title": "HydroMist Botanical Sprayer",
+    "price": "$24.00",
+    "currency": "USD",
+    "full_description": "Premium glass and brass vintage mister pushing ultra-fine water vapor layers.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-GAR-02",
+      "name": "Greenfield Homestead Supply",
+      "location": "Boise, ID"
+    },
+    "categorySlug": "garden",
+    "image": "/images/products/PROD-GAR-010.png"
+  },
+  {
+    "id": "PROD-HOB-001",
+    "category": "Hobbies & Crafts",
+    "title": "Craftsman Birch Paintbrushes",
+    "price": "$24.00",
+    "currency": "USD",
+    "full_description": "Set of five fine-art detailing brushes using silver brass ferrules and smooth wood.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-HOB-01",
+      "name": "Craftwell Studio Supply",
+      "location": "Minneapolis, MN"
+    },
+    "categorySlug": "hobbies_crafts",
+    "image": "/images/products/PROD-HOB-001.png"
+  },
+  {
+    "id": "PROD-HOB-002",
+    "category": "Hobbies & Crafts",
+    "title": "Artisan Kidney Oil Palette",
+    "price": "$28.00",
+    "currency": "USD",
+    "full_description": "Classic polished walnut wood artist mixing board shaped with a balance thumb-hole.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-HOB-02",
+      "name": "Hearth & Handmade Co.",
+      "location": "Nashville, TN"
+    },
+    "categorySlug": "hobbies_crafts",
+    "image": "/images/products/PROD-HOB-002.png"
+  },
+  {
+    "id": "PROD-HOB-003",
+    "category": "Hobbies & Crafts",
+    "title": "Chunky Organic Wool Yarn",
+    "price": "$16.00",
+    "currency": "USD",
+    "full_description": "Premium hand-spun skein of bulky, chemical-free raw Mongolian sheep fibers.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-HOB-01",
+      "name": "Craftwell Studio Supply",
+      "location": "Minneapolis, MN"
+    },
+    "categorySlug": "hobbies_crafts",
+    "image": "/images/products/PROD-HOB-003.png"
+  },
+  {
+    "id": "PROD-HOB-004",
+    "category": "Hobbies & Crafts",
+    "title": "Titan Tailor Fabric Scissors",
+    "price": "$32.00",
+    "currency": "USD",
+    "full_description": "High-carbon stainless steel dressmaking shears providing ultra-sharp precise cuts.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-HOB-02",
+      "name": "Hearth & Handmade Co.",
+      "location": "Nashville, TN"
+    },
+    "categorySlug": "hobbies_crafts",
+    "image": "/images/products/PROD-HOB-004.png"
+  },
+  {
+    "id": "PROD-HOB-005",
+    "category": "Hobbies & Crafts",
+    "title": "Lumiere Desktop Craft Magnifier",
+    "price": "$45.00",
+    "currency": "USD",
+    "full_description": "Adjustable daylight-balanced goose-neck ring light framing a powerful focal glass lens.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-HOB-01",
+      "name": "Craftwell Studio Supply",
+      "location": "Minneapolis, MN"
+    },
+    "categorySlug": "hobbies_crafts",
+    "image": "/images/products/PROD-HOB-005.png"
+  },
+  {
+    "id": "PROD-HOB-006",
+    "category": "Hobbies & Crafts",
+    "title": "Matrix self-Healing Cutting Mat",
+    "price": "$22.00",
+    "currency": "USD",
+    "full_description": "A3 five-layer double-sided cutting protector printed with clean metric grids.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-HOB-02",
+      "name": "Hearth & Handmade Co.",
+      "location": "Nashville, TN"
+    },
+    "categorySlug": "hobbies_crafts",
+    "image": "/images/products/PROD-HOB-006.png"
+  },
+  {
+    "id": "PROD-HOB-007",
+    "category": "Hobbies & Crafts",
+    "title": "AeroSculpt Polymer Clay Kit",
+    "price": "$35.00",
+    "currency": "USD",
+    "full_description": "24 vibrant oven-bake molding blocks packaged alongside precision carving scalpels.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-HOB-01",
+      "name": "Craftwell Studio Supply",
+      "location": "Minneapolis, MN"
+    },
+    "categorySlug": "hobbies_crafts",
+    "image": "/images/products/PROD-HOB-007.png"
+  },
+  {
+    "id": "PROD-HOB-008",
+    "category": "Hobbies & Crafts",
+    "title": "Chronos Luxury Wax Seal Kit",
+    "price": "$39.00",
+    "currency": "USD",
+    "full_description": "Vintage presentation box containing a brass seal handle, wax beads, and a melting spoon.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-HOB-02",
+      "name": "Hearth & Handmade Co.",
+      "location": "Nashville, TN"
+    },
+    "categorySlug": "hobbies_crafts",
+    "image": "/images/products/PROD-HOB-008.png"
+  },
+  {
+    "id": "PROD-HOB-009",
+    "category": "Hobbies & Crafts",
+    "title": "Nesta Beechwood Table Easel",
+    "price": "$48.00",
+    "currency": "USD",
+    "full_description": "Compact folding H-frame studio desktop drawing stand crafted from fine solid wood.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-HOB-01",
+      "name": "Craftwell Studio Supply",
+      "location": "Minneapolis, MN"
+    },
+    "categorySlug": "hobbies_crafts",
+    "image": "/images/products/PROD-HOB-009.png"
+  },
+  {
+    "id": "PROD-HOB-010",
+    "category": "Hobbies & Crafts",
+    "title": "Vanguard Leather Tooling Stamps",
+    "price": "$55.00",
+    "currency": "USD",
+    "full_description": "20 professional hardened steel punch tools designed to imprint custom designs on hides.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-HOB-02",
+      "name": "Hearth & Handmade Co.",
+      "location": "Nashville, TN"
+    },
+    "categorySlug": "hobbies_crafts",
+    "image": "/images/products/PROD-HOB-010.png"
+  },
+  {
+    "id": "PROD-HOM-001",
+    "category": "Home & Furniture",
+    "title": "Elysian Velvet Sofa",
+    "price": "$1299.00",
+    "currency": "USD",
+    "full_description": "Contemporary three-seater sofa featuring soft rounded contours and rich emerald velvet cushions.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-HOM-01",
+      "name": "Northgrain Furniture Co.",
+      "location": "Grand Rapids, MI"
+    },
+    "categorySlug": "home_furniture",
+    "image": "/images/products/PROD-HOM-001.png"
+  },
+  {
+    "id": "PROD-HOM-002",
+    "category": "Home & Furniture",
+    "title": "Hygge Walnut Accent Chair",
+    "price": "$420.00",
+    "currency": "USD",
+    "full_description": "Mid-century modern lounge chair structured from fine matte walnut wood.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-HOM-02",
+      "name": "Modern Hearth Interiors",
+      "location": "Chicago, IL"
+    },
+    "categorySlug": "home_furniture",
+    "image": "/images/products/PROD-HOM-002.png"
+  },
+  {
+    "id": "PROD-HOM-003",
+    "category": "Home & Furniture",
+    "title": "Aura Minimalist Floor Lamp",
+    "price": "$189.00",
+    "currency": "USD",
+    "full_description": "Slender matte black metal stem with a hidden warm brass interior reflecting ring.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-HOM-01",
+      "name": "Northgrain Furniture Co.",
+      "location": "Grand Rapids, MI"
+    },
+    "categorySlug": "home_furniture",
+    "image": "/images/products/PROD-HOM-003.png"
+  },
+  {
+    "id": "PROD-HOM-004",
+    "category": "Home & Furniture",
+    "title": "Fiddle-Leaf Ceramic Planter",
+    "price": "$95.00",
+    "currency": "USD",
+    "full_description": "Vibrant, live indoor fiddle-leaf fig tree housed in a deep glazed white ceramic pot.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-HOM-02",
+      "name": "Modern Hearth Interiors",
+      "location": "Chicago, IL"
+    },
+    "categorySlug": "home_furniture",
+    "image": "/images/products/PROD-HOM-004.png"
+  },
+  {
+    "id": "PROD-HOM-005",
+    "category": "Home & Furniture",
+    "title": "Arcadia Wool Area Rug",
+    "price": "$340.00",
+    "currency": "USD",
+    "full_description": "Thick hand-tufted New Zealand wool rug featuring geometric line art.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-HOM-01",
+      "name": "Northgrain Furniture Co.",
+      "location": "Grand Rapids, MI"
+    },
+    "categorySlug": "home_furniture",
+    "image": "/images/products/PROD-HOM-005.png"
+  },
+  {
+    "id": "PROD-HOM-006",
+    "category": "Home & Furniture",
+    "title": "Linear Oak Coffee Table",
+    "price": "$280.00",
+    "currency": "USD",
+    "full_description": "Low-profile Scandinavian coffee table constructed from light solid white oak.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-HOM-02",
+      "name": "Modern Hearth Interiors",
+      "location": "Chicago, IL"
+    },
+    "categorySlug": "home_furniture",
+    "image": "/images/products/PROD-HOM-006.png"
+  },
+  {
+    "id": "PROD-HOM-007",
+    "category": "Home & Furniture",
+    "title": "Nesta Nesting Side Tables",
+    "price": "$165.00",
+    "currency": "USD",
+    "full_description": "Set of two interlocking round accent tables with premium brushed brass tops.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-HOM-01",
+      "name": "Northgrain Furniture Co.",
+      "location": "Grand Rapids, MI"
+    },
+    "categorySlug": "home_furniture",
+    "image": "/images/products/PROD-HOM-007.png"
+  },
+  {
+    "id": "PROD-HOM-008",
+    "category": "Home & Furniture",
+    "title": "Solas Linen Blackout Curtains",
+    "price": "$110.00",
+    "currency": "USD",
+    "full_description": "Heavyweight natural linen curtain panels featuring a thermal insulated back lining.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-HOM-02",
+      "name": "Modern Hearth Interiors",
+      "location": "Chicago, IL"
+    },
+    "categorySlug": "home_furniture",
+    "image": "/images/products/PROD-HOM-008.png"
+  },
+  {
+    "id": "PROD-HOM-009",
+    "category": "Home & Furniture",
+    "title": "Apex Modular Bookshelf",
+    "price": "$450.00",
+    "currency": "USD",
+    "full_description": "Industrial minimalist shelving unit with matte black iron frames and oak tiers.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-HOM-01",
+      "name": "Northgrain Furniture Co.",
+      "location": "Grand Rapids, MI"
+    },
+    "categorySlug": "home_furniture",
+    "image": "/images/products/PROD-HOM-009.png"
+  },
+  {
+    "id": "PROD-HOM-010",
+    "category": "Home & Furniture",
+    "title": "Somnus Memory Foam Pillow",
+    "price": "$75.00",
+    "currency": "USD",
+    "full_description": "Ergonomic contour cooling-gel memory foam pillow enclosed in a bamboo fiber cover.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-HOM-02",
+      "name": "Modern Hearth Interiors",
+      "location": "Chicago, IL"
+    },
+    "categorySlug": "home_furniture",
+    "image": "/images/products/PROD-HOM-010.png"
+  },
+  {
+    "id": "PROD-KIT-001",
+    "category": "Kitchen & Dining",
+    "title": "Artisan Hammered Copper Pot",
+    "price": "$185.00",
+    "currency": "USD",
+    "full_description": "Heavy-bottomed culinary pot layered with genuine copper and secured cast iron handles.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-KIT-01",
+      "name": "Copperline Kitchen Co.",
+      "location": "Providence, RI"
+    },
+    "categorySlug": "kitchen_dining",
+    "image": "/images/products/PROD-KIT-001.png"
+  },
+  {
+    "id": "PROD-KIT-002",
+    "category": "Kitchen & Dining",
+    "title": "Pre-Seasoned Cast Iron Skillet",
+    "price": "$48.00",
+    "currency": "USD",
+    "full_description": "Thick-walled heirloom iron skillet displaying a slick natural vegetable-oil coat.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-KIT-02",
+      "name": "Hearthstone Dining Supply",
+      "location": "Madison, WI"
+    },
+    "categorySlug": "kitchen_dining",
+    "image": "/images/products/PROD-KIT-002.png"
+  },
+  {
+    "id": "PROD-KIT-003",
+    "category": "Kitchen & Dining",
+    "title": "Organic Walnut Stirring Spoon",
+    "price": "$24.00",
+    "currency": "USD",
+    "full_description": "Hand-carved premium cooking utensil sourced from oiled domestic walnut wood.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-KIT-01",
+      "name": "Copperline Kitchen Co.",
+      "location": "Providence, RI"
+    },
+    "categorySlug": "kitchen_dining",
+    "image": "/images/products/PROD-KIT-003.png"
+  },
+  {
+    "id": "PROD-KIT-004",
+    "category": "Kitchen & Dining",
+    "title": "Stoneware Matte Coffee Mug",
+    "price": "$18.00",
+    "currency": "USD",
+    "full_description": "Minimalist ceramic morning cup completed with an organic satin-glazed earth finish.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-KIT-02",
+      "name": "Hearthstone Dining Supply",
+      "location": "Madison, WI"
+    },
+    "categorySlug": "kitchen_dining",
+    "image": "/images/products/PROD-KIT-004.png"
+  },
+  {
+    "id": "PROD-KIT-005",
+    "category": "Kitchen & Dining",
+    "title": "Vanguard Damascus Chef Knife",
+    "price": "$135.00",
+    "currency": "USD",
+    "full_description": "67-layer folded VG10 damascus steel knife attached to a balance-weighted G10 grip.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-KIT-01",
+      "name": "Copperline Kitchen Co.",
+      "location": "Providence, RI"
+    },
+    "categorySlug": "kitchen_dining",
+    "image": "/images/products/PROD-KIT-005.png"
+  },
+  {
+    "id": "PROD-KIT-006",
+    "category": "Kitchen & Dining",
+    "title": "Linear Oak Cutting Board",
+    "price": "$65.00",
+    "currency": "USD",
+    "full_description": "Thick end-grain solid wooden chopping block carved with an perimeter juice groove.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-KIT-02",
+      "name": "Hearthstone Dining Supply",
+      "location": "Madison, WI"
+    },
+    "categorySlug": "kitchen_dining",
+    "image": "/images/products/PROD-KIT-006.png"
+  },
+  {
+    "id": "PROD-KIT-007",
+    "category": "Kitchen & Dining",
+    "title": "AeroPress Precision Kettle",
+    "price": "$95.00",
+    "currency": "USD",
+    "full_description": "Electric goose-neck water heater displaying real-time temperature diagnostics on base.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-KIT-01",
+      "name": "Copperline Kitchen Co.",
+      "location": "Providence, RI"
+    },
+    "categorySlug": "kitchen_dining",
+    "image": "/images/products/PROD-KIT-007.png"
+  },
+  {
+    "id": "PROD-KIT-008",
+    "category": "Kitchen & Dining",
+    "title": "Nesta Silicone Oven Mitts",
+    "price": "$22.00",
+    "currency": "USD",
+    "full_description": "Heat-resistant patterned heavy silicone cooking gloves inner-lined with soft cotton padding.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-KIT-02",
+      "name": "Hearthstone Dining Supply",
+      "location": "Madison, WI"
+    },
+    "categorySlug": "kitchen_dining",
+    "image": "/images/products/PROD-KIT-008.png"
+  },
+  {
+    "id": "PROD-KIT-009",
+    "category": "Kitchen & Dining",
+    "title": "Somnus Glass Meal Prep Set",
+    "price": "$38.00",
+    "currency": "USD",
+    "full_description": "Four thermal-shock borosilicate glass food containers matching leak-proof bamboo lids.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-KIT-01",
+      "name": "Copperline Kitchen Co.",
+      "location": "Providence, RI"
+    },
+    "categorySlug": "kitchen_dining",
+    "image": "/images/products/PROD-KIT-009.png"
+  },
+  {
+    "id": "PROD-KIT-010",
+    "category": "Kitchen & Dining",
+    "title": "OmniCore Stainless Steel Toaster",
+    "price": "$75.00",
+    "currency": "USD",
+    "full_description": "Minimalist two-slot brushed metal toaster showcasing step-less analog browning dials.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-KIT-02",
+      "name": "Hearthstone Dining Supply",
+      "location": "Madison, WI"
+    },
+    "categorySlug": "kitchen_dining",
+    "image": "/images/products/PROD-KIT-010.png"
+  },
+  {
+    "id": "PROD-PET-001",
+    "category": "Pet Supplies",
+    "title": "Apex Stainless Double Bowl",
+    "price": "$38.00",
+    "currency": "USD",
+    "full_description": "Double-wall non-slip stainless steel feeding station framed in a heavy matte base.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-PET-01",
+      "name": "Wagging Trail Pet Co.",
+      "location": "Salt Lake City, UT"
+    },
+    "categorySlug": "pet_supplies",
+    "image": "/images/products/PROD-PET-001.png"
+  },
+  {
+    "id": "PROD-PET-002",
+    "category": "Pet Supplies",
+    "title": "MarrowBone Natural Chew",
+    "price": "$14.00",
+    "currency": "USD",
+    "full_description": "Long-lasting solid calcium marrow bone chew sourced from free-range cattle.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-PET-02",
+      "name": "Whisker & Bone Supply",
+      "location": "Raleigh, NC"
+    },
+    "categorySlug": "pet_supplies",
+    "image": "/images/products/PROD-PET-002.png"
+  },
+  {
+    "id": "PROD-PET-003",
+    "category": "Pet Supplies",
+    "title": "TeaserFeather Interactive Wand",
+    "price": "$16.00",
+    "currency": "USD",
+    "full_description": "Flexible fiberglass cat training wand finished with genuine soft bird plumage.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-PET-01",
+      "name": "Wagging Trail Pet Co.",
+      "location": "Salt Lake City, UT"
+    },
+    "categorySlug": "pet_supplies",
+    "image": "/images/products/PROD-PET-003.png"
+  },
+  {
+    "id": "PROD-PET-004",
+    "category": "Pet Supplies",
+    "title": "Heritage Saddle Leather Collar",
+    "price": "$45.00",
+    "currency": "USD",
+    "full_description": "Hand-stitched full-grain vegetable-tanned pet collar paired with a solid brass D-ring.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-PET-02",
+      "name": "Whisker & Bone Supply",
+      "location": "Raleigh, NC"
+    },
+    "categorySlug": "pet_supplies",
+    "image": "/images/products/PROD-PET-004.png"
+  },
+  {
+    "id": "PROD-PET-005",
+    "category": "Pet Supplies",
+    "title": "Somnus Orthopedic Pet Bed",
+    "price": "$85.00",
+    "currency": "USD",
+    "full_description": "Plush egg-crate cooling memory foam dog mattress protected by a washable cover.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-PET-01",
+      "name": "Wagging Trail Pet Co.",
+      "location": "Salt Lake City, UT"
+    },
+    "categorySlug": "pet_supplies",
+    "image": "/images/products/PROD-PET-005.png"
+  },
+  {
+    "id": "PROD-PET-006",
+    "category": "Pet Supplies",
+    "title": "AeroGroom De-Shedding Brush",
+    "price": "$22.00",
+    "currency": "USD",
+    "full_description": "Ergonomic dual-sided dematting comb intended for cats and dogs with long coats.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-PET-02",
+      "name": "Whisker & Bone Supply",
+      "location": "Raleigh, NC"
+    },
+    "categorySlug": "pet_supplies",
+    "image": "/images/products/PROD-PET-006.png"
+  },
+  {
+    "id": "PROD-PET-007",
+    "category": "Pet Supplies",
+    "title": "EcoScoop Biodegradable Bags",
+    "price": "$19.00",
+    "currency": "USD",
+    "full_description": "Bulk box containing 120 leak-proof plant-based compostable pet waste bags.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-PET-01",
+      "name": "Wagging Trail Pet Co.",
+      "location": "Salt Lake City, UT"
+    },
+    "categorySlug": "pet_supplies",
+    "image": "/images/products/PROD-PET-007.png"
+  },
+  {
+    "id": "PROD-PET-008",
+    "category": "Pet Supplies",
+    "title": "OmniTravel Collapsible Bowl",
+    "price": "$12.00",
+    "currency": "USD",
+    "full_description": "Expandable food-grade silicone travel dish fitted with a lightweight metal carabiner.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-PET-02",
+      "name": "Whisker & Bone Supply",
+      "location": "Raleigh, NC"
+    },
+    "categorySlug": "pet_supplies",
+    "image": "/images/products/PROD-PET-008.png"
+  },
+  {
+    "id": "PROD-PET-009",
+    "category": "Pet Supplies",
+    "title": "Nesta Sisal Cat Scratching Post",
+    "price": "$48.00",
+    "currency": "USD",
+    "full_description": "Sturdy vertical scratching pillar tightly wrapped in natural thick woven hemp fibers.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-PET-01",
+      "name": "Wagging Trail Pet Co.",
+      "location": "Salt Lake City, UT"
+    },
+    "categorySlug": "pet_supplies",
+    "image": "/images/products/PROD-PET-009.png"
+  },
+  {
+    "id": "PROD-PET-010",
+    "category": "Pet Supplies",
+    "title": "PurrFresh Ceramic Fountain",
+    "price": "$58.00",
+    "currency": "USD",
+    "full_description": "Ultra-quiet carbon-filtered running water dish crafted from premium glazed porcelain.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-PET-02",
+      "name": "Whisker & Bone Supply",
+      "location": "Raleigh, NC"
+    },
+    "categorySlug": "pet_supplies",
+    "image": "/images/products/PROD-PET-010.png"
+  },
+  {
+    "id": "PROD-PHO-001",
+    "category": "Photography",
+    "title": "Apex Mirrorless Camera Body",
+    "price": "$1299.00",
+    "currency": "USD",
+    "full_description": "Full-frame pro camera chassis wrapped in a premium ruggedized rubber matrix.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-PHO-01",
+      "name": "Silverhalide Optics Co.",
+      "location": "Rochester, NY"
+    },
+    "categorySlug": "photography",
+    "image": "/images/products/PROD-PHO-001.png"
+  },
+  {
+    "id": "PROD-PHO-002",
+    "category": "Photography",
+    "title": "Vanguard 50mm f/1.2 Lens",
+    "price": "$849.00",
+    "currency": "USD",
+    "full_description": "Ultra-bright prime lens housing multi-coated glass elements reflecting deep indigo hues.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-PHO-02",
+      "name": "Aperture & Ash Studio Supply",
+      "location": "Santa Fe, NM"
+    },
+    "categorySlug": "photography",
+    "image": "/images/products/PROD-PHO-002.png"
+  },
+  {
+    "id": "PROD-PHO-003",
+    "category": "Photography",
+    "title": "Stratus Carbon Fiber Tripod",
+    "price": "$195.00",
+    "currency": "USD",
+    "full_description": "Featherlight yet heavy-load travel stabilization stand using carbon leg columns.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-PHO-01",
+      "name": "Silverhalide Optics Co.",
+      "location": "Rochester, NY"
+    },
+    "categorySlug": "photography",
+    "image": "/images/products/PROD-PHO-003.png"
+  },
+  {
+    "id": "PROD-PHO-004",
+    "category": "Photography",
+    "title": "Cortex Ultra SDXC 128GB",
+    "price": "$45.00",
+    "currency": "USD",
+    "full_description": "High-speed professional storage drive holding write targets up to V90 cinema standards.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-PHO-02",
+      "name": "Aperture & Ash Studio Supply",
+      "location": "Santa Fe, NM"
+    },
+    "categorySlug": "photography",
+    "image": "/images/products/PROD-PHO-004.png"
+  },
+  {
+    "id": "PROD-PHO-005",
+    "category": "Photography",
+    "title": "Lumiere LED Studio Panel",
+    "price": "$135.00",
+    "currency": "USD",
+    "full_description": "Bi-color dimmable soft continuous video light throwing flawless CRI 97+ color ratings.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-PHO-01",
+      "name": "Silverhalide Optics Co.",
+      "location": "Rochester, NY"
+    },
+    "categorySlug": "photography",
+    "image": "/images/products/PROD-PHO-005.png"
+  },
+  {
+    "id": "PROD-PHO-006",
+    "category": "Photography",
+    "title": "Titan Electronic Camera Gimbal",
+    "price": "$299.00",
+    "currency": "USD",
+    "full_description": "Three-axis motorized camera stabilizer loaded with AI tracking algorithms.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-PHO-02",
+      "name": "Aperture & Ash Studio Supply",
+      "location": "Santa Fe, NM"
+    },
+    "categorySlug": "photography",
+    "image": "/images/products/PROD-PHO-006.png"
+  },
+  {
+    "id": "PROD-PHO-007",
+    "category": "Photography",
+    "title": "Nomad Padded Camera Sling",
+    "price": "$85.00",
+    "currency": "USD",
+    "full_description": "Waterproof modular cross-body gear bag fitted with customizable divider walls.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-PHO-01",
+      "name": "Silverhalide Optics Co.",
+      "location": "Rochester, NY"
+    },
+    "categorySlug": "photography",
+    "image": "/images/products/PROD-PHO-007.png"
+  },
+  {
+    "id": "PROD-PHO-008",
+    "category": "Photography",
+    "title": "OmniFilter Variable ND Kit",
+    "price": "$65.00",
+    "currency": "USD",
+    "full_description": "Rotatable magnetic polarising glass lens attachment managing up to 9 light exposure stops.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-PHO-02",
+      "name": "Aperture & Ash Studio Supply",
+      "location": "Santa Fe, NM"
+    },
+    "categorySlug": "photography",
+    "image": "/images/products/PROD-PHO-008.png"
+  },
+  {
+    "id": "PROD-PHO-009",
+    "category": "Photography",
+    "title": "Aura Professional Light Meter",
+    "price": "$110.00",
+    "currency": "USD",
+    "full_description": "Handheld incident light diagnostic device measuring precise flash exposures instantly.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-PHO-01",
+      "name": "Silverhalide Optics Co.",
+      "location": "Rochester, NY"
+    },
+    "categorySlug": "photography",
+    "image": "/images/products/PROD-PHO-009.png"
+  },
+  {
+    "id": "PROD-PHO-010",
+    "category": "Photography",
+    "title": "AeroBlower Sensor Cleaning Kit",
+    "price": "$20.00",
+    "currency": "USD",
+    "full_description": "Anti-static rubber air blaster paired with specialized non-abrasive full-frame swabs.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-PHO-02",
+      "name": "Aperture & Ash Studio Supply",
+      "location": "Santa Fe, NM"
+    },
+    "categorySlug": "photography",
+    "image": "/images/products/PROD-PHO-010.png"
+  },
+  {
+    "id": "PROD-SER-001",
+    "category": "Services",
+    "title": "CyberShield Enterprise Guard",
+    "price": "$499.00",
+    "currency": "USD",
+    "full_description": "Comprehensive digital asset security suite protecting networks with continuous encryption checks.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-SER-01",
+      "name": "Bluepoint Professional Services",
+      "location": "Atlanta, GA"
+    },
+    "categorySlug": "services",
+    "image": "/images/products/PROD-SER-001.png"
+  },
+  {
+    "id": "PROD-SER-002",
+    "category": "Services",
+    "title": "Vanguard Escrow Trade Contract",
+    "price": "$150.00",
+    "currency": "USD",
+    "full_description": "Secure transaction processing agreement establishing legal buyer-seller fund distributions.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-SER-02",
+      "name": "Keystone Home Services Co.",
+      "location": "Columbus, OH"
+    },
+    "categorySlug": "services",
+    "image": "/images/products/PROD-SER-002.png"
+  },
+  {
+    "id": "PROD-SER-003",
+    "category": "Services",
+    "title": "Matrix Infrastructure Optimization",
+    "price": "$350.00",
+    "currency": "USD",
+    "full_description": "Technical consultation optimizing server automation configurations and database systems.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-SER-01",
+      "name": "Bluepoint Professional Services",
+      "location": "Atlanta, GA"
+    },
+    "categorySlug": "services",
+    "image": "/images/products/PROD-SER-003.png"
+  },
+  {
+    "id": "PROD-SER-004",
+    "category": "Services",
+    "title": "Aura Priority Concierge Support",
+    "price": "$99.00",
+    "currency": "USD",
+    "full_description": "24/7 dedicated personal account help desk channeling immediate system resolutions.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-SER-02",
+      "name": "Keystone Home Services Co.",
+      "location": "Columbus, OH"
+    },
+    "categorySlug": "services",
+    "image": "/images/products/PROD-SER-004.png"
+  },
+  {
+    "id": "PROD-SER-005",
+    "category": "Services",
+    "title": "Veritas Trademark Legal Filing",
+    "price": "$299.00",
+    "currency": "USD",
+    "full_description": "Corporate branding legal representation mapping commercial intellectual protection processing.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-SER-01",
+      "name": "Bluepoint Professional Services",
+      "location": "Atlanta, GA"
+    },
+    "categorySlug": "services",
+    "image": "/images/products/PROD-SER-005.png"
+  },
+  {
+    "id": "PROD-SER-006",
+    "category": "Services",
+    "title": "OmniLingo Document Translation",
+    "price": "$75.00",
+    "currency": "USD",
+    "full_description": "Certified professional literal conversion of business portfolios into over 30 tongues.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-SER-02",
+      "name": "Keystone Home Services Co.",
+      "location": "Columbus, OH"
+    },
+    "categorySlug": "services",
+    "image": "/images/products/PROD-SER-006.png"
+  },
+  {
+    "id": "PROD-SER-007",
+    "category": "Services",
+    "title": "Cortex Cloud Migration Service",
+    "price": "$599.00",
+    "currency": "USD",
+    "full_description": "Expert data transit mapping legacy hardware systems safely over to secure networks.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-SER-01",
+      "name": "Bluepoint Professional Services",
+      "location": "Atlanta, GA"
+    },
+    "categorySlug": "services",
+    "image": "/images/products/PROD-SER-007.png"
+  },
+  {
+    "id": "PROD-SER-008",
+    "category": "Services",
+    "title": "Stratus Custom Web Architecture",
+    "price": "$899.00",
+    "currency": "USD",
+    "full_description": "Tailored engineering of modern responsive headless storefront interfaces built for heavy scale.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-SER-02",
+      "name": "Keystone Home Services Co.",
+      "location": "Columbus, OH"
+    },
+    "categorySlug": "services",
+    "image": "/images/products/PROD-SER-008.png"
+  },
+  {
+    "id": "PROD-SER-009",
+    "category": "Services",
+    "title": "Apex Corporate Identity Design",
+    "price": "$450.00",
+    "currency": "USD",
+    "full_description": "Full-spectrum digital branding mapping tailored visual architectures and cohesive styles.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-SER-01",
+      "name": "Bluepoint Professional Services",
+      "location": "Atlanta, GA"
+    },
+    "categorySlug": "services",
+    "image": "/images/products/PROD-SER-009.png"
+  },
+  {
+    "id": "PROD-SER-010",
+    "category": "Services",
+    "title": "Chronos Remote Server Auditing",
+    "price": "$250.00",
+    "currency": "USD",
+    "full_description": "Scheduled automated health deep-dives compiling compliance reporting and data checks.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-SER-02",
+      "name": "Keystone Home Services Co.",
+      "location": "Columbus, OH"
+    },
+    "categorySlug": "services",
+    "image": "/images/products/PROD-SER-010.png"
+  },
+  {
+    "id": "PROD-SPO-001",
+    "category": "Sports & Fitness",
+    "title": "Vanguard Leather Match Ball",
+    "price": "$65.00",
+    "currency": "USD",
+    "full_description": "Classic professional soccer ball constructed with premium textured composite leather panels.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-SPO-01",
+      "name": "Ironline Fitness Supply",
+      "location": "Boulder, CO"
+    },
+    "categorySlug": "sports_fitness",
+    "image": "/images/products/PROD-SPO-001.png"
+  },
+  {
+    "id": "PROD-SPO-002",
+    "category": "Sports & Fitness",
+    "title": "Apex Adjustable Dumbbells",
+    "price": "$299.00",
+    "currency": "USD",
+    "full_description": "Space-saving heavy selectorized dumbbells fitted with ergonomic matte rubber grips.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-SPO-02",
+      "name": "Summit Performance Co.",
+      "location": "Salt Lake City, UT"
+    },
+    "categorySlug": "sports_fitness",
+    "image": "/images/products/PROD-SPO-002.png"
+  },
+  {
+    "id": "PROD-SPO-003",
+    "category": "Sports & Fitness",
+    "title": "Stratus FlyMesh Runner",
+    "price": "$140.00",
+    "currency": "USD",
+    "full_description": "High-performance running shoes built with highly breathable engineered micro-mesh fabric.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-SPO-01",
+      "name": "Ironline Fitness Supply",
+      "location": "Boulder, CO"
+    },
+    "categorySlug": "sports_fitness",
+    "image": "/images/products/PROD-SPO-003.png"
+  },
+  {
+    "id": "PROD-SPO-004",
+    "category": "Sports & Fitness",
+    "title": "Prana Pro Alignment Mat",
+    "price": "$80.00",
+    "currency": "USD",
+    "full_description": "Dense non-slip eco-polyurethane yoga mat printed with a laser-etched guide pattern.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-SPO-02",
+      "name": "Summit Performance Co.",
+      "location": "Salt Lake City, UT"
+    },
+    "categorySlug": "sports_fitness",
+    "image": "/images/products/PROD-SPO-004.png"
+  },
+  {
+    "id": "PROD-SPO-005",
+    "category": "Sports & Fitness",
+    "title": "Titanium Hydration Flask",
+    "price": "$45.00",
+    "currency": "USD",
+    "full_description": "Double-wall vacuum insulated water bottle with a sleek matte powder coat finish.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-SPO-01",
+      "name": "Ironline Fitness Supply",
+      "location": "Boulder, CO"
+    },
+    "categorySlug": "sports_fitness",
+    "image": "/images/products/PROD-SPO-005.png"
+  },
+  {
+    "id": "PROD-SPO-006",
+    "category": "Sports & Fitness",
+    "title": "Kinetic Resistance Band Set",
+    "price": "$30.00",
+    "currency": "USD",
+    "full_description": "Five premium natural latex loops offering varying resistances with padded ankle straps.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-SPO-02",
+      "name": "Summit Performance Co.",
+      "location": "Salt Lake City, UT"
+    },
+    "categorySlug": "sports_fitness",
+    "image": "/images/products/PROD-SPO-006.png"
+  },
+  {
+    "id": "PROD-SPO-007",
+    "category": "Sports & Fitness",
+    "title": "Vector Speed Jump Rope",
+    "price": "$25.00",
+    "currency": "USD",
+    "full_description": "High-velocity steel cable jump rope with smooth aluminum ball bearings.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-SPO-01",
+      "name": "Ironline Fitness Supply",
+      "location": "Boulder, CO"
+    },
+    "categorySlug": "sports_fitness",
+    "image": "/images/products/PROD-SPO-007.png"
+  },
+  {
+    "id": "PROD-SPO-008",
+    "category": "Sports & Fitness",
+    "title": "Enduro GPS Fitness Tracker",
+    "price": "$199.00",
+    "currency": "USD",
+    "full_description": "Rugged sport band providing continuous heart rate monitoring and satellite tracking.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-SPO-02",
+      "name": "Summit Performance Co.",
+      "location": "Salt Lake City, UT"
+    },
+    "categorySlug": "sports_fitness",
+    "image": "/images/products/PROD-SPO-008.png"
+  },
+  {
+    "id": "PROD-SPO-009",
+    "category": "Sports & Fitness",
+    "title": "Core Recovery Foam Roller",
+    "price": "$35.00",
+    "currency": "USD",
+    "full_description": "High-density EVA foam roller engineered with a deep grid tissue massage pattern.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-SPO-01",
+      "name": "Ironline Fitness Supply",
+      "location": "Boulder, CO"
+    },
+    "categorySlug": "sports_fitness",
+    "image": "/images/products/PROD-SPO-009.png"
+  },
+  {
+    "id": "PROD-SPO-010",
+    "category": "Sports & Fitness",
+    "title": "Apex Grip Training Gloves",
+    "price": "$28.00",
+    "currency": "USD",
+    "full_description": "Padded weightlifting gloves featuring strategic silicone palms and heavy wrist wraps.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-SPO-02",
+      "name": "Summit Performance Co.",
+      "location": "Salt Lake City, UT"
+    },
+    "categorySlug": "sports_fitness",
+    "image": "/images/products/PROD-SPO-010.png"
+  },
+  {
+    "id": "PROD-TOY-001",
+    "category": "Toys & Kids",
+    "title": "HoneyBear Ultra-Soft Plush",
+    "price": "$34.00",
+    "currency": "USD",
+    "full_description": "Classic heirloom teddy bear sewn with incredibly soft, non-allergenic honey fur.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-TOY-01",
+      "name": "Bramblewood Toy Co.",
+      "location": "Burlington, VT"
+    },
+    "categorySlug": "toys_kids",
+    "image": "/images/products/PROD-TOY-001.png"
+  },
+  {
+    "id": "PROD-TOY-002",
+    "category": "Toys & Kids",
+    "title": "Nordic Pastel Wooden Blocks",
+    "price": "$45.00",
+    "currency": "USD",
+    "full_description": "Set of 40 geometric building blocks painted in eco-friendly matte water-based stains.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-TOY-02",
+      "name": "Playful Acorn Supply",
+      "location": "Cincinnati, OH"
+    },
+    "categorySlug": "toys_kids",
+    "image": "/images/products/PROD-TOY-002.png"
+  },
+  {
+    "id": "PROD-TOY-003",
+    "category": "Toys & Kids",
+    "title": "Speedster Rounded Wooden Car",
+    "price": "$22.00",
+    "currency": "USD",
+    "full_description": "Streamlined minimalist vintage racecar toy handcrafted from smooth beechwood.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-TOY-01",
+      "name": "Bramblewood Toy Co.",
+      "location": "Burlington, VT"
+    },
+    "categorySlug": "toys_kids",
+    "image": "/images/products/PROD-TOY-003.png"
+  },
+  {
+    "id": "PROD-TOY-004",
+    "category": "Toys & Kids",
+    "title": "Celebration Helium Balloon Set",
+    "price": "$15.00",
+    "currency": "USD",
+    "full_description": "Pack of five high-gloss durable natural latex balloons matching premium color schemes.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-TOY-02",
+      "name": "Playful Acorn Supply",
+      "location": "Cincinnati, OH"
+    },
+    "categorySlug": "toys_kids",
+    "image": "/images/products/PROD-TOY-004.png"
+  },
+  {
+    "id": "PROD-TOY-005",
+    "category": "Toys & Kids",
+    "title": "Scribble Magnetic Drawing Board",
+    "price": "$28.00",
+    "currency": "USD",
+    "full_description": "Mess-free modern sketch board complete with a magnetic stylus and geometrical stamps.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-TOY-01",
+      "name": "Bramblewood Toy Co.",
+      "location": "Burlington, VT"
+    },
+    "categorySlug": "toys_kids",
+    "image": "/images/products/PROD-TOY-005.png"
+  },
+  {
+    "id": "PROD-TOY-006",
+    "category": "Toys & Kids",
+    "title": "Aero Kite Geometric Sail",
+    "price": "$20.00",
+    "currency": "USD",
+    "full_description": "Easy-to-fly diamond nylon kite showcasing stunning, modern color-blocked architecture.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-TOY-02",
+      "name": "Playful Acorn Supply",
+      "location": "Cincinnati, OH"
+    },
+    "categorySlug": "toys_kids",
+    "image": "/images/products/PROD-TOY-006.png"
+  },
+  {
+    "id": "PROD-TOY-007",
+    "category": "Toys & Kids",
+    "title": "Tiny Chef Wooden Baking Kit",
+    "price": "$48.00",
+    "currency": "USD",
+    "full_description": "Child-sized realistic pretend cooking set made of smooth, unpainted Birch elements.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-TOY-01",
+      "name": "Bramblewood Toy Co.",
+      "location": "Burlington, VT"
+    },
+    "categorySlug": "toys_kids",
+    "image": "/images/products/PROD-TOY-007.png"
+  },
+  {
+    "id": "PROD-TOY-008",
+    "category": "Toys & Kids",
+    "title": "Luna Glowing Constellation Globe",
+    "price": "$65.00",
+    "currency": "USD",
+    "full_description": "Interactive dual-map globe displaying Earth by day and stellar constellations by night.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-TOY-02",
+      "name": "Playful Acorn Supply",
+      "location": "Cincinnati, OH"
+    },
+    "categorySlug": "toys_kids",
+    "image": "/images/products/PROD-TOY-008.png"
+  },
+  {
+    "id": "PROD-TOY-009",
+    "category": "Toys & Kids",
+    "title": "Nest Stackable Silicone Cups",
+    "price": "$18.00",
+    "currency": "USD",
+    "full_description": "Seven flexible food-grade silicone stacking cups designed for bath and sensory play.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-TOY-01",
+      "name": "Bramblewood Toy Co.",
+      "location": "Burlington, VT"
+    },
+    "categorySlug": "toys_kids",
+    "image": "/images/products/PROD-TOY-009.png"
+  },
+  {
+    "id": "PROD-TOY-010",
+    "category": "Toys & Kids",
+    "title": "Pioneer Canvas Tipi Play Tent",
+    "price": "$99.00",
+    "currency": "USD",
+    "full_description": "Indoor children's playhouse constructed with thick unbleached cotton canvas and pine poles.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-TOY-02",
+      "name": "Playful Acorn Supply",
+      "location": "Cincinnati, OH"
+    },
+    "categorySlug": "toys_kids",
+    "image": "/images/products/PROD-TOY-010.png"
+  },
+  {
+    "id": "PROD-TRA-001",
+    "category": "Travel",
+    "title": "AeroShield Hardshell Suitcase",
+    "price": "$245.00",
+    "currency": "USD",
+    "full_description": "Impact-resistant polycarbonate spinner luggage reinforced with tan leather accents.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-TRA-01",
+      "name": "Wanderline Travel Goods",
+      "location": "San Diego, CA"
+    },
+    "categorySlug": "travel",
+    "image": "/images/products/PROD-TRA-001.png"
+  },
+  {
+    "id": "PROD-TRA-002",
+    "category": "Travel",
+    "title": "Nomad Classic Mirrorless Camera",
+    "price": "$899.00",
+    "currency": "USD",
+    "full_description": "Retro-inspired high-resolution travel camera featuring a stitched pebble-grain chassis.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-TRA-02",
+      "name": "Farflung Supply Co.",
+      "location": "Tucson, AZ"
+    },
+    "categorySlug": "travel",
+    "image": "/images/products/PROD-TRA-002.png"
+  },
+  {
+    "id": "PROD-TRA-003",
+    "category": "Travel",
+    "title": "Vanguard Pebble Passport Wallet",
+    "price": "$45.00",
+    "currency": "USD",
+    "full_description": "Slim secure RFID-blocking passport protector crafted from top-grain tan cowhide.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-TRA-01",
+      "name": "Wanderline Travel Goods",
+      "location": "San Diego, CA"
+    },
+    "categorySlug": "travel",
+    "image": "/images/products/PROD-TRA-003.png"
+  },
+  {
+    "id": "PROD-TRA-004",
+    "category": "Travel",
+    "title": "FlyPass Minimalist Luggage Tag",
+    "price": "$15.00",
+    "currency": "USD",
+    "full_description": "Heavy-duty matte cardstock and leather luggage label displaying a hidden info panel.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-TRA-02",
+      "name": "Farflung Supply Co.",
+      "location": "Tucson, AZ"
+    },
+    "categorySlug": "travel",
+    "image": "/images/products/PROD-TRA-004.png"
+  },
+  {
+    "id": "PROD-TRA-005",
+    "category": "Travel",
+    "title": "Somnus Memory Travel Pillow",
+    "price": "$35.00",
+    "currency": "USD",
+    "full_description": "High-density foam neck cushion closing into a compact water-proof carrying bag.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-TRA-01",
+      "name": "Wanderline Travel Goods",
+      "location": "San Diego, CA"
+    },
+    "categorySlug": "travel",
+    "image": "/images/products/PROD-TRA-005.png"
+  },
+  {
+    "id": "PROD-TRA-006",
+    "category": "Travel",
+    "title": "OmniPlug Universal Adapter",
+    "price": "$28.00",
+    "currency": "USD",
+    "full_description": "All-in-one worldwide electrical wall plug converter fitted with dual USB-C ports.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-TRA-02",
+      "name": "Farflung Supply Co.",
+      "location": "Tucson, AZ"
+    },
+    "categorySlug": "travel",
+    "image": "/images/products/PROD-TRA-006.png"
+  },
+  {
+    "id": "PROD-TRA-007",
+    "category": "Travel",
+    "title": "Stratus Packing Cube Set",
+    "price": "$40.00",
+    "currency": "USD",
+    "full_description": "Four lightweight ripstop nylon organizer pouches equipped with heavy compression zippers.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-TRA-01",
+      "name": "Wanderline Travel Goods",
+      "location": "San Diego, CA"
+    },
+    "categorySlug": "travel",
+    "image": "/images/products/PROD-TRA-007.png"
+  },
+  {
+    "id": "PROD-TRA-008",
+    "category": "Travel",
+    "title": "HydroMesh Quick-Dry Towel",
+    "price": "$22.00",
+    "currency": "USD",
+    "full_description": "Ultra-absorbent antibacterial microfiber beach towel rolling down to pocket dimensions.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-TRA-02",
+      "name": "Farflung Supply Co.",
+      "location": "Tucson, AZ"
+    },
+    "categorySlug": "travel",
+    "image": "/images/products/PROD-TRA-008.png"
+  },
+  {
+    "id": "PROD-TRA-009",
+    "category": "Travel",
+    "title": "Titan Anti-Theft Backpack",
+    "price": "$110.00",
+    "currency": "USD",
+    "full_description": "Slash-proof commuter pack engineered with concealed security zippers and tracking pockets.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-TRA-01",
+      "name": "Wanderline Travel Goods",
+      "location": "San Diego, CA"
+    },
+    "categorySlug": "travel",
+    "image": "/images/products/PROD-TRA-009.png"
+  },
+  {
+    "id": "PROD-TRA-010",
+    "category": "Travel",
+    "title": "Apex TSA Combination Lock",
+    "price": "$18.00",
+    "currency": "USD",
+    "full_description": "Heavy alloy triple-dial secure travel padlock authorized for international flight checks.",
+    "specifications": {
+      "material_finish": "Premium high-end market finish",
+      "aesthetic_inspiration": "Apple & Shopify clean digital interface minimalism"
+    },
+    "photo_metadata": {
+      "aspect_ratio": "1:1",
+      "resolution": "8K Ultra-HQ",
+      "composition": "Hyper-clean, centered studio photograph",
+      "lighting": "Soft ambient volumetric lighting with subtle contact shadows",
+      "background": "Solid matte white or ultra-light desaturated pastel backdrop",
+      "render_style": "Photorealistic 3D render hybrid, sharp micro-textures, zero text/logos/people"
+    },
+    "owner": {
+      "id": "SELL-TRA-02",
+      "name": "Farflung Supply Co.",
+      "location": "Tucson, AZ"
+    },
+    "categorySlug": "travel",
+    "image": "/images/products/PROD-TRA-010.png"
+  }
+]

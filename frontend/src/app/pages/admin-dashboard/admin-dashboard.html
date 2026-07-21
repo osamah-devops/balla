@@ -1,0 +1,276 @@
+<section class="mx-auto flex w-full max-w-full flex-col gap-6 bg-white px-4 py-4 sm:px-6 sm:py-6 lg:px-8 dark:bg-slate-950">
+    <div class="flex flex-wrap items-center justify-between gap-3">
+        <div>
+            <h1 class="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white">Admin Dashboard</h1>
+            <p class="text-sm text-slate-500 dark:text-slate-400">Site-wide overview, accounts, sellers, and catalog moderation.</p>
+        </div>
+        <nav class="flex flex-wrap gap-1 rounded-full bg-slate-100 p-1 dark:bg-slate-900">
+            <button type="button" (click)="setTab('overview')" class="rounded-full px-4 py-1.5 text-sm font-semibold transition-colors duration-150" [class]="tab() === 'overview' ? 'bg-white text-indigo-600 shadow-sm dark:bg-slate-800 dark:text-indigo-400' : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'">Overview</button>
+            <button type="button" (click)="setTab('users')" class="rounded-full px-4 py-1.5 text-sm font-semibold transition-colors duration-150" [class]="tab() === 'users' ? 'bg-white text-indigo-600 shadow-sm dark:bg-slate-800 dark:text-indigo-400' : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'">Users</button>
+            <button type="button" (click)="setTab('sellers')" class="rounded-full px-4 py-1.5 text-sm font-semibold transition-colors duration-150" [class]="tab() === 'sellers' ? 'bg-white text-indigo-600 shadow-sm dark:bg-slate-800 dark:text-indigo-400' : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'">Sellers</button>
+            <button type="button" (click)="setTab('products')" class="rounded-full px-4 py-1.5 text-sm font-semibold transition-colors duration-150" [class]="tab() === 'products' ? 'bg-white text-indigo-600 shadow-sm dark:bg-slate-800 dark:text-indigo-400' : 'text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200'">Products</button>
+        </nav>
+    </div>
+
+    @if (tab() === 'overview') {
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            <app-stat-card label="Total Users" [value]="users().length" icon="faSolidUsers" accent="indigo" [hint]="suspendedUsers() + ' suspended'"></app-stat-card>
+            <app-stat-card label="Sellers" [value]="totalSellers()" icon="faSolidStore" accent="sky" [hint]="sellerRows().length + ' storefronts total'"></app-stat-card>
+            <app-stat-card label="Products" [value]="products().length" icon="faSolidBoxOpen" accent="amber"></app-stat-card>
+            <app-stat-card label="Platform Revenue" [value]="'$' + (totalRevenue() | number: '1.2-2')" icon="faSolidDollarSign" accent="emerald" [hint]="pendingOrders() + ' orders pending'"></app-stat-card>
+        </div>
+
+        <div class="rounded-xl bg-white p-4 ring-1 ring-slate-200 shadow-sm dark:bg-slate-900 dark:ring-slate-800">
+            <h2 class="mb-3 flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white">
+                <ng-icon name="faSolidPeopleGroup" size="0.9rem" class="text-indigo-600 dark:text-indigo-400"></ng-icon>
+                Account breakdown
+            </h2>
+            <dl class="grid grid-cols-2 gap-4 text-sm sm:grid-cols-4">
+                <div>
+                    <dt class="text-slate-500 dark:text-slate-400">Admins</dt>
+                    <dd class="font-semibold text-slate-900 dark:text-white">{{ totalAdmins() }}</dd>
+                </div>
+                <div>
+                    <dt class="text-slate-500 dark:text-slate-400">Sellers</dt>
+                    <dd class="font-semibold text-slate-900 dark:text-white">{{ totalSellers() }}</dd>
+                </div>
+                <div>
+                    <dt class="text-slate-500 dark:text-slate-400">Customers</dt>
+                    <dd class="font-semibold text-slate-900 dark:text-white">{{ totalCustomers() }}</dd>
+                </div>
+                <div>
+                    <dt class="text-slate-500 dark:text-slate-400">Suspended</dt>
+                    <dd class="font-semibold text-slate-900 dark:text-white">{{ suspendedUsers() }}</dd>
+                </div>
+            </dl>
+        </div>
+    }
+
+    @if (tab() === 'users') {
+        <div class="flex flex-col gap-3 sm:hidden">
+            @for (user of users(); track user.id) {
+                <div class="rounded-xl bg-white p-4 ring-1 ring-slate-200 shadow-sm dark:bg-slate-900 dark:ring-slate-800">
+                    <div class="flex items-start justify-between gap-2">
+                        <div>
+                            <p class="font-semibold text-slate-900 dark:text-white">{{ user.name }}</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">{{ user.email }}</p>
+                        </div>
+                        <span
+                            class="inline-flex shrink-0 items-center rounded-full px-2.5 py-1 text-xs font-semibold capitalize"
+                            [class]="user.status === 'active' ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400' : 'bg-rose-50 text-rose-700 dark:bg-rose-500/10 dark:text-rose-400'"
+                        >{{ user.status }}</span>
+                    </div>
+                    <dl class="mt-3 grid grid-cols-2 gap-2 text-sm">
+                        <div>
+                            <dt class="text-slate-500 dark:text-slate-400">Role</dt>
+                            <dd class="font-medium text-slate-900 capitalize dark:text-white">{{ user.role }}</dd>
+                        </div>
+                        <div>
+                            <dt class="text-slate-500 dark:text-slate-400">Joined</dt>
+                            <dd class="font-medium text-slate-900 dark:text-white">{{ user.joinedDate }}</dd>
+                        </div>
+                    </dl>
+                    <button
+                        type="button"
+                        (click)="toggleUserStatus(user)"
+                        class="mt-3 inline-flex w-full items-center justify-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-700 transition-colors duration-150 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+                    >
+                        <ng-icon [name]="user.status === 'active' ? 'faSolidBan' : 'faSolidCheck'" size="0.75rem"></ng-icon>
+                        {{ user.status === 'active' ? 'Suspend' : 'Activate' }}
+                    </button>
+                </div>
+            } @empty {
+                <p class="px-4 py-8 text-center text-sm text-slate-500 dark:text-slate-400">No users found.</p>
+            }
+        </div>
+
+        <div class="hidden overflow-x-auto rounded-xl bg-white ring-1 ring-slate-200 shadow-sm sm:block dark:bg-slate-900 dark:ring-slate-800">
+            <table class="w-full min-w-max text-left text-sm">
+                <thead>
+                    <tr class="border-b border-slate-200 text-xs font-semibold tracking-wide text-slate-500 uppercase dark:border-slate-800 dark:text-slate-400">
+                        <th class="px-4 py-3">Name</th>
+                        <th class="px-4 py-3">Email</th>
+                        <th class="px-4 py-3">Role</th>
+                        <th class="px-4 py-3">Joined</th>
+                        <th class="px-4 py-3">Status</th>
+                        <th class="px-4 py-3">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (user of users(); track user.id) {
+                        <tr class="border-b border-slate-100 last:border-0 dark:border-slate-800">
+                            <td class="px-4 py-3 font-semibold text-slate-900 dark:text-white">{{ user.name }}</td>
+                            <td class="px-4 py-3 text-slate-600 dark:text-slate-300">{{ user.email }}</td>
+                            <td class="px-4 py-3 text-slate-600 capitalize dark:text-slate-300">{{ user.role }}</td>
+                            <td class="px-4 py-3 text-slate-500 dark:text-slate-400">{{ user.joinedDate }}</td>
+                            <td class="px-4 py-3">
+                                <span
+                                    class="inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold capitalize"
+                                    [class]="user.status === 'active' ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400' : 'bg-rose-50 text-rose-700 dark:bg-rose-500/10 dark:text-rose-400'"
+                                >{{ user.status }}</span>
+                            </td>
+                            <td class="px-4 py-3">
+                                <button
+                                    type="button"
+                                    (click)="toggleUserStatus(user)"
+                                    class="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-700 transition-colors duration-150 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+                                >
+                                    <ng-icon [name]="user.status === 'active' ? 'faSolidBan' : 'faSolidCheck'" size="0.75rem"></ng-icon>
+                                    {{ user.status === 'active' ? 'Suspend' : 'Activate' }}
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+
+    @if (tab() === 'sellers') {
+        <div class="flex flex-col gap-3 sm:hidden">
+            @for (seller of sellerRows(); track seller.id) {
+                <div class="rounded-xl bg-white p-4 ring-1 ring-slate-200 shadow-sm dark:bg-slate-900 dark:ring-slate-800">
+                    <div class="flex items-start justify-between gap-2">
+                        <div>
+                            <p class="font-semibold text-slate-900 dark:text-white">{{ seller.name }}</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">{{ seller.location }}</p>
+                        </div>
+                        @if (seller.verified) {
+                            <span class="inline-flex shrink-0 items-center rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400">Verified</span>
+                        } @else {
+                            <span class="inline-flex shrink-0 items-center rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-600 dark:bg-slate-800 dark:text-slate-300">Unverified</span>
+                        }
+                    </div>
+                    <dl class="mt-3 grid grid-cols-3 gap-2 text-sm">
+                        <div>
+                            <dt class="text-slate-500 dark:text-slate-400">Rating</dt>
+                            <dd class="font-medium text-slate-900 dark:text-white">{{ seller.rating }} ({{ seller.reviews }})</dd>
+                        </div>
+                        <div>
+                            <dt class="text-slate-500 dark:text-slate-400">Products</dt>
+                            <dd class="font-medium text-slate-900 dark:text-white">{{ seller.productCount }}</dd>
+                        </div>
+                        <div>
+                            <dt class="text-slate-500 dark:text-slate-400">Revenue</dt>
+                            <dd class="font-medium text-slate-900 dark:text-white">${{ seller.revenue | number: '1.2-2' }}</dd>
+                        </div>
+                    </dl>
+                </div>
+            } @empty {
+                <p class="px-4 py-8 text-center text-sm text-slate-500 dark:text-slate-400">No sellers found.</p>
+            }
+        </div>
+
+        <div class="hidden overflow-x-auto rounded-xl bg-white ring-1 ring-slate-200 shadow-sm sm:block dark:bg-slate-900 dark:ring-slate-800">
+            <table class="w-full min-w-max text-left text-sm">
+                <thead>
+                    <tr class="border-b border-slate-200 text-xs font-semibold tracking-wide text-slate-500 uppercase dark:border-slate-800 dark:text-slate-400">
+                        <th class="px-4 py-3">Storefront</th>
+                        <th class="px-4 py-3">Location</th>
+                        <th class="px-4 py-3">Rating</th>
+                        <th class="px-4 py-3">Products</th>
+                        <th class="px-4 py-3">Revenue</th>
+                        <th class="px-4 py-3">Verified</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (seller of sellerRows(); track seller.id) {
+                        <tr class="border-b border-slate-100 last:border-0 dark:border-slate-800">
+                            <td class="px-4 py-3 font-semibold text-slate-900 dark:text-white">{{ seller.name }}</td>
+                            <td class="px-4 py-3 text-slate-600 dark:text-slate-300">{{ seller.location }}</td>
+                            <td class="px-4 py-3 text-slate-600 dark:text-slate-300">{{ seller.rating }} ({{ seller.reviews }})</td>
+                            <td class="px-4 py-3 text-slate-600 dark:text-slate-300">{{ seller.productCount }}</td>
+                            <td class="px-4 py-3 font-semibold text-slate-900 dark:text-white">${{ seller.revenue | number: '1.2-2' }}</td>
+                            <td class="px-4 py-3">
+                                @if (seller.verified) {
+                                    <span class="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400">Verified</span>
+                                } @else {
+                                    <span class="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-600 dark:bg-slate-800 dark:text-slate-300">Unverified</span>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+
+    @if (tab() === 'products') {
+        <div class="flex flex-col gap-3 sm:hidden">
+            @for (product of products(); track product.id) {
+                <div class="rounded-xl bg-white p-4 ring-1 ring-slate-200 shadow-sm dark:bg-slate-900 dark:ring-slate-800" [class.opacity-50]="isProductHidden(product.id)">
+                    <div class="flex items-center gap-3">
+                        <img [src]="product.image" [alt]="product.title" class="h-12 w-12 shrink-0 rounded-lg object-cover" />
+                        <div class="min-w-0 flex-1">
+                            <p class="line-clamp-1 font-semibold text-slate-900 dark:text-white">{{ product.title }}</p>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">{{ product.category }} &middot; {{ product.owner.name }}</p>
+                        </div>
+                        <span class="shrink-0 font-semibold text-indigo-600 dark:text-indigo-400">{{ product.price }}</span>
+                    </div>
+                    <div class="mt-3 flex items-center justify-between gap-2">
+                        @if (isProductHidden(product.id)) {
+                            <span class="inline-flex items-center rounded-full bg-rose-50 px-2.5 py-1 text-xs font-semibold text-rose-700 dark:bg-rose-500/10 dark:text-rose-400">Hidden</span>
+                        } @else {
+                            <span class="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400">Live</span>
+                        }
+                        <button
+                            type="button"
+                            (click)="toggleProductVisibility(product.id)"
+                            class="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-700 transition-colors duration-150 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+                        >
+                            <ng-icon [name]="isProductHidden(product.id) ? 'faSolidCheck' : 'faSolidEyeSlash'" size="0.75rem"></ng-icon>
+                            {{ isProductHidden(product.id) ? 'Restore' : 'Hide' }}
+                        </button>
+                    </div>
+                </div>
+            } @empty {
+                <p class="px-4 py-8 text-center text-sm text-slate-500 dark:text-slate-400">No products found.</p>
+            }
+        </div>
+
+        <div class="hidden overflow-x-auto rounded-xl bg-white ring-1 ring-slate-200 shadow-sm sm:block dark:bg-slate-900 dark:ring-slate-800">
+            <table class="w-full min-w-max text-left text-sm">
+                <thead>
+                    <tr class="border-b border-slate-200 text-xs font-semibold tracking-wide text-slate-500 uppercase dark:border-slate-800 dark:text-slate-400">
+                        <th class="px-4 py-3">Product</th>
+                        <th class="px-4 py-3">Category</th>
+                        <th class="px-4 py-3">Seller</th>
+                        <th class="px-4 py-3">Price</th>
+                        <th class="px-4 py-3">Status</th>
+                        <th class="px-4 py-3">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (product of products(); track product.id) {
+                        <tr class="border-b border-slate-100 last:border-0 dark:border-slate-800" [class.opacity-50]="isProductHidden(product.id)">
+                            <td class="flex items-center gap-3 px-4 py-3">
+                                <img [src]="product.image" [alt]="product.title" class="h-10 w-10 rounded-lg object-cover" />
+                                <span class="line-clamp-1 font-semibold text-slate-900 dark:text-white">{{ product.title }}</span>
+                            </td>
+                            <td class="px-4 py-3 text-slate-600 dark:text-slate-300">{{ product.category }}</td>
+                            <td class="px-4 py-3 text-slate-600 dark:text-slate-300">{{ product.owner.name }}</td>
+                            <td class="px-4 py-3 font-semibold text-indigo-600 dark:text-indigo-400">{{ product.price }}</td>
+                            <td class="px-4 py-3">
+                                @if (isProductHidden(product.id)) {
+                                    <span class="inline-flex items-center rounded-full bg-rose-50 px-2.5 py-1 text-xs font-semibold text-rose-700 dark:bg-rose-500/10 dark:text-rose-400">Hidden</span>
+                                } @else {
+                                    <span class="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400">Live</span>
+                                }
+                            </td>
+                            <td class="px-4 py-3">
+                                <button
+                                    type="button"
+                                    (click)="toggleProductVisibility(product.id)"
+                                    class="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-700 transition-colors duration-150 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+                                >
+                                    <ng-icon [name]="isProductHidden(product.id) ? 'faSolidCheck' : 'faSolidEyeSlash'" size="0.75rem"></ng-icon>
+                                    {{ isProductHidden(product.id) ? 'Restore' : 'Hide' }}
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</section>

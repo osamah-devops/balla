@@ -1,0 +1,33 @@
+<section class="mx-auto flex w-full max-w-full flex-col gap-6 bg-white px-4 py-6 sm:px-6 lg:px-8 dark:bg-slate-950">
+    <div class="relative h-48 overflow-hidden rounded-2xl shadow-lg sm:h-64">
+        <img [src]="category().image" [alt]="category().name" class="h-full w-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+        <h1 class="absolute inset-x-0 bottom-0 p-5 text-2xl font-extrabold text-white sm:p-6 sm:text-3xl">{{ category().name }}</h1>
+    </div>
+
+    <p class="text-sm text-slate-500 dark:text-slate-400">
+        {{ products().length }} product{{ products().length === 1 ? '' : 's' }} in this category
+    </p>
+
+    @if (products().length > 0) {
+        <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 xl:grid-cols-4">
+            @for (product of pagedProducts(); track product.id) {
+                <app-product-card [product]="product"></app-product-card>
+            }
+        </div>
+        <div class="overflow-hidden rounded-xl bg-white ring-1 ring-slate-200 dark:bg-slate-900 dark:ring-slate-800">
+            <mat-paginator
+                class="bg-transparent!"
+                [length]="products().length"
+                [pageSize]="pageSize()"
+                [pageIndex]="pageIndex()"
+                [pageSizeOptions]="pageSizeOptions"
+                (page)="onPageChange($event)"
+            ></mat-paginator>
+        </div>
+    } @else {
+        <div class="flex flex-col items-center gap-2 rounded-xl border border-dashed border-slate-300 p-12 text-center dark:border-slate-700">
+            <p class="text-sm font-semibold text-slate-600 dark:text-slate-400">No products available in this category yet.</p>
+        </div>
+    }
+</section>

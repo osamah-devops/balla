@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import 'tailwindcss';
+@import 'ngx-toastr/toastr';
+
+/* Enables class-based dark mode (`.dark` on <html>) instead of Tailwind's
+   default `prefers-color-scheme` media query, so the header's theme toggle
+   can override the system preference. */
+@custom-variant dark (&:where(.dark, .dark *));

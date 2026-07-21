@@ -1,0 +1,31 @@
+<nav>
+    <ul [ngClass]="mobile ? 'flex flex-col items-center gap-1' : 'flex flex-row items-center gap-6 md:gap-16'">
+        <li [ngClass]="mobile ? 'w-full' : ''">
+            <a
+                routerLink="/home"
+                routerLinkActive="text-indigo-600! dark:text-indigo-400!"
+                (click)="linkClick.emit()"
+                [ngClass]="mobile ? 'block w-full rounded-lg px-3 py-2 text-center hover:bg-slate-100 dark:hover:bg-slate-800' : ''"
+                class="cursor-pointer text-sm font-semibold text-slate-600 transition-colors duration-150 hover:text-indigo-600 dark:text-slate-300 dark:hover:text-indigo-400"
+            >Home</a>
+        </li>
+        <li [ngClass]="mobile ? 'w-full' : ''">
+            <a
+                routerLink="/categories"
+                routerLinkActive="text-indigo-600! dark:text-indigo-400!"
+                (click)="linkClick.emit()"
+                [ngClass]="mobile ? 'block w-full rounded-lg px-3 py-2 text-center hover:bg-slate-100 dark:hover:bg-slate-800' : ''"
+                class="cursor-pointer text-sm font-semibold text-slate-600 transition-colors duration-150 hover:text-indigo-600 dark:text-slate-300 dark:hover:text-indigo-400"
+            >Categories</a>
+        </li>
+        <li [ngClass]="mobile ? 'w-full' : ''">
+            <a
+                routerLink="/products"
+                routerLinkActive="text-indigo-600! dark:text-indigo-400!"
+                (click)="linkClick.emit()"
+                [ngClass]="mobile ? 'block w-full rounded-lg px-3 py-2 text-center hover:bg-slate-100 dark:hover:bg-slate-800' : ''"
+                class="cursor-pointer text-sm font-semibold text-slate-600 transition-colors duration-150 hover:text-indigo-600 dark:text-slate-300 dark:hover:text-indigo-400"
+            >Products</a>
+        </li>
+    </ul>
+</nav>

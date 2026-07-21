@@ -1,0 +1,9 @@
+<button
+  type="button"
+  (click)="toggle.emit()"
+  [attr.aria-expanded]="isOpen"
+  aria-label="Toggle navigation menu"
+  class="inline-flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center rounded-full border-none bg-transparent text-slate-600 transition-colors duration-150 hover:bg-slate-100 hover:text-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-indigo-400"
+>
+  <ng-icon [name]="isOpen ? 'faSolidXmark' : 'faSolidBars'" size="1.125rem"></ng-icon>
+</button>

@@ -1,0 +1,290 @@
+[
+    {
+        "id": "SELL-AUT-01",
+        "name": "Apex AutoWorks",
+        "location": "Detroit, MI",
+        "rating": 4.3,
+        "reviews": 180,
+        "memberSince": 2015,
+        "verified": false
+    },
+    {
+        "id": "SELL-AUT-02",
+        "name": "TrackSide Garage Supply",
+        "location": "Charlotte, NC",
+        "rating": 4.4,
+        "reviews": 370,
+        "memberSince": 2016,
+        "verified": true
+    },
+    {
+        "id": "SELL-BEA-01",
+        "name": "GlowLab Cosmetics",
+        "location": "Los Angeles, CA",
+        "rating": 4.5,
+        "reviews": 560,
+        "memberSince": 2017,
+        "verified": true
+    },
+    {
+        "id": "SELL-BEA-02",
+        "name": "Pure Radiance Co.",
+        "location": "Miami, FL",
+        "rating": 4.6,
+        "reviews": 750,
+        "memberSince": 2018,
+        "verified": true
+    },
+    {
+        "id": "SELL-BOO-01",
+        "name": "Lantern & Ink Booksellers",
+        "location": "Portland, OR",
+        "rating": 4.7,
+        "reviews": 940,
+        "memberSince": 2019,
+        "verified": true
+    },
+    {
+        "id": "SELL-BOO-02",
+        "name": "Scholar’s Nook Press",
+        "location": "Boston, MA",
+        "rating": 4.8,
+        "reviews": 1130,
+        "memberSince": 2020,
+        "verified": false
+    },
+    {
+        "id": "SELL-ELE-01",
+        "name": "CircuitForge Electronics",
+        "location": "San Jose, CA",
+        "rating": 4.9,
+        "reviews": 1320,
+        "memberSince": 2021,
+        "verified": true
+    },
+    {
+        "id": "SELL-ELE-02",
+        "name": "NimbusTech Supply",
+        "location": "Austin, TX",
+        "rating": 4.3,
+        "reviews": 1510,
+        "memberSince": 2022,
+        "verified": true
+    },
+    {
+        "id": "SELL-FAS-01",
+        "name": "Meridian Atelier",
+        "location": "New York, NY",
+        "rating": 4.4,
+        "reviews": 1700,
+        "memberSince": 2023,
+        "verified": true
+    },
+    {
+        "id": "SELL-FAS-02",
+        "name": "Thread & Form Studio",
+        "location": "Seattle, WA",
+        "rating": 4.5,
+        "reviews": 1890,
+        "memberSince": 2015,
+        "verified": true
+    },
+    {
+        "id": "SELL-GAM-01",
+        "name": "PixelForge Gear",
+        "location": "San Francisco, CA",
+        "rating": 4.6,
+        "reviews": 2080,
+        "memberSince": 2016,
+        "verified": false
+    },
+    {
+        "id": "SELL-GAM-02",
+        "name": "RespawnPoint Supply Co.",
+        "location": "Denver, CO",
+        "rating": 4.7,
+        "reviews": 763,
+        "memberSince": 2017,
+        "verified": true
+    },
+    {
+        "id": "SELL-GAR-01",
+        "name": "Rootbound Garden Co.",
+        "location": "Asheville, NC",
+        "rating": 4.8,
+        "reviews": 953,
+        "memberSince": 2018,
+        "verified": true
+    },
+    {
+        "id": "SELL-GAR-02",
+        "name": "Greenfield Homestead Supply",
+        "location": "Boise, ID",
+        "rating": 4.9,
+        "reviews": 1143,
+        "memberSince": 2019,
+        "verified": true
+    },
+    {
+        "id": "SELL-HOB-01",
+        "name": "Craftwell Studio Supply",
+        "location": "Minneapolis, MN",
+        "rating": 4.3,
+        "reviews": 1333,
+        "memberSince": 2020,
+        "verified": true
+    },
+    {
+        "id": "SELL-HOB-02",
+        "name": "Hearth & Handmade Co.",
+        "location": "Nashville, TN",
+        "rating": 4.4,
+        "reviews": 1523,
+        "memberSince": 2021,
+        "verified": false
+    },
+    {
+        "id": "SELL-HOM-01",
+        "name": "Northgrain Furniture Co.",
+        "location": "Grand Rapids, MI",
+        "rating": 4.5,
+        "reviews": 1713,
+        "memberSince": 2022,
+        "verified": true
+    },
+    {
+        "id": "SELL-HOM-02",
+        "name": "Modern Hearth Interiors",
+        "location": "Chicago, IL",
+        "rating": 4.6,
+        "reviews": 1003,
+        "memberSince": 2023,
+        "verified": true
+    },
+    {
+        "id": "SELL-KIT-01",
+        "name": "Copperline Kitchen Co.",
+        "location": "Providence, RI",
+        "rating": 4.7,
+        "reviews": 1193,
+        "memberSince": 2015,
+        "verified": true
+    },
+    {
+        "id": "SELL-KIT-02",
+        "name": "Hearthstone Dining Supply",
+        "location": "Madison, WI",
+        "rating": 4.8,
+        "reviews": 1383,
+        "memberSince": 2016,
+        "verified": true
+    },
+    {
+        "id": "SELL-PET-01",
+        "name": "Wagging Trail Pet Co.",
+        "location": "Salt Lake City, UT",
+        "rating": 4.9,
+        "reviews": 1573,
+        "memberSince": 2017,
+        "verified": false
+    },
+    {
+        "id": "SELL-PET-02",
+        "name": "Whisker & Bone Supply",
+        "location": "Raleigh, NC",
+        "rating": 4.3,
+        "reviews": 1763,
+        "memberSince": 2018,
+        "verified": true
+    },
+    {
+        "id": "SELL-PHO-01",
+        "name": "Silverhalide Optics Co.",
+        "location": "Rochester, NY",
+        "rating": 4.4,
+        "reviews": 446,
+        "memberSince": 2019,
+        "verified": true
+    },
+    {
+        "id": "SELL-PHO-02",
+        "name": "Aperture & Ash Studio Supply",
+        "location": "Santa Fe, NM",
+        "rating": 4.5,
+        "reviews": 636,
+        "memberSince": 2020,
+        "verified": true
+    },
+    {
+        "id": "SELL-SER-01",
+        "name": "Bluepoint Professional Services",
+        "location": "Atlanta, GA",
+        "rating": 4.6,
+        "reviews": 826,
+        "memberSince": 2021,
+        "verified": true
+    },
+    {
+        "id": "SELL-SER-02",
+        "name": "Keystone Home Services Co.",
+        "location": "Columbus, OH",
+        "rating": 4.7,
+        "reviews": 1016,
+        "memberSince": 2022,
+        "verified": false
+    },
+    {
+        "id": "SELL-SPO-01",
+        "name": "Ironline Fitness Supply",
+        "location": "Boulder, CO",
+        "rating": 4.8,
+        "reviews": 1206,
+        "memberSince": 2023,
+        "verified": true
+    },
+    {
+        "id": "SELL-SPO-02",
+        "name": "Summit Performance Co.",
+        "location": "Salt Lake City, UT",
+        "rating": 4.9,
+        "reviews": 1396,
+        "memberSince": 2015,
+        "verified": true
+    },
+    {
+        "id": "SELL-TOY-01",
+        "name": "Bramblewood Toy Co.",
+        "location": "Burlington, VT",
+        "rating": 4.3,
+        "reviews": 1586,
+        "memberSince": 2016,
+        "verified": true
+    },
+    {
+        "id": "SELL-TOY-02",
+        "name": "Playful Acorn Supply",
+        "location": "Cincinnati, OH",
+        "rating": 4.4,
+        "reviews": 1776,
+        "memberSince": 2017,
+        "verified": true
+    },
+    {
+        "id": "SELL-TRA-01",
+        "name": "Wanderline Travel Goods",
+        "location": "San Diego, CA",
+        "rating": 4.5,
+        "reviews": 1966,
+        "memberSince": 2018,
+        "verified": false
+    },
+    {
+        "id": "SELL-TRA-02",
+        "name": "Farflung Supply Co.",
+        "location": "Tucson, AZ",
+        "rating": 4.6,
+        "reviews": 2156,
+        "memberSince": 2019,
+        "verified": true
+    }
+]

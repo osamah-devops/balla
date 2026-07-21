@@ -1,0 +1,9 @@
+bin/
+obj/
+
+# Contains local-only secrets once filled in (Cognito/SES/table names); appsettings.json
+# stays tracked since it only holds empty placeholder defaults for production overrides.
+appsettings.Development.json
+*.user
+.vs/
+.idea/

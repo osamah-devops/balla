@@ -1,0 +1,13 @@
+<button
+  type="button"
+  (click)="toggle()"
+  [attr.aria-pressed]="isDarkMode"
+  [attr.aria-label]="isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'"
+  class="inline-flex h-9 w-9 shrink-0 cursor-pointer items-center justify-center rounded-full border-none bg-transparent transition-colors duration-150 hover:bg-slate-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:hover:bg-slate-800"
+>
+  <ng-icon
+    [name]="isDarkMode ? 'faSolidMoon' : 'faSolidSun'"
+    [color]="isDarkMode ? 'var(--color-indigo-300)' : 'var(--color-amber-500)'"
+    size="1.125rem"
+  ></ng-icon>
+</button>

@@ -1,0 +1,78 @@
+[
+  {
+    "id": "USR-0001",
+    "name": "Morgan Ellis",
+    "email": "admin@balla.com",
+    "role": "admin",
+    "status": "active",
+    "joinedDate": "2021-02-11",
+    "zipCode": "10001"
+  },
+  {
+    "id": "USR-0002",
+    "name": "Jared Cole",
+    "email": "seller@balla.com",
+    "role": "seller",
+    "status": "active",
+    "joinedDate": "2015-06-01",
+    "zipCode": "48226",
+    "ownerId": "SELL-AUT-01"
+  },
+  {
+    "id": "USR-0003",
+    "name": "Priya Nandan",
+    "email": "priya@glowlab.com",
+    "role": "seller",
+    "status": "active",
+    "joinedDate": "2017-03-22",
+    "zipCode": "90210",
+    "ownerId": "SELL-BEA-01"
+  },
+  {
+    "id": "USR-0004",
+    "name": "Devon Marsh",
+    "email": "devon@nexuselectro.com",
+    "role": "seller",
+    "status": "active",
+    "joinedDate": "2014-09-10",
+    "zipCode": "94103",
+    "ownerId": "SELL-ELE-01"
+  },
+  {
+    "id": "USR-0005",
+    "name": "Isabel Trent",
+    "email": "isabel@saffianolux.com",
+    "role": "seller",
+    "status": "suspended",
+    "joinedDate": "2018-11-05",
+    "zipCode": "33139",
+    "ownerId": "SELL-FAS-01"
+  },
+  {
+    "id": "USR-0006",
+    "name": "Alex Rivera",
+    "email": "customer@balla.com",
+    "role": "customer",
+    "status": "active",
+    "joinedDate": "2023-01-15",
+    "zipCode": "73301"
+  },
+  {
+    "id": "USR-0007",
+    "name": "Sam Whitfield",
+    "email": "sam.w@example.com",
+    "role": "customer",
+    "status": "active",
+    "joinedDate": "2023-05-30",
+    "zipCode": "60601"
+  },
+  {
+    "id": "USR-0008",
+    "name": "Nina Kowalski",
+    "email": "nina.k@example.com",
+    "role": "customer",
+    "status": "suspended",
+    "joinedDate": "2022-08-19",
+    "zipCode": "02108"
+  }
+]

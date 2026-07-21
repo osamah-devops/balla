@@ -1,0 +1,110 @@
+<mat-card class="rounded-xl! border-none! bg-white! p-1 shadow-sm ring-1 ring-slate-200 dark:bg-slate-900! dark:ring-slate-800">
+    <mat-card-header class="border-b border-slate-100 pb-2 dark:border-slate-800">
+        <mat-card-title class="text-xs font-bold tracking-wider text-slate-500 uppercase dark:text-slate-400">Categories</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="pt-2">
+        <mat-list class="flex max-h-72 flex-col gap-1! overflow-y-auto p-0!">
+            @for (category of categories(); track category.slug) {
+                <mat-list-item class="h-auto! p-0!">
+                    @if (categoryMode() === 'route') {
+                        <a
+                            [routerLink]="['/category', category.slug]"
+                            routerLinkActive="bg-indigo-50! text-indigo-600! dark:bg-indigo-500/10! dark:text-indigo-400!"
+                            (click)="categorySelected.emit(category.slug)"
+                            class="block w-full cursor-pointer rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 transition-colors duration-150 hover:bg-slate-100 hover:text-indigo-600 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-indigo-400"
+                        >
+                            {{ category.name }}
+                        </a>
+                    } @else {
+                        <button
+                            type="button"
+                            (click)="categorySelected.emit(category.slug)"
+                            [class.bg-indigo-50!]="selectedCategory() === category.slug"
+                            [class.text-indigo-600!]="selectedCategory() === category.slug"
+                            [class.dark:bg-indigo-500/10!]="selectedCategory() === category.slug"
+                            [class.dark:text-indigo-400!]="selectedCategory() === category.slug"
+                            class="block w-full cursor-pointer rounded-lg px-3 py-2 text-left text-sm font-semibold text-slate-700 transition-colors duration-150 hover:bg-slate-100 hover:text-indigo-600 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-indigo-400"
+                        >
+                            {{ category.name }}
+                        </button>
+                    }
+                </mat-list-item>
+            }
+        </mat-list>
+    </mat-card-content>
+</mat-card>
+
+<mat-card class="rounded-xl! border-none! bg-white! p-1 shadow-sm ring-1 ring-slate-200 dark:bg-slate-900! dark:ring-slate-800">
+    <mat-card-header class="border-b border-slate-100 pb-2 dark:border-slate-800">
+        <mat-card-title class="text-xs font-bold tracking-wider text-slate-500 uppercase dark:text-slate-400">Location</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="flex flex-col gap-3 pt-3">
+        <label class="flex flex-col gap-1">
+            <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">State</span>
+            <select
+                [ngModel]="selectedState()"
+                (ngModelChange)="stateSelected.emit($event)"
+                class="w-full cursor-pointer rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 transition-colors duration-150 focus:border-indigo-500 focus:outline-none dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"
+            >
+                <option value="">All States</option>
+                @for (state of states(); track state) {
+                    <option [value]="state">{{ state }}</option>
+                }
+            </select>
+        </label>
+        <label class="flex flex-col gap-1">
+            <span class="text-xs font-semibold text-slate-500 dark:text-slate-400">Zip Code</span>
+            <input
+                type="text"
+                inputmode="numeric"
+                maxlength="5"
+                placeholder="e.g. 10001"
+                [ngModel]="zipCode()"
+                (ngModelChange)="zipCodeChanged.emit($event)"
+                class="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 transition-colors duration-150 placeholder:font-normal placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:placeholder:text-slate-500"
+            />
+        </label>
+    </mat-card-content>
+</mat-card>
+
+<mat-card class="rounded-xl! border-none! bg-white! p-1 shadow-sm ring-1 ring-slate-200 dark:bg-slate-900! dark:ring-slate-800">
+    <mat-card-header class="border-b border-slate-100 pb-2 dark:border-slate-800">
+        <mat-card-title class="text-xs font-bold tracking-wider text-slate-500 uppercase dark:text-slate-400">Price Range</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="flex flex-col gap-1 pt-2">
+        @for (range of priceRanges(); track range) {
+            <button
+                type="button"
+                (click)="priceRangeSelected.emit(range)"
+                [class.bg-indigo-50!]="selectedPriceRange() === range"
+                [class.text-indigo-600!]="selectedPriceRange() === range"
+                [class.dark:bg-indigo-500/10!]="selectedPriceRange() === range"
+                [class.dark:text-indigo-400!]="selectedPriceRange() === range"
+                class="w-full cursor-pointer rounded-lg px-3 py-2 text-left text-sm font-semibold text-slate-700 transition-colors duration-150 hover:bg-slate-100 hover:text-indigo-600 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-indigo-400"
+            >
+                {{ range }}
+            </button>
+        }
+    </mat-card-content>
+</mat-card>
+
+<mat-card class="rounded-xl! border-none! bg-white! p-1 shadow-sm ring-1 ring-slate-200 dark:bg-slate-900! dark:ring-slate-800">
+    <mat-card-header class="border-b border-slate-100 pb-2 dark:border-slate-800">
+        <mat-card-title class="text-xs font-bold tracking-wider text-slate-500 uppercase dark:text-slate-400">Sort By</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="flex flex-col gap-1 pt-2">
+        @for (option of sortOptions(); track option.key) {
+            <button
+                type="button"
+                (click)="sortSelected.emit(option.key)"
+                [class.bg-indigo-50!]="selectedSort() === option.key"
+                [class.text-indigo-600!]="selectedSort() === option.key"
+                [class.dark:bg-indigo-500/10!]="selectedSort() === option.key"
+                [class.dark:text-indigo-400!]="selectedSort() === option.key"
+                class="w-full cursor-pointer rounded-lg px-3 py-2 text-left text-sm font-semibold text-slate-700 transition-colors duration-150 hover:bg-slate-100 hover:text-indigo-600 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-indigo-400"
+            >
+                {{ option.label }}
+            </button>
+        }
+    </mat-card-content>
+</mat-card>

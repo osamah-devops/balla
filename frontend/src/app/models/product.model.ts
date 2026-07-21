@@ -1,0 +1,39 @@
+export interface ProductOwnerRef {
+  id: string;
+  name: string;
+  location: string;
+}
+
+export interface ProductOption {
+  name: string;
+  values: string[];
+}
+
+export interface Product {
+  id: string;
+  category: string;
+  categorySlug: string;
+  title: string;
+  price: string;
+  currency: string;
+  fullDescription: string;
+  specifications?: Record<string, string>;
+  owner: ProductOwnerRef;
+  image: string;
+  extraImages?: string[];
+  options?: ProductOption[];
+  averageRating: number;
+  ratingCount: number;
+}
+
+export interface CreateProductRequest {
+  title: string;
+  category: string;
+  categorySlug: string;
+  price: string;
+  currency: string;
+  fullDescription: string;
+  image: File;
+  extraImages?: File[];
+  options?: ProductOption[];
+}

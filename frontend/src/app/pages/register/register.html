@@ -1,0 +1,166 @@
+<section class="mx-auto flex w-full max-w-md flex-col gap-6 bg-white px-4 py-10 sm:px-6 dark:bg-slate-950">
+    @if (step() === 'details') {
+        <div class="flex flex-col gap-1 text-center">
+            <h1 class="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white">Create your account</h1>
+            <p class="text-sm text-slate-500 dark:text-slate-400">Join Balla to buy, sell, and track your orders.</p>
+        </div>
+
+        <form [formGroup]="detailsForm" (ngSubmit)="submitDetails()" class="flex flex-col gap-4 rounded-xl bg-white p-5 ring-1 ring-slate-200 shadow-sm dark:bg-slate-900 dark:ring-slate-800">
+            <div class="flex flex-col items-center gap-2">
+                <label class="group relative flex h-20 w-20 cursor-pointer items-center justify-center overflow-hidden rounded-full border-2 border-dashed border-slate-300 bg-slate-50 text-slate-400 transition-colors duration-150 hover:border-indigo-400 dark:border-slate-700 dark:bg-slate-800">
+                    @if (profileImagePreview()) {
+                        <img [src]="profileImagePreview()" alt="Profile preview" class="h-full w-full object-cover" />
+                    } @else {
+                        <ng-icon name="faSolidCamera" size="1.1rem"></ng-icon>
+                    }
+                    <input type="file" accept="image/*" class="hidden" (change)="onImageSelected($event)" />
+                </label>
+                <span class="text-xs text-slate-400 dark:text-slate-500">Profile photo (optional)</span>
+            </div>
+
+            <label class="flex flex-col gap-1.5">
+                <span class="text-sm font-semibold text-slate-700 dark:text-slate-200">Full name</span>
+                <span class="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 focus-within:ring-2 focus-within:ring-indigo-500 dark:border-slate-700 dark:bg-slate-950">
+                    <ng-icon name="faSolidUser" size="0.9rem" class="text-slate-400"></ng-icon>
+                    <input type="text" formControlName="name" placeholder="Jordan Lee" class="w-full bg-transparent text-sm text-slate-900 outline-none placeholder:text-slate-400 dark:text-white" />
+                </span>
+                @if (detailsForm.controls.name.invalid && detailsForm.controls.name.touched) {
+                    <span class="text-xs font-medium text-red-600 dark:text-red-400">Enter your full name.</span>
+                }
+            </label>
+
+            <label class="flex flex-col gap-1.5">
+                <span class="text-sm font-semibold text-slate-700 dark:text-slate-200">Email</span>
+                <span class="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 focus-within:ring-2 focus-within:ring-indigo-500 dark:border-slate-700 dark:bg-slate-950">
+                    <ng-icon name="faSolidEnvelope" size="0.9rem" class="text-slate-400"></ng-icon>
+                    <input type="email" formControlName="email" placeholder="you@example.com" class="w-full bg-transparent text-sm text-slate-900 outline-none placeholder:text-slate-400 dark:text-white" />
+                </span>
+                @if (detailsForm.controls.email.invalid && detailsForm.controls.email.touched) {
+                    <span class="text-xs font-medium text-red-600 dark:text-red-400">Enter a valid email address.</span>
+                }
+            </label>
+
+            <label class="flex flex-col gap-1.5">
+                <span class="text-sm font-semibold text-slate-700 dark:text-slate-200">ZIP code</span>
+                <span class="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 focus-within:ring-2 focus-within:ring-indigo-500 dark:border-slate-700 dark:bg-slate-950">
+                    <ng-icon name="faSolidLocationDot" size="0.9rem" class="text-slate-400"></ng-icon>
+                    <input type="text" formControlName="zipCode" placeholder="94103" inputmode="numeric" class="w-full bg-transparent text-sm text-slate-900 outline-none placeholder:text-slate-400 dark:text-white" />
+                </span>
+                @if (detailsForm.controls.zipCode.invalid && detailsForm.controls.zipCode.touched) {
+                    <span class="text-xs font-medium text-red-600 dark:text-red-400">Enter a valid US ZIP code.</span>
+                }
+            </label>
+
+            <label class="flex flex-col gap-1.5">
+                <span class="text-sm font-semibold text-slate-700 dark:text-slate-200">State</span>
+                <select formControlName="state" class="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-indigo-500 dark:border-slate-700 dark:bg-slate-950 dark:text-white">
+                    <option value="" disabled>Select a state</option>
+                    @for (state of states; track state) {
+                        <option [value]="state">{{ state }}</option>
+                    }
+                </select>
+                @if (detailsForm.controls.state.invalid && detailsForm.controls.state.touched) {
+                    <span class="text-xs font-medium text-red-600 dark:text-red-400">Select your state.</span>
+                }
+            </label>
+
+            <label class="flex flex-col gap-1.5">
+                <span class="text-sm font-semibold text-slate-700 dark:text-slate-200">Password</span>
+                <span class="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 focus-within:ring-2 focus-within:ring-indigo-500 dark:border-slate-700 dark:bg-slate-950">
+                    <ng-icon name="faSolidLock" size="0.9rem" class="text-slate-400"></ng-icon>
+                    <input type="password" formControlName="password" placeholder="••••••••••••" class="w-full bg-transparent text-sm text-slate-900 outline-none placeholder:text-slate-400 dark:text-white" />
+                </span>
+                @if (detailsForm.controls.password.invalid && detailsForm.controls.password.touched) {
+                    <span class="text-xs font-medium text-red-600 dark:text-red-400">At least 12 characters, with upper/lowercase, a number, and a symbol.</span>
+                }
+            </label>
+
+            <label class="flex flex-col gap-1.5">
+                <span class="text-sm font-semibold text-slate-700 dark:text-slate-200">Confirm password</span>
+                <span class="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 focus-within:ring-2 focus-within:ring-indigo-500 dark:border-slate-700 dark:bg-slate-950">
+                    <ng-icon name="faSolidLock" size="0.9rem" class="text-slate-400"></ng-icon>
+                    <input type="password" formControlName="confirmPassword" placeholder="••••••••••••" class="w-full bg-transparent text-sm text-slate-900 outline-none placeholder:text-slate-400 dark:text-white" />
+                </span>
+                @if (detailsForm.errors?.['passwordMismatch'] && detailsForm.controls.confirmPassword.touched) {
+                    <span class="text-xs font-medium text-red-600 dark:text-red-400">Passwords don't match.</span>
+                }
+            </label>
+
+            <label class="flex items-center gap-2">
+                <input type="checkbox" formControlName="sellOnBalla" class="h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 dark:border-slate-600" />
+                <span class="text-sm font-semibold text-slate-700 dark:text-slate-200">I want to sell on Balla</span>
+            </label>
+
+            @if (detailsForm.controls.sellOnBalla.value) {
+                <label class="flex flex-col gap-1.5">
+                    <span class="text-sm font-semibold text-slate-700 dark:text-slate-200">Store name</span>
+                    <input
+                        type="text"
+                        formControlName="storeName"
+                        placeholder="Apex AutoWorks"
+                        class="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-indigo-500 dark:border-slate-700 dark:bg-slate-950 dark:text-white"
+                    />
+                    @if (detailsForm.controls.storeName.invalid && detailsForm.controls.storeName.touched) {
+                        <span class="text-xs font-medium text-red-600 dark:text-red-400">Enter a store name.</span>
+                    }
+                </label>
+            }
+
+            @if (errorMessage()) {
+                <p class="text-sm font-medium text-red-600 dark:text-red-400">{{ errorMessage() }}</p>
+            }
+
+            <button
+                type="submit"
+                [disabled]="submitting()"
+                class="mt-1 flex items-center justify-center gap-2 rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-indigo-700 disabled:opacity-60"
+            >
+                <ng-icon name="faSolidUserPlus" size="0.9rem"></ng-icon>
+                {{ submitting() ? 'Creating account…' : 'Create account' }}
+            </button>
+
+            <p class="text-center text-sm text-slate-500 dark:text-slate-400">
+                Already have an account? <a routerLink="/login" class="font-semibold text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300">Sign in</a>
+            </p>
+        </form>
+    }
+
+    @if (step() === 'confirm') {
+        <div class="flex flex-col gap-1 text-center">
+            <h1 class="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white">Check your email</h1>
+            <p class="text-sm text-slate-500 dark:text-slate-400">
+                We sent a 6-digit code to {{ detailsForm.controls.email.value }}. Enter it below to verify your account.
+            </p>
+        </div>
+
+        <form [formGroup]="confirmForm" (ngSubmit)="submitConfirmation()" class="flex flex-col gap-4 rounded-xl bg-white p-5 ring-1 ring-slate-200 shadow-sm dark:bg-slate-900 dark:ring-slate-800">
+            <label class="flex flex-col gap-1.5">
+                <span class="text-sm font-semibold text-slate-700 dark:text-slate-200">Verification code</span>
+                <input
+                    type="text"
+                    formControlName="code"
+                    inputmode="numeric"
+                    maxlength="6"
+                    placeholder="123456"
+                    class="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-center text-lg tracking-[0.5em] text-slate-900 outline-none focus:ring-2 focus:ring-indigo-500 dark:border-slate-700 dark:bg-slate-950 dark:text-white"
+                />
+            </label>
+
+            @if (errorMessage()) {
+                <p class="text-sm font-medium text-red-600 dark:text-red-400">{{ errorMessage() }}</p>
+            }
+
+            <button
+                type="submit"
+                [disabled]="submitting()"
+                class="mt-1 flex items-center justify-center gap-2 rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-indigo-700 disabled:opacity-60"
+            >
+                {{ submitting() ? 'Verifying…' : 'Verify and continue' }}
+            </button>
+
+            <button type="button" (click)="resendCode()" class="text-center text-sm font-semibold text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300">
+                Resend code
+            </button>
+        </form>
+    }
+</section>

@@ -1,0 +1,118 @@
+<ng-template #listView>
+    <h1 class="border-b border-slate-200 px-4 py-4 text-lg font-extrabold tracking-tight text-slate-900 dark:border-slate-800 dark:text-white">Messages</h1>
+    <div class="flex flex-1 flex-col overflow-y-auto">
+        @for (conversation of conversations(); track conversation.id) {
+            <button
+                type="button"
+                (click)="select(conversation.id)"
+                class="flex items-center gap-3 border-b border-slate-100 px-4 py-3 text-left transition-colors duration-150 hover:bg-slate-50 dark:border-slate-800 dark:hover:bg-slate-900"
+                [class]="selectedId() === conversation.id ? 'bg-slate-100 dark:bg-slate-900' : ''"
+            >
+                <span class="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-slate-100 text-slate-400 dark:bg-slate-800">
+                    @if (conversation.buyerId === currentUserId() ? conversation.sellerProfileImageUrl : conversation.buyerProfileImageUrl; as avatar) {
+                        <img [src]="avatar" alt="" class="h-full w-full object-cover" />
+                    } @else {
+                        <ng-icon name="faSolidUser" size="1rem"></ng-icon>
+                    }
+                </span>
+                <div class="min-w-0 flex-1">
+                    <div class="flex items-center justify-between gap-2">
+                        <p class="line-clamp-1 text-sm font-semibold text-slate-900 dark:text-white">{{ otherPartyName(conversation) }}</p>
+                        @if (conversation.unreadCount > 0) {
+                            <span class="flex h-4 min-w-4 shrink-0 items-center justify-center rounded-full bg-rose-500 px-1 text-[10px] font-bold text-white">{{ conversation.unreadCount }}</span>
+                        }
+                    </div>
+                    @if (conversation.lastProductTitle) {
+                        <p class="line-clamp-1 text-xs text-indigo-600 dark:text-indigo-400">{{ conversation.lastProductTitle }}</p>
+                    }
+                    <p class="line-clamp-1 text-xs text-slate-500 dark:text-slate-400">{{ conversation.lastMessagePreview }}</p>
+                </div>
+            </button>
+        } @empty {
+            <p class="px-4 py-8 text-center text-sm text-slate-500 dark:text-slate-400">No conversations yet.</p>
+        }
+    </div>
+</ng-template>
+
+<ng-template #threadView>
+    @if (selectedConversation(); as conversation) {
+        <div class="flex items-center gap-3 border-b border-slate-200 px-4 py-4 dark:border-slate-800">
+            <button type="button" (click)="backToList()" class="text-slate-500 sm:hidden dark:text-slate-400">
+                <ng-icon name="faSolidArrowLeft" size="1rem"></ng-icon>
+            </button>
+            <div>
+                <p class="text-sm font-bold text-slate-900 dark:text-white">{{ otherPartyName(conversation) }}</p>
+                @if (conversation.lastProductTitle) {
+                    <p class="text-xs text-slate-500 dark:text-slate-400">{{ conversation.lastProductTitle }}</p>
+                }
+            </div>
+        </div>
+
+        <div class="flex flex-1 flex-col gap-3 overflow-y-auto px-4 py-4">
+            @if (loadingMessages()) {
+                <p class="text-sm text-slate-500 dark:text-slate-400">Loading…</p>
+            } @else {
+                @for (message of selectedMessages(); track message.id) {
+                    <div
+                        class="flex items-end gap-2"
+                        [class]="isBuyerMessage(message, conversation) ? 'flex-row-reverse self-end' : 'flex-row self-start'"
+                    >
+                        <span class="flex h-7 w-7 shrink-0 items-center justify-center overflow-hidden rounded-full bg-slate-100 text-slate-400 dark:bg-slate-800">
+                            @if (avatarFor(message, conversation); as avatar) {
+                                <img [src]="avatar" alt="" class="h-full w-full object-cover" />
+                            } @else {
+                                <ng-icon name="faSolidUser" size="0.75rem"></ng-icon>
+                            }
+                        </span>
+                        <div
+                            class="flex max-w-[70%] flex-col gap-1 rounded-2xl px-3 py-2 text-sm break-words"
+                            [class]="isBuyerMessage(message, conversation)
+                                ? 'bg-indigo-600 text-white'
+                                : 'bg-slate-100 text-slate-900 dark:bg-slate-800 dark:text-white'"
+                        >
+                            <p>{{ message.body }}</p>
+                        </div>
+                    </div>
+                } @empty {
+                    <p class="text-sm text-slate-500 dark:text-slate-400">No messages yet.</p>
+                }
+            }
+        </div>
+
+        <form [formGroup]="replyForm" (ngSubmit)="sendReply()" class="flex items-center gap-2 border-t border-slate-200 px-4 py-3 dark:border-slate-800">
+            <input
+                type="text"
+                formControlName="body"
+                placeholder="Type a message…"
+                class="flex-1 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-indigo-500 dark:border-slate-700 dark:bg-slate-950 dark:text-white"
+            />
+            <button type="submit" [disabled]="sending()" class="flex items-center justify-center rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition-colors duration-150 hover:bg-indigo-700 disabled:opacity-60">
+                <ng-icon name="faSolidPaperPlane" size="0.85rem"></ng-icon>
+            </button>
+        </form>
+    } @else {
+        <div class="flex flex-1 items-center justify-center gap-2 py-16 text-sm text-slate-500 dark:text-slate-400">
+            <ng-icon name="faSolidComments" size="1.1rem"></ng-icon>
+            Select a conversation to view messages.
+        </div>
+    }
+</ng-template>
+
+<!-- Mobile: single pane, list or thread depending on selection -->
+<section class="mx-auto flex h-[calc(100vh-4rem)] w-full max-w-6xl flex-col sm:hidden">
+    @if (selectedId()) {
+        <ng-container [ngTemplateOutlet]="threadView"></ng-container>
+    } @else {
+        <ng-container [ngTemplateOutlet]="listView"></ng-container>
+    }
+</section>
+
+<!-- Desktop: both panes side by side -->
+<section class="mx-auto hidden w-full max-w-6xl bg-white sm:flex sm:h-[calc(100vh-4rem)] sm:overflow-hidden dark:bg-slate-950">
+    <aside class="flex w-80 shrink-0 flex-col overflow-y-auto border-r border-slate-200 dark:border-slate-800">
+        <ng-container [ngTemplateOutlet]="listView"></ng-container>
+    </aside>
+    <div class="flex flex-1 flex-col">
+        <ng-container [ngTemplateOutlet]="threadView"></ng-container>
+    </div>
+</section>

@@ -1,0 +1,10 @@
+# OS cruft
+.DS_Store
+Thumbs.db
+
+# Local Claude Code settings (machine-specific)
+.claude/settings.local.json
+.claude/scheduled_tasks.lock
+
+# Stray Playwright MCP artifacts if ever created at repo root
+/.playwright-mcp

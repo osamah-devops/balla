@@ -1,0 +1,59 @@
+<section class="mx-auto flex w-full max-w-md flex-col gap-6 bg-white px-4 py-10 sm:px-6 dark:bg-slate-950">
+    <div class="flex flex-col gap-1 text-center">
+        <h1 class="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white">Welcome back</h1>
+        <p class="text-sm text-slate-500 dark:text-slate-400">Sign in to manage your orders, listings, or storefront.</p>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="submit()" class="flex flex-col gap-4 rounded-xl bg-white p-5 ring-1 ring-slate-200 shadow-sm dark:bg-slate-900 dark:ring-slate-800">
+        <label class="flex flex-col gap-1.5">
+            <span class="text-sm font-semibold text-slate-700 dark:text-slate-200">Email</span>
+            <span class="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 focus-within:ring-2 focus-within:ring-indigo-500 dark:border-slate-700 dark:bg-slate-950">
+                <ng-icon name="faSolidEnvelope" size="0.9rem" class="text-slate-400"></ng-icon>
+                <input
+                    type="email"
+                    formControlName="email"
+                    placeholder="you@example.com"
+                    class="w-full bg-transparent text-sm text-slate-900 outline-none placeholder:text-slate-400 dark:text-white"
+                />
+            </span>
+        </label>
+
+        <label class="flex flex-col gap-1.5">
+            <span class="text-sm font-semibold text-slate-700 dark:text-slate-200">Password</span>
+            <span class="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 focus-within:ring-2 focus-within:ring-indigo-500 dark:border-slate-700 dark:bg-slate-950">
+                <ng-icon name="faSolidLock" size="0.9rem" class="text-slate-400"></ng-icon>
+                <input
+                    type="password"
+                    formControlName="password"
+                    placeholder="••••••••"
+                    class="w-full bg-transparent text-sm text-slate-900 outline-none placeholder:text-slate-400 dark:text-white"
+                />
+            </span>
+        </label>
+
+        <div class="flex items-center justify-between">
+            <label class="flex items-center gap-2">
+                <input type="checkbox" formControlName="rememberMe" class="h-4 w-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 dark:border-slate-600" />
+                <span class="text-sm font-medium text-slate-700 dark:text-slate-200">Remember me</span>
+            </label>
+            <a routerLink="/forget-password" class="text-sm font-semibold text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300">Forgot password?</a>
+        </div>
+
+        @if (errorMessage()) {
+            <p class="text-sm font-medium text-red-600 dark:text-red-400">{{ errorMessage() }}</p>
+        }
+
+        <button
+            type="submit"
+            [disabled]="submitting()"
+            class="mt-1 flex items-center justify-center gap-2 rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-indigo-700 disabled:opacity-60"
+        >
+            <ng-icon name="faSolidRightToBracket" size="0.9rem"></ng-icon>
+            {{ submitting() ? 'Signing in…' : 'Sign in' }}
+        </button>
+
+        <p class="text-center text-sm text-slate-500 dark:text-slate-400">
+            No account? <a routerLink="/register" class="font-semibold text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300">Register</a>
+        </p>
+    </form>
+</section>
