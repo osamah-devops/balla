@@ -381,6 +381,7 @@ resource "aws_iam_policy" "ecs_task_application" {
           "cognito-idp:RespondToAuthChallenge",
           "cognito-idp:ForgotPassword",
           "cognito-idp:ConfirmForgotPassword",
+          "cognito-idp:ChangePassword",
           "cognito-idp:GetUser"
         ]
         Effect   = "Allow"

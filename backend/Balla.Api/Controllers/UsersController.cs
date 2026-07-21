@@ -1,4 +1,6 @@
+using Balla.Api.Contracts.Auth;
 using Balla.Api.Contracts.Users;
+using Balla.Api.Services.Auth;
 using Balla.Api.Services.Moderation;
 using Balla.Api.Services.Storage;
 using Balla.Api.Services.Users;
@@ -9,7 +11,11 @@ namespace Balla.Api.Controllers;
 
 [Route("api/users")]
 [Authorize]
-public class UsersController(IUserProfileRepository userProfileRepository, IFileStorage fileStorage, IContentModerationService contentModerationService)
+public class UsersController(
+    IUserProfileRepository userProfileRepository,
+    IFileStorage fileStorage,
+    IContentModerationService contentModerationService,
+    ICognitoAuthService authService)
     : BallaControllerBase(userProfileRepository)
 {
     private const long MaxImageBytes = 5 * 1024 * 1024;
@@ -92,6 +98,18 @@ public class UsersController(IUserProfileRepository userProfileRepository, IFile
         await userProfileRepository.PutAsync(profile, ct);
 
         return Ok(profile.ToResponse());
+    }
+
+    [HttpPost("me/change-password")]
+    public async Task<IActionResult> ChangePassword(ChangePasswordRequest request, CancellationToken ct)
+    {
+        var authorizationHeader = Request.Headers.Authorization.ToString();
+        var accessToken = authorizationHeader.StartsWith("Bearer ", StringComparison.OrdinalIgnoreCase)
+            ? authorizationHeader["Bearer ".Length..]
+            : authorizationHeader;
+
+        await authService.ChangePasswordAsync(accessToken, request.CurrentPassword, request.NewPassword, ct);
+        return NoContent();
     }
 
     [HttpGet("me/blocked")]

@@ -194,6 +194,33 @@ public class CognitoAuthService(IAmazonCognitoIdentityProvider client, IOptions<
         }
     }
 
+    public async Task ChangePasswordAsync(string accessToken, string currentPassword, string newPassword, CancellationToken ct)
+    {
+        var request = new ChangePasswordRequest
+        {
+            AccessToken = accessToken,
+            PreviousPassword = currentPassword,
+            ProposedPassword = newPassword,
+        };
+
+        try
+        {
+            await client.ChangePasswordAsync(request, ct);
+        }
+        catch (NotAuthorizedException ex)
+        {
+            throw new AuthException("INVALID_CREDENTIALS", 401, "Your current password is incorrect.", ex);
+        }
+        catch (InvalidPasswordException ex)
+        {
+            throw new AuthException("INVALID_PASSWORD", 400, "New password does not meet the required policy.", ex);
+        }
+        catch (LimitExceededException ex)
+        {
+            throw new AuthException("TOO_MANY_ATTEMPTS", 429, "Too many attempts. Please try again later.", ex);
+        }
+    }
+
     private static AuthTokens ToAuthTokens(AuthenticationResultType? result, string? fallbackRefreshToken = null)
     {
         if (result is null)
