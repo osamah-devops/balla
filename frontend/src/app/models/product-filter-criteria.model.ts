@@ -10,4 +10,5 @@ export interface ProductFilterCriteria {
   state?: string;
   priceRange?: string;
   sort?: SortKey;
+  search?: string;
 }

@@ -3,6 +3,7 @@ using Balla.Api.Contracts.Orders;
 using Balla.Api.Contracts.Owners;
 using Balla.Api.Contracts.Products;
 using Balla.Api.Contracts.Users;
+using Balla.Api.Services.Moderation;
 using Balla.Api.Services.Orders;
 using Balla.Api.Services.Owners;
 using Balla.Api.Services.Products;
@@ -18,7 +19,8 @@ public class AdminController(
     IUserProfileRepository userProfileRepository,
     IProductRepository productRepository,
     IOwnerRepository ownerRepository,
-    IOrderRepository orderRepository)
+    IOrderRepository orderRepository,
+    IReportRepository reportRepository)
     : BallaControllerBase(userProfileRepository)
 {
     [HttpGet("users")]
@@ -112,6 +114,18 @@ public class AdminController(
 
         var orders = await orderRepository.ListAllAsync(ct);
         return Ok(orders.Select(o => o.ToResponse()));
+    }
+
+    [HttpGet("reports")]
+    public async Task<ActionResult<IReadOnlyList<ReportResponse>>> ListReports(CancellationToken ct)
+    {
+        if (!await IsAdminAsync(ct))
+        {
+            return Forbid();
+        }
+
+        var reports = await reportRepository.ListAllAsync(ct);
+        return Ok(reports.OrderByDescending(r => r.CreatedAt).Select(r => r.ToResponse()));
     }
 
     private async Task<bool> IsAdminAsync(CancellationToken ct)

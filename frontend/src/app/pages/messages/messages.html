@@ -40,13 +40,42 @@
             <button type="button" (click)="backToList()" class="text-slate-500 sm:hidden dark:text-slate-400">
                 <ng-icon name="faSolidArrowLeft" size="1rem"></ng-icon>
             </button>
-            <div>
+            <div class="flex-1">
                 <p class="text-sm font-bold text-slate-900 dark:text-white">{{ otherPartyName(conversation) }}</p>
                 @if (conversation.lastProductTitle) {
                     <p class="text-xs text-slate-500 dark:text-slate-400">{{ conversation.lastProductTitle }}</p>
                 }
             </div>
+            <button type="button" (click)="openReport()" title="Report" class="flex h-8 w-8 items-center justify-center rounded-full text-slate-400 transition-colors duration-150 hover:bg-slate-100 hover:text-slate-600 dark:hover:bg-slate-800 dark:hover:text-slate-300">
+                <ng-icon name="faSolidFlag" size="0.85rem"></ng-icon>
+            </button>
+            <button
+                type="button"
+                (click)="toggleBlock()"
+                [title]="isOtherPartyBlocked() ? 'Unblock' : 'Block'"
+                class="flex h-8 w-8 items-center justify-center rounded-full transition-colors duration-150"
+                [class]="isOtherPartyBlocked() ? 'text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-500/10' : 'text-slate-400 hover:bg-slate-100 hover:text-slate-600 dark:hover:bg-slate-800 dark:hover:text-slate-300'"
+            >
+                <ng-icon name="faSolidBan" size="0.85rem"></ng-icon>
+            </button>
         </div>
+
+        @if (reportOpen()) {
+            <form [formGroup]="reportForm" (ngSubmit)="submitReport()" class="flex flex-col gap-2 border-b border-slate-200 px-4 py-3 dark:border-slate-800">
+                @if (reportSent()) {
+                    <p class="text-sm font-medium text-emerald-600 dark:text-emerald-400">Report submitted. Thanks for flagging this.</p>
+                } @else {
+                    <textarea formControlName="reason" rows="2" placeholder="What's going on with this conversation?" class="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-indigo-500 dark:border-slate-700 dark:bg-slate-950 dark:text-white"></textarea>
+                    <button type="submit" class="self-end rounded-lg bg-rose-600 px-4 py-2 text-sm font-semibold text-white transition-colors duration-150 hover:bg-rose-700">Submit report</button>
+                }
+            </form>
+        }
+
+        @if (isOtherPartyBlocked()) {
+            <p class="border-b border-slate-200 bg-rose-50 px-4 py-2 text-xs font-medium text-rose-700 dark:border-slate-800 dark:bg-rose-500/10 dark:text-rose-400">
+                You've blocked this user. Unblock them to send messages again.
+            </p>
+        }
 
         <div class="flex flex-1 flex-col gap-3 overflow-y-auto px-4 py-4">
             @if (loadingMessages()) {
@@ -83,10 +112,11 @@
             <input
                 type="text"
                 formControlName="body"
-                placeholder="Type a message…"
-                class="flex-1 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-indigo-500 dark:border-slate-700 dark:bg-slate-950 dark:text-white"
+                [placeholder]="isOtherPartyBlocked() ? 'Unblock to send a message…' : 'Type a message…'"
+                [readonly]="isOtherPartyBlocked()"
+                class="flex-1 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-indigo-500 disabled:opacity-60 dark:border-slate-700 dark:bg-slate-950 dark:text-white"
             />
-            <button type="submit" [disabled]="sending()" class="flex items-center justify-center rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition-colors duration-150 hover:bg-indigo-700 disabled:opacity-60">
+            <button type="submit" [disabled]="sending() || isOtherPartyBlocked()" class="flex items-center justify-center rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition-colors duration-150 hover:bg-indigo-700 disabled:opacity-60">
                 <ng-icon name="faSolidPaperPlane" size="0.85rem"></ng-icon>
             </button>
         </form>

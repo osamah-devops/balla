@@ -9,6 +9,7 @@ using Balla.Api.Middleware;
 using Balla.Api.Options;
 using Balla.Api.Services.Auth;
 using Balla.Api.Services.Comments;
+using Balla.Api.Services.Favorites;
 using Balla.Api.Services.Messaging;
 using Balla.Api.Services.Moderation;
 using Balla.Api.Services.Notifications;
@@ -21,7 +22,9 @@ using Balla.Api.Services.Ratings;
 using Balla.Api.Services.Storage;
 using Balla.Api.Services.Users;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.IdentityModel.Tokens;
+using System.Threading.RateLimiting;
 using Stripe;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -52,10 +55,12 @@ builder.Services.AddScoped<IConversationMessageRepository, DynamoDbConversationM
 builder.Services.AddScoped<IConversationMessenger, ConversationMessenger>();
 builder.Services.AddScoped<IOfferRepository, DynamoDbOfferRepository>();
 builder.Services.AddScoped<IOrderRepository, DynamoDbOrderRepository>();
+builder.Services.AddScoped<IFavoriteRepository, DynamoDbFavoriteRepository>();
 builder.Services.AddScoped<IStripeCheckoutService, StripeCheckoutService>();
 builder.Services.AddScoped<INotificationRepository, DynamoDbNotificationRepository>();
 builder.Services.AddScoped<ISesEmailSender, SesEmailSender>();
 builder.Services.AddScoped<IContentModerationService, RekognitionContentModerationService>();
+builder.Services.AddScoped<IReportRepository, DynamoDbReportRepository>();
 builder.Services.AddScoped<INotificationDispatcher, NotificationDispatcher>();
 builder.Services.AddSingleton<IOnlinePresenceTracker, OnlinePresenceTracker>();
 builder.Services.AddSingleton<INotificationPublisher, SignalRNotificationPublisher>();
@@ -114,6 +119,24 @@ builder.Services
     });
 builder.Services.AddAuthorization();
 
+builder.Services.AddRateLimiter(options =>
+{
+    options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+    // Partitioned per authenticated user (falls back to remote IP pre-auth), so one
+    // abusive account can't be worked around by hammering from many tabs/devices.
+    options.AddPolicy("messaging", httpContext =>
+    {
+        var key = httpContext.User.FindFirst("sub")?.Value ?? httpContext.Connection.RemoteIpAddress?.ToString() ?? "anonymous";
+        return RateLimitPartition.GetSlidingWindowLimiter(key, _ => new SlidingWindowRateLimiterOptions
+        {
+            PermitLimit = 20,
+            Window = TimeSpan.FromMinutes(1),
+            SegmentsPerWindow = 4,
+            QueueLimit = 0,
+        });
+    });
+});
+
 var corsOrigin = builder.Configuration["Cors:AllowedOrigin"] ?? "http://localhost:4200";
 builder.Services.AddCors(options =>
 {
@@ -133,6 +156,7 @@ if (app.Environment.IsDevelopment())
 app.UseCors("frontend");
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseRateLimiter();
 
 app.MapGet("/health", () => Results.Ok(new { status = "ok" })).AllowAnonymous();
 

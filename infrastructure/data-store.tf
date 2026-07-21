@@ -221,6 +221,38 @@ resource "aws_dynamodb_table" "orders" {
   tags = local.tags
 }
 
+resource "aws_dynamodb_table" "favorites" {
+  name         = "${local.name}-favorites"
+  billing_mode = "PAY_PER_REQUEST"
+  hash_key     = "UserId"
+  range_key    = "ProductId"
+
+  attribute {
+    name = "UserId"
+    type = "S"
+  }
+
+  attribute {
+    name = "ProductId"
+    type = "S"
+  }
+
+  tags = local.tags
+}
+
+resource "aws_dynamodb_table" "reports" {
+  name         = "${local.name}-reports"
+  billing_mode = "PAY_PER_REQUEST"
+  hash_key     = "ReportId"
+
+  attribute {
+    name = "ReportId"
+    type = "S"
+  }
+
+  tags = local.tags
+}
+
 module "uploads_bucket" {
   source  = "terraform-aws-modules/s3-bucket/aws"
   version = "~> 5.0"

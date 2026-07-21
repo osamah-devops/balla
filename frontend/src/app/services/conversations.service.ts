@@ -27,4 +27,8 @@ export class ConversationsService {
   sendReply(conversationId: string, request: SendReplyRequest): Observable<ConversationMessage> {
     return this.http.post<ConversationMessage>(`/api/conversations/${conversationId}/messages`, request);
   }
+
+  report(conversationId: string, reason: string): Observable<void> {
+    return this.http.post<void>(`/api/conversations/${conversationId}/report`, { reason });
+  }
 }

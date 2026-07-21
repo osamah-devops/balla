@@ -368,6 +368,8 @@ resource "aws_iam_policy" "ecs_task_application" {
           aws_dynamodb_table.offers.arn,
           aws_dynamodb_table.orders.arn,
           "${aws_dynamodb_table.orders.arn}/index/*",
+          aws_dynamodb_table.favorites.arn,
+          aws_dynamodb_table.reports.arn,
         ]
       },
       {
@@ -445,6 +447,8 @@ resource "aws_ecs_task_definition" "api" {
         { name = "AwsResources__NotificationsTableName", value = aws_dynamodb_table.notifications.name },
         { name = "AwsResources__OffersTableName", value = aws_dynamodb_table.offers.name },
         { name = "AwsResources__OrdersTableName", value = aws_dynamodb_table.orders.name },
+        { name = "AwsResources__FavoritesTableName", value = aws_dynamodb_table.favorites.name },
+        { name = "AwsResources__ReportsTableName", value = aws_dynamodb_table.reports.name },
         { name = "AwsResources__UploadsBucketName", value = module.uploads_bucket.s3_bucket_id },
         { name = "AwsResources__PublicAssetsBaseUrl", value = "https://${local.frontend_domain}" },
         { name = "Cors__AllowedOrigin", value = "https://${local.frontend_domain}" },

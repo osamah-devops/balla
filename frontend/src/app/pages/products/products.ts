@@ -46,9 +46,10 @@ export class Products {
   sort = computed(() => (this.queryParamMap().get('sort') as SortKey | null) ?? '');
   state = computed(() => this.queryParamMap().get('state') ?? '');
   zip = computed(() => this.queryParamMap().get('zip') ?? '');
+  search = computed(() => this.queryParamMap().get('q') ?? '');
 
   hasActiveFilters = computed(
-    () => !!(this.category() || this.priceRange() || this.sort() || this.state() || this.zip()),
+    () => !!(this.category() || this.priceRange() || this.sort() || this.state() || this.zip() || this.search()),
   );
 
   activeCategoryName = computed(
@@ -60,6 +61,7 @@ export class Products {
       category: this.category() || undefined,
       priceRange: this.priceRange() || undefined,
       state: this.state() || undefined,
+      search: this.search() || undefined,
     });
     return this.filterService.sort(filtered, this.sort() || undefined);
   });
@@ -103,6 +105,10 @@ export class Products {
 
   onZipChanged(zip: string): void {
     this.updateQueryParams({ zip: zip || null });
+  }
+
+  onSearchChanged(term: string): void {
+    this.updateQueryParams({ q: term || null });
   }
 
   clearFilters(): void {

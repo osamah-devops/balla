@@ -69,3 +69,11 @@ output "dynamodb_offers_table_name" {
 output "dynamodb_orders_table_name" {
   value = aws_dynamodb_table.orders.name
 }
+
+output "dynamodb_favorites_table_name" {
+  value = aws_dynamodb_table.favorites.name
+}
+
+output "dynamodb_reports_table_name" {
+  value = aws_dynamodb_table.reports.name
+}

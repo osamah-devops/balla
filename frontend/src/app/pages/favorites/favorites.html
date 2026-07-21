@@ -1,1 +1,22 @@
-<p>favorites works!</p>
+<section class="mx-auto flex w-full max-w-7xl flex-col gap-6 bg-white px-4 py-6 sm:px-6 lg:px-8 dark:bg-slate-950">
+    <h1 class="flex items-center gap-2 text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+        <ng-icon name="faSolidHeart" size="1.1rem" class="text-rose-500"></ng-icon>
+        Favorites
+    </h1>
+
+    @if (!isAuthenticated()) {
+        <p class="text-sm text-slate-500 dark:text-slate-400">
+            <a routerLink="/login" class="font-semibold text-indigo-600 hover:text-indigo-700 dark:text-indigo-400">Sign in</a> to see your favorites.
+        </p>
+    } @else if (products().length === 0) {
+        <p class="px-4 py-16 text-center text-sm text-slate-500 dark:text-slate-400">
+            No favorites yet — tap the heart on any product to save it here.
+        </p>
+    } @else {
+        <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+            @for (product of products(); track product.id) {
+                <app-product-card [product]="product"></app-product-card>
+            }
+        </div>
+    }
+</section>

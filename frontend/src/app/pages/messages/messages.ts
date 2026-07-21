@@ -4,9 +4,10 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { provideIcons, NgIcon } from '@ng-icons/core';
-import { faSolidArrowLeft, faSolidComments, faSolidPaperPlane, faSolidUser } from '@ng-icons/font-awesome/solid';
+import { faSolidArrowLeft, faSolidBan, faSolidComments, faSolidFlag, faSolidPaperPlane, faSolidUser } from '@ng-icons/font-awesome/solid';
 import { AuthService } from '../../services/auth.service';
 import { ConversationsService } from '../../services/conversations.service';
+import { BlockedUsersService } from '../../services/blocked-users.service';
 import { Conversation, ConversationMessage } from '../../models/conversation.model';
 
 @Component({
@@ -14,12 +15,13 @@ import { Conversation, ConversationMessage } from '../../models/conversation.mod
   imports: [ReactiveFormsModule, NgIcon, NgTemplateOutlet],
   templateUrl: './messages.html',
   styleUrl: './messages.css',
-  providers: [provideIcons({ faSolidArrowLeft, faSolidComments, faSolidPaperPlane, faSolidUser })],
+  providers: [provideIcons({ faSolidArrowLeft, faSolidBan, faSolidComments, faSolidFlag, faSolidPaperPlane, faSolidUser })],
 })
 export class Messages {
   private readonly route = inject(ActivatedRoute);
   private readonly authService = inject(AuthService);
   private readonly conversationsService = inject(ConversationsService);
+  private readonly blockedUsersService = inject(BlockedUsersService);
   private readonly fb = inject(FormBuilder);
   private readonly destroyRef = inject(DestroyRef);
 
@@ -31,9 +33,28 @@ export class Messages {
   readonly loadingMessages = signal(false);
   readonly sending = signal(false);
 
+  readonly reportOpen = signal(false);
+  readonly reportSent = signal(false);
+  readonly reportForm = this.fb.nonNullable.group({
+    reason: ['', [Validators.required, Validators.minLength(1)]],
+  });
+
   readonly selectedConversation = computed(
     () => this.conversations().find((c) => c.id === this.selectedId()) ?? null,
   );
+
+  readonly otherPartyId = computed(() => {
+    const conversation = this.selectedConversation();
+    if (!conversation) {
+      return null;
+    }
+    return conversation.buyerId === this.currentUserId() ? conversation.sellerId : conversation.buyerId;
+  });
+
+  readonly isOtherPartyBlocked = computed(() => {
+    const id = this.otherPartyId();
+    return id ? this.blockedUsersService.isBlocked(id) : false;
+  });
 
   readonly replyForm = this.fb.nonNullable.group({
     body: ['', [Validators.required, Validators.minLength(1)]],
@@ -41,6 +62,7 @@ export class Messages {
 
   constructor() {
     this.loadConversations();
+    this.blockedUsersService.refresh();
 
     this.route.queryParamMap.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((params) => {
       const conversationId = params.get('conversation');
@@ -72,6 +94,8 @@ export class Messages {
       return;
     }
     this.selectedId.set(conversationId);
+    this.reportOpen.set(false);
+    this.reportSent.set(false);
     this.loadingMessages.set(true);
     this.conversationsService.getMessages(conversationId).subscribe({
       next: (messages) => {
@@ -100,6 +124,32 @@ export class Messages {
         this.sending.set(false);
       },
       error: () => this.sending.set(false),
+    });
+  }
+
+  toggleBlock(): void {
+    const id = this.otherPartyId();
+    if (!id) {
+      return;
+    }
+    this.isOtherPartyBlocked() ? this.blockedUsersService.unblock(id) : this.blockedUsersService.block(id);
+  }
+
+  openReport(): void {
+    this.reportOpen.set(true);
+    this.reportSent.set(false);
+  }
+
+  submitReport(): void {
+    const conversationId = this.selectedId();
+    if (!conversationId || this.reportForm.invalid) {
+      this.reportForm.markAllAsTouched();
+      return;
+    }
+    const { reason } = this.reportForm.getRawValue();
+    this.conversationsService.report(conversationId, reason).subscribe(() => {
+      this.reportSent.set(true);
+      this.reportForm.reset({ reason: '' });
     });
   }
 

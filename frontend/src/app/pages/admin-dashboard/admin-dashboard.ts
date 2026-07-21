@@ -7,6 +7,7 @@ import {
   faSolidCheck,
   faSolidDollarSign,
   faSolidEyeSlash,
+  faSolidFlag,
   faSolidPeopleGroup,
   faSolidStore,
   faSolidUsers,
@@ -17,9 +18,10 @@ import { ProductsService } from '../../services/products.service';
 import { Product } from '../../models/product.model';
 import { Owner } from '../../models/owner.model';
 import { Order } from '../../models/order.model';
+import { Report } from '../../models/report.model';
 import { User, UserStatus } from '../../models/user.model';
 
-type AdminTab = 'overview' | 'users' | 'sellers' | 'products';
+type AdminTab = 'overview' | 'users' | 'sellers' | 'products' | 'reports';
 
 interface SellerRow extends Owner {
   productCount: number;
@@ -38,6 +40,7 @@ interface SellerRow extends Owner {
       faSolidCheck,
       faSolidDollarSign,
       faSolidEyeSlash,
+      faSolidFlag,
       faSolidPeopleGroup,
       faSolidStore,
       faSolidUsers,
@@ -53,12 +56,14 @@ export class AdminDashboard {
   readonly users = signal<User[]>([]);
   readonly products = signal<Product[]>([]);
   readonly orders = signal<Order[]>([]);
+  readonly reports = signal<Report[]>([]);
   private readonly owners = signal<Owner[]>([]);
 
   constructor() {
     this.adminService.listUsers().subscribe((users) => this.users.set(users));
     this.adminService.listProducts().subscribe((products) => this.products.set(products));
     this.adminService.listOrders().subscribe((orders) => this.orders.set(orders));
+    this.adminService.listReports().subscribe((reports) => this.reports.set(reports));
     this.productsService.getOwners().subscribe((owners) => this.owners.set(owners));
   }
 
@@ -108,6 +113,12 @@ export class AdminDashboard {
 
   isProductHidden(productId: string): boolean {
     return this.products().find((p) => p.id === productId)?.hidden ?? false;
+  }
+
+  suspendReportedUser(report: Report): void {
+    this.adminService.updateUserStatus(report.reportedUserId, 'suspended').subscribe((updated) => {
+      this.users.update((list) => list.map((u) => (u.id === updated.id ? updated : u)));
+    });
   }
 
   toggleSellerVerification(seller: Owner): void {

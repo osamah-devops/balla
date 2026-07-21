@@ -1,8 +1,17 @@
 <a
     [routerLink]="['/product', product().id]"
     [title]="'Sold by ' + product().owner.name"
-    class="group/card flex flex-col overflow-hidden rounded-xl bg-white! ring-1 ring-slate-200 shadow-sm transition-shadow duration-150 hover:shadow-md dark:bg-slate-900! dark:ring-slate-800"
+    class="group/card relative flex flex-col overflow-hidden rounded-xl bg-white! ring-1 ring-slate-200 shadow-sm transition-shadow duration-150 hover:shadow-md dark:bg-slate-900! dark:ring-slate-800"
 >
+    <button
+        type="button"
+        (click)="toggleFavorite($event)"
+        [attr.aria-label]="isFavorite() ? 'Remove from favorites' : 'Add to favorites'"
+        class="absolute right-2 top-2 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white/90 shadow-sm transition-colors duration-150 hover:bg-white dark:bg-slate-900/90 dark:hover:bg-slate-900"
+    >
+        <ng-icon [name]="isFavorite() ? 'faSolidHeartFilled' : 'faRegularHeart'" size="0.9rem" [class]="isFavorite() ? 'text-rose-500' : 'text-slate-500 dark:text-slate-300'"></ng-icon>
+    </button>
+
     <span class="block aspect-square overflow-hidden">
         <img
             [src]="product().image"

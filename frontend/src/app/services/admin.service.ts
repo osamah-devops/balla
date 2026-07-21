@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Order } from '../models/order.model';
 import { Owner } from '../models/owner.model';
 import { Product } from '../models/product.model';
+import { Report } from '../models/report.model';
 import { User, UserStatus } from '../models/user.model';
 
 @Injectable({ providedIn: 'root' })
@@ -32,5 +33,9 @@ export class AdminService {
 
   listOrders(): Observable<Order[]> {
     return this.http.get<Order[]>('/api/admin/orders');
+  }
+
+  listReports(): Observable<Report[]> {
+    return this.http.get<Report[]>('/api/admin/reports');
   }
 }

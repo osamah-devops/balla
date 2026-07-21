@@ -63,6 +63,19 @@ export class ProductFilterService {
       }
     }
 
+    if (criteria.search) {
+      const term = criteria.search.trim().toLowerCase();
+      if (term) {
+        result = result.filter(
+          (product) =>
+            product.title.toLowerCase().includes(term) ||
+            product.category.toLowerCase().includes(term) ||
+            product.fullDescription.toLowerCase().includes(term) ||
+            product.owner.name.toLowerCase().includes(term),
+        );
+      }
+    }
+
     return result;
   }
 

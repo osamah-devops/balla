@@ -18,4 +18,6 @@ public class UserProfile
 
     /// <summary>Present when Role is "seller"; also the storefront's Owner.Id.</summary>
     public string? OwnerId { get; set; }
+
+    public List<string>? BlockedUserIds { get; set; }
 }

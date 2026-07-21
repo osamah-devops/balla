@@ -12,10 +12,12 @@ import {
   faSolidCommentDots,
   faSolidEnvelope,
   faSolidHandHoldingDollar,
+  faSolidHeart as faSolidHeartFilled,
   faSolidMagnifyingGlassPlus,
   faSolidStar,
   faSolidXmark,
 } from '@ng-icons/font-awesome/solid';
+import { faHeart as faRegularHeart } from '@ng-icons/font-awesome/regular';
 import { Product as ProductModel } from '../../models/product.model';
 import { Comment } from '../../models/comment.model';
 import { ProductsService } from '../../services/products.service';
@@ -23,6 +25,7 @@ import { ConversationsService } from '../../services/conversations.service';
 import { OffersService } from '../../services/offers.service';
 import { AuthService } from '../../services/auth.service';
 import { CartService } from '../../services/cart.service';
+import { FavoritesService } from '../../services/favorites.service';
 
 @Component({
   selector: 'app-product',
@@ -37,6 +40,8 @@ import { CartService } from '../../services/cart.service';
       faSolidCommentDots,
       faSolidEnvelope,
       faSolidHandHoldingDollar,
+      faSolidHeartFilled,
+      faRegularHeart,
       faSolidMagnifyingGlassPlus,
       faSolidStar,
       faSolidXmark,
@@ -50,6 +55,7 @@ export class Product {
   private readonly offersService = inject(OffersService);
   private readonly authService = inject(AuthService);
   private readonly cartService = inject(CartService);
+  private readonly favoritesService = inject(FavoritesService);
   private readonly fb = inject(FormBuilder);
 
   // Angular's default RouteReuseStrategy reuses this component across /product/:id ->
@@ -165,6 +171,14 @@ export class Product {
       selectedOptions: Object.keys(this.selectedOptions()).length > 0 ? this.selectedOptions() : undefined,
     });
     this.addedToCart.set(true);
+  }
+
+  isFavorite(): boolean {
+    return this.favoritesService.isFavorite(this.product().id);
+  }
+
+  toggleFavorite(): void {
+    this.favoritesService.toggle(this.product().id);
   }
 
   rate(stars: number): void {
