@@ -20,6 +20,29 @@ resource "aws_cloudfront_origin_access_control" "frontend" {
   signing_protocol                  = "sigv4"
 }
 
+# Rewrites Angular client-side routes to index.html at the edge, before they
+# ever reach S3. Replaces the old distribution-wide custom_error_response
+# 403/404 -> index.html mapping, which incorrectly also rewrote real 404s
+# from the /api/* behavior (ALB origin) into fake 200 HTML responses.
+resource "aws_cloudfront_function" "spa_routing" {
+  name    = "${local.name}-spa-routing"
+  runtime = "cloudfront-js-2.0"
+  comment = "Rewrite unknown non-file paths to index.html for Angular client-side routing"
+  publish = true
+  code    = <<-EOT
+    function handler(event) {
+      var request = event.request;
+      var uri = request.uri;
+
+      if (!uri.includes('.')) {
+        request.uri = '/index.html';
+      }
+
+      return request;
+    }
+  EOT
+}
+
 resource "aws_cloudfront_distribution" "frontend" {
   origin {
     domain_name              = module.frontend_bucket.s3_bucket_bucket_regional_domain_name
@@ -65,6 +88,11 @@ resource "aws_cloudfront_distribution" "frontend" {
     }
 
     viewer_protocol_policy = "redirect-to-https"
+
+    function_association {
+      event_type   = "viewer-request"
+      function_arn = aws_cloudfront_function.spa_routing.arn
+    }
   }
 
   ordered_cache_behavior {
@@ -108,20 +136,6 @@ resource "aws_cloudfront_distribution" "frontend" {
     default_ttl            = 86400
     max_ttl                = 604800
     viewer_protocol_policy = "https-only"
-  }
-
-  # Angular's router handles these paths client-side, so unknown paths must
-  # fall back to index.html instead of surfacing S3's access-denied/not-found.
-  custom_error_response {
-    error_code         = 403
-    response_code      = 200
-    response_page_path = "/index.html"
-  }
-
-  custom_error_response {
-    error_code         = 404
-    response_code      = 200
-    response_page_path = "/index.html"
   }
 
   price_class = "PriceClass_100"
