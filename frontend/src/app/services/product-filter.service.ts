@@ -24,10 +24,11 @@ const PRICE_RANGE_PREDICATES: Record<string, (price: number) => boolean> = {
 };
 
 // Open/Closed: a new sort option is a new entry here, not a change to existing branches.
-// "newest" and "best-selling" are intentionally identity comparators — the dataset has no
-// creation date or sales-volume field, so they preserve catalog order rather than fake one.
+// "best-selling" is intentionally an identity comparator — the dataset has no sales-volume
+// field, so it preserves catalog order rather than fake one. ISO-8601 createdAt strings
+// compare correctly as plain strings; rows without one sort last.
 const SORT_COMPARATORS: Record<SortKey, (a: Product, b: Product) => number> = {
-  newest: () => 0,
+  newest: (a, b) => (b.createdAt ?? '').localeCompare(a.createdAt ?? ''),
   'best-selling': () => 0,
   'price-asc': (a, b) => parsePrice(a.price) - parsePrice(b.price),
 };
@@ -51,8 +52,19 @@ export class ProductFilterService {
 
     if (criteria.state) {
       const abbreviation = STATE_ABBREVIATIONS[criteria.state];
-      if (abbreviation) {
-        result = result.filter((product) => product.owner.location.endsWith(`, ${abbreviation}`));
+      result = result.filter(
+        (product) =>
+          // Prefer the structured state field; fall back to the "City, ST" location
+          // suffix for records written before owner.state existed.
+          product.owner.state === criteria.state ||
+          (!!abbreviation && product.owner.location.endsWith(`, ${abbreviation}`)),
+      );
+    }
+
+    if (criteria.zip) {
+      const zipPrefix = criteria.zip.replace(/\D/g, '');
+      if (zipPrefix) {
+        result = result.filter((product) => product.owner.zip?.startsWith(zipPrefix));
       }
     }
 

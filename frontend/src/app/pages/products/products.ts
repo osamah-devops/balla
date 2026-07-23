@@ -61,6 +61,7 @@ export class Products {
       category: this.category() || undefined,
       priceRange: this.priceRange() || undefined,
       state: this.state() || undefined,
+      zip: this.zip() || undefined,
       search: this.search() || undefined,
     });
     return this.filterService.sort(filtered, this.sort() || undefined);

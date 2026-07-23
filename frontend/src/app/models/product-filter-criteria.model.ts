@@ -1,13 +1,15 @@
 export type SortKey = 'newest' | 'best-selling' | 'price-asc';
 
 /**
- * "newest" and "best-selling" are accepted but currently no-ops: the dataset has no
- * creation date or sales-volume field to sort by, so both fall back to catalog order
- * rather than fabricate a signal that doesn't exist. Only "price-asc" changes ordering.
+ * "best-selling" is accepted but currently a no-op: the dataset has no sales-volume
+ * field to sort by, so it falls back to catalog order rather than fabricate a signal
+ * that doesn't exist. "newest" sorts by the listing's createdAt timestamp.
  */
 export interface ProductFilterCriteria {
   category?: string;
   state?: string;
+  /** Digits-only prefix match against the seller's zip code (e.g. "551" matches 55401). */
+  zip?: string;
   priceRange?: string;
   sort?: SortKey;
   search?: string;

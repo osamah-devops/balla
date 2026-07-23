@@ -2,6 +2,8 @@ export interface ProductOwnerRef {
   id: string;
   name: string;
   location: string;
+  state: string;
+  zip: string;
 }
 
 export interface ProductOption {
@@ -26,6 +28,8 @@ export interface Product {
   averageRating: number;
   ratingCount: number;
   hidden: boolean;
+  /** ISO-8601 listing timestamp; may be absent on rows created before it existed. */
+  createdAt?: string;
 }
 
 export interface CreateProductRequest {
