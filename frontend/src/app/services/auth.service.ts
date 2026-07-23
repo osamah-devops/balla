@@ -1,6 +1,6 @@
 import { Injectable, computed, inject, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, catchError, map, of, switchMap, tap } from 'rxjs';
+import { Observable, catchError, finalize, map, of, shareReplay, switchMap, tap } from 'rxjs';
 import { User } from '../models/user.model';
 import {
   AuthTokens,
@@ -125,6 +125,13 @@ export class AuthService {
     return this.refresh();
   }
 
+  /** Bypasses the expiry check for an immediate refresh — the interceptor's fallback
+   * when a request 401s despite the proactive check above passing (clock drift,
+   * a concurrent tab having already rotated the token, etc.). */
+  forceRefresh(): Observable<string | null> {
+    return this.refresh();
+  }
+
   /** Restores the session from whichever storage tier has it; call once on app start. */
   restoreSession(): Observable<User | null> {
     const fromLocal = localStorage.getItem(STORAGE_KEY);
@@ -156,12 +163,19 @@ export class AuthService {
     );
   }
 
+  private refreshInFlight: Observable<string | null> | null = null;
+
+  /** Concurrent callers (e.g. several requests hitting expiry at once) share one
+   * in-flight refresh instead of each firing their own /auth/refresh call. */
   private refresh(): Observable<string | null> {
+    if (this.refreshInFlight) {
+      return this.refreshInFlight;
+    }
     if (!this.session?.refreshToken) {
       this.logout();
       return of(null);
     }
-    return this.http.post<AuthTokens>(`${API_BASE}/refresh`, { refreshToken: this.session.refreshToken }).pipe(
+    const request$ = this.http.post<AuthTokens>(`${API_BASE}/refresh`, { refreshToken: this.session.refreshToken }).pipe(
       map((tokens) => {
         this.applyTokens(tokens);
         return tokens.accessToken;
@@ -170,7 +184,11 @@ export class AuthService {
         this.logout();
         return of(null);
       }),
+      finalize(() => (this.refreshInFlight = null)),
+      shareReplay(1),
     );
+    this.refreshInFlight = request$;
+    return request$;
   }
 
   private applyTokens(tokens: AuthTokens): void {
