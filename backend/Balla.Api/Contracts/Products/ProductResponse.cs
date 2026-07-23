@@ -1,6 +1,6 @@
 namespace Balla.Api.Contracts.Products;
 
-public record ProductOwnerResponse(string Id, string Name, string Location);
+public record ProductOwnerResponse(string Id, string Name, string Location, string State, string Zip);
 
 public record ProductOptionResponse(string Name, IReadOnlyList<string> Values);
 
@@ -20,5 +20,6 @@ public record ProductResponse(
     ProductOwnerResponse Owner,
     double AverageRating,
     int RatingCount,
-    bool Hidden
+    bool Hidden,
+    string CreatedAt
 );

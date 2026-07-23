@@ -39,7 +39,11 @@ public class AuthController(ICognitoAuthService authService, IUserProfileReposit
             {
                 Id = userId,
                 Name = request.StoreName!,
-                Location = request.ZipCode,
+                // No city is collected at registration, so the state is the best
+                // human-readable location we have; Zip/State carry the structured values.
+                Location = request.State,
+                State = request.State,
+                Zip = request.ZipCode,
                 Rating = 0,
                 Reviews = 0,
                 MemberSince = DateTime.UtcNow.Year,

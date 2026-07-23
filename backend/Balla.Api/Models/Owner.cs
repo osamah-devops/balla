@@ -9,6 +9,8 @@ public class Owner
 
     public string Name { get; set; } = default!;
     public string Location { get; set; } = default!;
+    public string State { get; set; } = "";
+    public string Zip { get; set; } = "";
     public double Rating { get; set; }
     public int Reviews { get; set; }
     public int MemberSince { get; set; }

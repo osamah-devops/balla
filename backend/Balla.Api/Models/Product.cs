@@ -22,6 +22,8 @@ public class Product
     public string OwnerId { get; set; } = default!;
     public string OwnerName { get; set; } = default!;
     public string OwnerLocation { get; set; } = default!;
+    public string OwnerState { get; set; } = "";
+    public string OwnerZip { get; set; } = "";
 
     public double AverageRating { get; set; }
     public int RatingCount { get; set; }

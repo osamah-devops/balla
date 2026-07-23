@@ -49,6 +49,8 @@ foreach (var owner in rawOwners)
             Id = owner.Id,
             Name = owner.Name,
             Location = owner.Location,
+            State = owner.State ?? "",
+            Zip = owner.Zip ?? "",
             Rating = owner.Rating,
             Reviews = owner.Reviews,
             MemberSince = owner.MemberSince,
@@ -57,10 +59,15 @@ foreach (var owner in rawOwners)
         ownersConfig);
 }
 
+// products.json embeds only {id, name, location} per owner; zip/state live on the owner
+// records, so join them in here rather than duplicating them across 160 product entries.
+var ownersById = rawOwners.ToDictionary(o => o.Id);
+
 Console.WriteLine($"Seeding {rawProducts.Count} products into '{productsTable}'...");
 var productsConfig = new DynamoDBOperationConfig { OverrideTableName = productsTable };
 foreach (var product in rawProducts)
 {
+    var productSeller = ownersById.GetValueOrDefault(product.Owner.Id);
     await context.SaveAsync(
         new SeedProduct
         {
@@ -76,6 +83,8 @@ foreach (var product in rawProducts)
             OwnerId = product.Owner.Id,
             OwnerName = product.Owner.Name,
             OwnerLocation = product.Owner.Location,
+            OwnerState = productSeller?.State ?? "",
+            OwnerZip = productSeller?.Zip ?? "",
             AverageRating = 0,
             RatingCount = 0,
             CreatedAt = DateTime.UtcNow.ToString("O"),
@@ -86,7 +95,7 @@ foreach (var product in rawProducts)
 Console.WriteLine("Done.");
 return 0;
 
-record RawOwner(string Id, string Name, string Location, double Rating, int Reviews, int MemberSince, bool Verified);
+record RawOwner(string Id, string Name, string Location, string? State, string? Zip, double Rating, int Reviews, int MemberSince, bool Verified);
 
 record RawProductOwner(string Id, string Name, string Location);
 
@@ -112,6 +121,8 @@ class SeedOwner
 
     public string Name { get; set; } = default!;
     public string Location { get; set; } = default!;
+    public string State { get; set; } = "";
+    public string Zip { get; set; } = "";
     public double Rating { get; set; }
     public int Reviews { get; set; }
     public int MemberSince { get; set; }
@@ -134,6 +145,8 @@ class SeedProduct
     public string OwnerId { get; set; } = default!;
     public string OwnerName { get; set; } = default!;
     public string OwnerLocation { get; set; } = default!;
+    public string OwnerState { get; set; } = "";
+    public string OwnerZip { get; set; } = "";
     public double AverageRating { get; set; }
     public int RatingCount { get; set; }
     public string CreatedAt { get; set; } = default!;

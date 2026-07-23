@@ -180,6 +180,8 @@ public class ProductsController(
             OwnerId = owner.Id,
             OwnerName = owner.Name,
             OwnerLocation = owner.Location,
+            OwnerState = owner.State,
+            OwnerZip = owner.Zip,
             CreatedAt = DateTime.UtcNow.ToString("O"),
         };
         await productRepository.PutAsync(product, ct);

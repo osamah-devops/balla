@@ -18,9 +18,10 @@ public static class ProductMapper
         product.Image,
         product.ExtraImages,
         product.Options?.Select(o => new ProductOptionResponse(o.Name, o.Values)).ToList(),
-        new ProductOwnerResponse(product.OwnerId, product.OwnerName, product.OwnerLocation),
+        new ProductOwnerResponse(product.OwnerId, product.OwnerName, product.OwnerLocation, product.OwnerState, product.OwnerZip),
         product.AverageRating,
         product.RatingCount,
-        product.Hidden
+        product.Hidden,
+        product.CreatedAt
     );
 }
