@@ -1,4 +1,4 @@
-import { Component, DestroyRef, computed, inject, signal } from '@angular/core';
+import { Component, DestroyRef, computed, effect, inject, signal } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -8,6 +8,7 @@ import { faSolidArrowLeft, faSolidBan, faSolidComments, faSolidFlag, faSolidPape
 import { AuthService } from '../../services/auth.service';
 import { ConversationsService } from '../../services/conversations.service';
 import { BlockedUsersService } from '../../services/blocked-users.service';
+import { NotificationsService } from '../../services/notifications.service';
 import { Conversation, ConversationMessage } from '../../models/conversation.model';
 
 @Component({
@@ -22,8 +23,10 @@ export class Messages {
   private readonly authService = inject(AuthService);
   private readonly conversationsService = inject(ConversationsService);
   private readonly blockedUsersService = inject(BlockedUsersService);
+  private readonly notificationsService = inject(NotificationsService);
   private readonly fb = inject(FormBuilder);
   private readonly destroyRef = inject(DestroyRef);
+  private lastHandledNotificationId: string | null = null;
 
   readonly currentUserId = computed(() => this.authService.currentUser()?.id ?? '');
 
@@ -70,6 +73,24 @@ export class Messages {
         this.select(conversationId);
       }
     });
+
+    // A live push for a new message: refresh the conversation list (previews/unread
+    // counts), and if that conversation's thread is open, pull the new message in too
+    // instead of leaving the viewer looking at a stale thread until they re-select it.
+    effect(() => {
+      const latest = this.notificationsService.notifications()[0];
+      if (!latest || latest.type !== 'message' || latest.id === this.lastHandledNotificationId) {
+        return;
+      }
+      this.lastHandledNotificationId = latest.id;
+      this.loadConversations();
+      if (latest.conversationId && latest.conversationId === this.selectedId()) {
+        this.conversationsService.getMessages(latest.conversationId).subscribe((messages) => {
+          this.selectedMessages.set(messages);
+        });
+        this.markMessageNotificationsRead(latest.conversationId);
+      }
+    });
   }
 
   otherPartyName(conversation: Conversation): string {
@@ -104,9 +125,18 @@ export class Messages {
         this.conversations.update((list) =>
           list.map((c) => (c.id === conversationId ? { ...c, unreadCount: 0 } : c)),
         );
+        this.markMessageNotificationsRead(conversationId);
       },
       error: () => this.loadingMessages.set(false),
     });
+  }
+
+  private markMessageNotificationsRead(conversationId: string): void {
+    for (const n of this.notificationsService.notifications()) {
+      if (n.type === 'message' && n.conversationId === conversationId && !n.read) {
+        this.notificationsService.markRead(n.id);
+      }
+    }
   }
 
   sendReply(): void {
