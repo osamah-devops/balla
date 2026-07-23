@@ -7,7 +7,8 @@ public class NotificationDispatcher(
     INotificationRepository notificationRepository,
     INotificationPublisher notificationPublisher,
     IOnlinePresenceTracker presenceTracker,
-    ISesEmailSender emailSender) : INotificationDispatcher
+    ISesEmailSender emailSender,
+    ILogger<NotificationDispatcher> logger) : INotificationDispatcher
 {
     public async Task DispatchAsync(
         string recipientId,
@@ -38,7 +39,17 @@ public class NotificationDispatcher(
 
         if (!presenceTracker.IsOnline(recipientId))
         {
-            await emailSender.SendNotificationEmailAsync(recipientId, payload, ct);
+            // Best-effort side channel: the notification is already persisted and
+            // published above, so a flaky/unauthorized email send (e.g. SES sandbox
+            // rejecting an unverified recipient) must not fail the caller's request.
+            try
+            {
+                await emailSender.SendNotificationEmailAsync(recipientId, payload, ct);
+            }
+            catch (Exception ex) when (ex is not OperationCanceledException)
+            {
+                logger.LogError(ex, "Failed to send notification email to {RecipientId}", recipientId);
+            }
         }
     }
 }
