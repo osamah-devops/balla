@@ -11,5 +11,5 @@ import { Footer } from './components/footer/footer';
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('frontend');
+  protected readonly title = signal('Balla');
 }

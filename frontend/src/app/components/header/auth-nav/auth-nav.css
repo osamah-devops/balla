@@ -17,6 +17,17 @@
 	background: #f1f5f9;
 }
 
+/* Component styles are view-encapsulated, so the html-level `.dark` class set
+   by the theme toggler is only reachable via :host-context. */
+:host-context(.dark) .auth-link {
+	color: #cbd5e1;
+}
+
+:host-context(.dark) .auth-link:hover {
+	color: #a5b4fc;
+	background: #1e293b;
+}
+
 .auth-link--active {
 	color: #ffffff;
 	background: #4f46e5;
@@ -24,5 +35,16 @@
 }
 
 .auth-link--active:hover {
+	background: #4338ca;
+}
+
+:host-context(.dark) .auth-link--active {
+	color: #ffffff;
+	background: #4f46e5;
+	border-color: #6366f1;
+}
+
+:host-context(.dark) .auth-link--active:hover {
+	color: #ffffff;
 	background: #4338ca;
 }
