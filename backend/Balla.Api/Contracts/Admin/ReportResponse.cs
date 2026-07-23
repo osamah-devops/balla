@@ -7,5 +7,6 @@ public record ReportResponse(
     string ReporterName,
     string ReportedUserId,
     string Reason,
-    string CreatedAt
+    string CreatedAt,
+    string Status
 );

@@ -19,6 +19,9 @@ public class DynamoDbReportRepository : IReportRepository
 
     public Task PutAsync(Report report, CancellationToken ct) => _context.SaveAsync(report, _config, ct);
 
+    public Task<Report?> GetAsync(string reportId, CancellationToken ct) =>
+        _context.LoadAsync<Report?>(reportId, _config, ct);
+
     public async Task<IReadOnlyList<Report>> ListAllAsync(CancellationToken ct) =>
         await _context.ScanAsync<Report>([], _config).GetRemainingAsync(ct);
 }

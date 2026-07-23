@@ -57,6 +57,7 @@ export class AdminDashboard {
   readonly products = signal<Product[]>([]);
   readonly orders = signal<Order[]>([]);
   readonly reports = signal<Report[]>([]);
+  readonly openReports = computed(() => this.reports().filter((r) => r.status === 'open'));
   private readonly owners = signal<Owner[]>([]);
 
   constructor() {
@@ -118,6 +119,13 @@ export class AdminDashboard {
   suspendReportedUser(report: Report): void {
     this.adminService.updateUserStatus(report.reportedUserId, 'suspended').subscribe((updated) => {
       this.users.update((list) => list.map((u) => (u.id === updated.id ? updated : u)));
+    });
+    this.dismissReport(report);
+  }
+
+  dismissReport(report: Report): void {
+    this.adminService.updateReportStatus(report.id, 'dismissed').subscribe((updated) => {
+      this.reports.update((list) => list.map((r) => (r.id === updated.id ? updated : r)));
     });
   }
 

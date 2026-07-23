@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Order } from '../models/order.model';
 import { Owner } from '../models/owner.model';
 import { Product } from '../models/product.model';
-import { Report } from '../models/report.model';
+import { Report, ReportStatus } from '../models/report.model';
 import { User, UserStatus } from '../models/user.model';
 
 @Injectable({ providedIn: 'root' })
@@ -37,5 +37,9 @@ export class AdminService {
 
   listReports(): Observable<Report[]> {
     return this.http.get<Report[]>('/api/admin/reports');
+  }
+
+  updateReportStatus(reportId: string, status: ReportStatus): Observable<Report> {
+    return this.http.patch<Report>(`/api/admin/reports/${reportId}/status`, { status });
   }
 }

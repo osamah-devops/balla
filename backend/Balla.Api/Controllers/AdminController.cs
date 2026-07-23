@@ -128,6 +128,25 @@ public class AdminController(
         return Ok(reports.OrderByDescending(r => r.CreatedAt).Select(r => r.ToResponse()));
     }
 
+    [HttpPatch("reports/{reportId}/status")]
+    public async Task<ActionResult<ReportResponse>> UpdateReportStatus(string reportId, UpdateReportStatusRequest request, CancellationToken ct)
+    {
+        if (!await IsAdminAsync(ct))
+        {
+            return Forbid();
+        }
+
+        var report = await reportRepository.GetAsync(reportId, ct);
+        if (report is null)
+        {
+            return NotFound();
+        }
+
+        report.Status = request.Status;
+        await reportRepository.PutAsync(report, ct);
+        return Ok(report.ToResponse());
+    }
+
     private async Task<bool> IsAdminAsync(CancellationToken ct)
     {
         var profile = await GetCurrentProfileAsync(ct);

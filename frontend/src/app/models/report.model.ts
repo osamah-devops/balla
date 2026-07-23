@@ -1,3 +1,5 @@
+export type ReportStatus = 'open' | 'dismissed';
+
 export interface Report {
   id: string;
   conversationId: string;
@@ -6,4 +8,5 @@ export interface Report {
   reportedUserId: string;
   reason: string;
   createdAt: string;
+  status: ReportStatus;
 }
