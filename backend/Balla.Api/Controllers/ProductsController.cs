@@ -108,28 +108,10 @@ public class ProductsController(
             }
         }
 
-        List<ProductOption>? options = null;
-        if (!string.IsNullOrWhiteSpace(form.OptionsJson))
+        var (options, optionsError) = ParseOptions(form.OptionsJson);
+        if (optionsError is not null)
         {
-            List<ProductOptionInput>? parsed;
-            try
-            {
-                parsed = JsonSerializer.Deserialize<List<ProductOptionInput>>(form.OptionsJson, OptionsJsonSettings);
-            }
-            catch (JsonException)
-            {
-                return BadRequest(new { error = "INVALID_OPTIONS", message = "Product options were malformed." });
-            }
-
-            options = parsed?
-                .Where(o => !string.IsNullOrWhiteSpace(o.Name) && o.Values is { Count: > 0 })
-                .Select(o => new ProductOption
-                {
-                    Name = o.Name.Trim(),
-                    Values = o.Values.Select(v => v.Trim()).Where(v => v.Length > 0).ToList(),
-                })
-                .Where(o => o.Values.Count > 0)
-                .ToList();
+            return BadRequest(new { error = "INVALID_OPTIONS", message = optionsError });
         }
 
         // Read and moderate every photo up front, before uploading any of them, so a
@@ -202,6 +184,69 @@ public class ProductsController(
         };
         await productRepository.PutAsync(product, ct);
         return Ok(product.ToResponse());
+    }
+
+    [HttpPut("{id}")]
+    [Authorize]
+    public async Task<ActionResult<ProductResponse>> Update(string id, UpdateProductForm form, CancellationToken ct)
+    {
+        var profile = await GetCurrentProfileAsync(ct);
+        if (profile is null)
+        {
+            return NotFound();
+        }
+
+        var product = await productRepository.GetAsync(id, ct);
+        if (product is null)
+        {
+            return NotFound();
+        }
+        if (string.IsNullOrEmpty(profile.OwnerId) || product.OwnerId != profile.OwnerId)
+        {
+            return StatusCode(403, new { error = "NOT_OWNER", message = "Only the seller who listed this product can edit it." });
+        }
+
+        var (options, optionsError) = ParseOptions(form.OptionsJson);
+        if (optionsError is not null)
+        {
+            return BadRequest(new { error = "INVALID_OPTIONS", message = optionsError });
+        }
+
+        product.Title = form.Title;
+        product.Category = form.Category;
+        product.CategorySlug = form.CategorySlug;
+        product.Price = form.Price;
+        product.Currency = form.Currency;
+        product.WeightLbs = form.WeightLbs;
+        product.FullDescription = form.FullDescription;
+        product.Options = options;
+
+        await productRepository.PutAsync(product, ct);
+        return Ok(product.ToResponse());
+    }
+
+    [HttpDelete("{id}")]
+    [Authorize]
+    public async Task<ActionResult> Delete(string id, CancellationToken ct)
+    {
+        var profile = await GetCurrentProfileAsync(ct);
+        if (profile is null)
+        {
+            return NotFound();
+        }
+
+        var product = await productRepository.GetAsync(id, ct);
+        if (product is null)
+        {
+            return NotFound();
+        }
+        if (string.IsNullOrEmpty(profile.OwnerId) || product.OwnerId != profile.OwnerId)
+        {
+            return StatusCode(403, new { error = "NOT_OWNER", message = "Only the seller who listed this product can delete it." });
+        }
+
+        await productRepository.DeleteAsync(id, ct);
+        return NoContent();
     }
 
     [HttpGet("{id}/comments")]
@@ -297,5 +342,34 @@ public class ProductsController(
         await using var stream = file.OpenReadStream();
         await stream.CopyToAsync(memoryStream, ct);
         return memoryStream.ToArray();
+    }
+
+    private static (List<ProductOption>? Options, string? Error) ParseOptions(string? optionsJson)
+    {
+        if (string.IsNullOrWhiteSpace(optionsJson))
+        {
+            return (null, null);
+        }
+
+        List<ProductOptionInput>? parsed;
+        try
+        {
+            parsed = JsonSerializer.Deserialize<List<ProductOptionInput>>(optionsJson, OptionsJsonSettings);
+        }
+        catch (JsonException)
+        {
+            return (null, "Product options were malformed.");
+        }
+
+        var options = parsed?
+            .Where(o => !string.IsNullOrWhiteSpace(o.Name) && o.Values is { Count: > 0 })
+            .Select(o => new ProductOption
+            {
+                Name = o.Name.Trim(),
+                Values = o.Values.Select(v => v.Trim()).Where(v => v.Length > 0).ToList(),
+            })
+            .Where(o => o.Values.Count > 0)
+            .ToList();
+        return (options, null);
     }
 }

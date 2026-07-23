@@ -23,4 +23,6 @@ public class DynamoDbProductRepository : IProductRepository
     public Task<Product?> GetAsync(string id, CancellationToken ct) => _context.LoadAsync<Product?>(id, _config, ct);
 
     public Task PutAsync(Product product, CancellationToken ct) => _context.SaveAsync(product, _config, ct);
+
+    public Task DeleteAsync(string id, CancellationToken ct) => _context.DeleteAsync<Product>(id, _config, ct);
 }

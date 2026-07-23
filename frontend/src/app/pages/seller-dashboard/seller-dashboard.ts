@@ -74,13 +74,20 @@ export class SellerDashboard {
   private readonly allProducts = toSignal(this.productsService.getProducts(), { initialValue: [] as Product[] });
   private readonly allOwners = toSignal(this.productsService.getOwners(), { initialValue: [] as Owner[] });
 
-  // Products created this session aren't in allProducts() until its cached observable
-  // is refetched, so they're tracked separately and merged in for immediate feedback.
+  // Products created/edited/deleted this session aren't reflected in allProducts()
+  // until its cached observable is refetched, so local overrides are layered on top
+  // for immediate feedback.
   readonly addedProducts = signal<Product[]>([]);
+  readonly editedProducts = signal<Record<string, Product>>({});
+  readonly deletedProductIds = signal<Set<string>>(new Set());
   readonly myProducts = computed<Product[]>(() => {
     const fromServer = this.allProducts().filter((product) => product.owner.id === this.ownerId());
     const added = this.addedProducts().filter((p) => !fromServer.some((f) => f.id === p.id));
-    return [...added, ...fromServer];
+    const edits = this.editedProducts();
+    const deleted = this.deletedProductIds();
+    return [...added, ...fromServer]
+      .filter((p) => !deleted.has(p.id))
+      .map((p) => edits[p.id] ?? p);
   });
 
   readonly myOrders = signal<Order[]>([]);
@@ -103,6 +110,9 @@ export class SellerDashboard {
   readonly addProductError = signal('');
   readonly productImagePreview = signal<string | null>(null);
   private productImageFile: File | null = null;
+
+  readonly editingProductId = signal<string | null>(null);
+  readonly deletingProductId = signal<string | null>(null);
 
   readonly extraImagePreviews = signal<string[]>([]);
   private extraImageFiles: File[] = [];
@@ -233,10 +243,60 @@ export class SellerDashboard {
     this.optionRows.update((rows) => rows.filter((_, i) => i !== index));
   }
 
+  toggleAddProduct(): void {
+    if (this.showAddProduct()) {
+      this.closeProductForm();
+    } else {
+      this.showAddProduct.set(true);
+    }
+  }
+
+  startEditProduct(product: Product): void {
+    this.editingProductId.set(product.id);
+    this.addProductError.set('');
+    this.productForm.reset({
+      title: product.title,
+      categorySlug: product.categorySlug,
+      // The list price is stored pre-commission; product.price is the marked-up
+      // display price returned by the API, so it's reversed here for editing since
+      // there's no endpoint that returns the seller's original raw price.
+      price: this.rawPriceFromDisplay(product.price),
+      currency: product.currency,
+      weightLbs: product.weightLbs,
+      fullDescription: product.fullDescription,
+    });
+    this.optionRows.set((product.options ?? []).map((o) => ({ name: o.name, values: o.values.join(', ') })));
+    this.productImagePreview.set(product.image);
+    this.showAddProduct.set(true);
+  }
+
+  private rawPriceFromDisplay(displayPrice: string): string {
+    const value = parseFloat(displayPrice.trim().replace(/^\$/, '').replace(/,/g, ''));
+    if (isNaN(value)) {
+      return displayPrice;
+    }
+    const rawCents = Math.round(Math.round(value * 100) / 1.15);
+    return `$${(rawCents / 100).toFixed(2)}`;
+  }
+
+  private closeProductForm(): void {
+    this.showAddProduct.set(false);
+    this.editingProductId.set(null);
+    this.addProductError.set('');
+    this.productForm.reset({ title: '', categorySlug: '', price: '', currency: 'USD', weightLbs: 1, fullDescription: '' });
+    this.productImageFile = null;
+    this.productImagePreview.set(null);
+    this.extraImageFiles = [];
+    this.extraImagePreviews.set([]);
+    this.optionRows.set([]);
+  }
+
   submitProduct(): void {
-    if (this.productForm.invalid || !this.productImageFile) {
+    const editingId = this.editingProductId();
+
+    if (this.productForm.invalid || (!editingId && !this.productImageFile)) {
       this.productForm.markAllAsTouched();
-      if (!this.productImageFile) {
+      if (!editingId && !this.productImageFile) {
         this.addProductError.set('A product photo is required.');
       }
       return;
@@ -250,6 +310,24 @@ export class SellerDashboard {
 
     this.addProductSubmitting.set(true);
     this.addProductError.set('');
+
+    if (editingId) {
+      this.productsService
+        .updateProduct(editingId, { title, category, categorySlug, price, currency, weightLbs, fullDescription, options })
+        .subscribe({
+          next: (product) => {
+            this.editedProducts.update((map) => ({ ...map, [product.id]: product }));
+            this.addProductSubmitting.set(false);
+            this.closeProductForm();
+          },
+          error: (err) => {
+            this.addProductSubmitting.set(false);
+            this.addProductError.set((err as { error?: { message?: string } })?.error?.message || 'Could not save this product.');
+          },
+        });
+      return;
+    }
+
     this.productsService
       .createProduct({
         title,
@@ -259,7 +337,7 @@ export class SellerDashboard {
         currency,
         weightLbs,
         fullDescription,
-        image: this.productImageFile,
+        image: this.productImageFile!,
         extraImages: this.extraImageFiles,
         options,
       })
@@ -267,19 +345,28 @@ export class SellerDashboard {
         next: (product) => {
           this.addedProducts.update((list) => [product, ...list]);
           this.addProductSubmitting.set(false);
-          this.showAddProduct.set(false);
-          this.productForm.reset({ title: '', categorySlug: '', price: '', currency: 'USD', weightLbs: 1, fullDescription: '' });
-          this.productImageFile = null;
-          this.productImagePreview.set(null);
-          this.extraImageFiles = [];
-          this.extraImagePreviews.set([]);
-          this.optionRows.set([]);
+          this.closeProductForm();
         },
         error: (err) => {
           this.addProductSubmitting.set(false);
           this.addProductError.set((err as { error?: { message?: string } })?.error?.message || 'Could not add this product.');
         },
       });
+  }
+
+  deleteProduct(product: Product): void {
+    if (!confirm(`Delete "${product.title}"? This can't be undone.`)) {
+      return;
+    }
+    this.deletingProductId.set(product.id);
+    this.productsService.deleteProduct(product.id).subscribe({
+      next: () => {
+        this.deletingProductId.set(null);
+        this.deletedProductIds.update((ids) => new Set(ids).add(product.id));
+        this.addedProducts.update((list) => list.filter((p) => p.id !== product.id));
+      },
+      error: () => this.deletingProductId.set(null),
+    });
   }
 
   respondToOffer(offer: Offer, status: 'accepted' | 'rejected'): void {

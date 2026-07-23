@@ -40,3 +40,15 @@ export interface CreateProductRequest {
   extraImages?: File[];
   options?: ProductOption[];
 }
+
+/** Photos aren't editable after listing — only text/pricing/option fields. */
+export interface UpdateProductRequest {
+  title: string;
+  category: string;
+  categorySlug: string;
+  price: string;
+  currency: string;
+  weightLbs: number;
+  fullDescription: string;
+  options?: ProductOption[];
+}

@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map, shareReplay } from 'rxjs';
-import { CreateProductRequest, Product } from '../models/product.model';
+import { CreateProductRequest, Product, UpdateProductRequest } from '../models/product.model';
 import { Owner } from '../models/owner.model';
 import { Comment } from '../models/comment.model';
 
@@ -56,6 +56,23 @@ export class ProductsService {
       formData.append('optionsJson', JSON.stringify(request.options));
     }
     return this.http.post<Product>('/api/products', formData);
+  }
+
+  updateProduct(id: string, request: UpdateProductRequest): Observable<Product> {
+    return this.http.put<Product>(`/api/products/${id}`, {
+      title: request.title,
+      category: request.category,
+      categorySlug: request.categorySlug,
+      price: request.price,
+      currency: request.currency,
+      weightLbs: request.weightLbs,
+      fullDescription: request.fullDescription,
+      optionsJson: request.options?.length ? JSON.stringify(request.options) : undefined,
+    });
+  }
+
+  deleteProduct(id: string): Observable<void> {
+    return this.http.delete<void>(`/api/products/${id}`);
   }
 
   getComments(productId: string): Observable<Comment[]> {

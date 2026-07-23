@@ -56,7 +56,7 @@
 
     @if (tab() === 'products') {
         <div class="flex justify-end">
-            <button type="button" (click)="showAddProduct.set(!showAddProduct())" class="flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition-colors duration-150 hover:bg-indigo-700">
+            <button type="button" (click)="toggleAddProduct()" class="flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition-colors duration-150 hover:bg-indigo-700">
                 <ng-icon name="faSolidPlus" size="0.8rem"></ng-icon>
                 Add Product
             </button>
@@ -65,14 +65,21 @@
         @if (showAddProduct()) {
             <form [formGroup]="productForm" (ngSubmit)="submitProduct()" class="flex flex-col gap-4 rounded-xl bg-white p-5 ring-1 ring-slate-200 shadow-sm dark:bg-slate-900 dark:ring-slate-800">
                 <div class="flex flex-col gap-4 sm:flex-row">
-                    <label class="group relative flex h-24 w-24 shrink-0 cursor-pointer items-center justify-center overflow-hidden rounded-xl border-2 border-dashed border-slate-300 bg-slate-50 text-slate-400 transition-colors duration-150 hover:border-indigo-400 dark:border-slate-700 dark:bg-slate-800">
-                        @if (productImagePreview()) {
-                            <img [src]="productImagePreview()" alt="Product preview" class="h-full w-full object-cover" />
-                        } @else {
-                            <ng-icon name="faSolidPlus" size="1.1rem"></ng-icon>
-                        }
-                        <input type="file" accept="image/*" class="hidden" (change)="onProductImageSelected($event)" />
-                    </label>
+                    @if (editingProductId()) {
+                        <div class="flex h-24 w-24 shrink-0 flex-col items-center gap-1">
+                            <img [src]="productImagePreview()" alt="Product photo" class="h-24 w-24 rounded-xl object-cover" />
+                            <span class="text-center text-[10px] leading-tight text-slate-400 dark:text-slate-500">Photo can't be changed</span>
+                        </div>
+                    } @else {
+                        <label class="group relative flex h-24 w-24 shrink-0 cursor-pointer items-center justify-center overflow-hidden rounded-xl border-2 border-dashed border-slate-300 bg-slate-50 text-slate-400 transition-colors duration-150 hover:border-indigo-400 dark:border-slate-700 dark:bg-slate-800">
+                            @if (productImagePreview()) {
+                                <img [src]="productImagePreview()" alt="Product preview" class="h-full w-full object-cover" />
+                            } @else {
+                                <ng-icon name="faSolidPlus" size="1.1rem"></ng-icon>
+                            }
+                            <input type="file" accept="image/*" class="hidden" (change)="onProductImageSelected($event)" />
+                        </label>
+                    }
 
                     <div class="grid flex-1 grid-cols-1 gap-3 sm:grid-cols-2">
                         <label class="flex flex-col gap-1.5">
@@ -108,25 +115,27 @@
                     <textarea formControlName="fullDescription" rows="3" class="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-indigo-500 dark:border-slate-700 dark:bg-slate-950 dark:text-white"></textarea>
                 </label>
 
-                <div class="flex flex-col gap-2">
-                    <span class="text-sm font-semibold text-slate-700 dark:text-slate-200">Extra photos (optional, up to 6)</span>
-                    <div class="flex flex-wrap gap-3">
-                        @for (preview of extraImagePreviews(); track $index) {
-                            <div class="group relative h-16 w-16 shrink-0 overflow-hidden rounded-lg border border-slate-200 dark:border-slate-700">
-                                <img [src]="preview" alt="Extra product photo" class="h-full w-full object-cover" />
-                                <button type="button" (click)="removeExtraImage($index)" class="absolute inset-0 flex items-center justify-center bg-black/50 text-white opacity-0 transition-opacity duration-150 group-hover:opacity-100">
-                                    <ng-icon name="faSolidXmark" size="0.9rem"></ng-icon>
-                                </button>
-                            </div>
-                        }
-                        @if (extraImagePreviews().length < 6) {
-                            <label class="flex h-16 w-16 shrink-0 cursor-pointer items-center justify-center rounded-lg border-2 border-dashed border-slate-300 text-slate-400 transition-colors duration-150 hover:border-indigo-400 dark:border-slate-700">
-                                <ng-icon name="faSolidPlus" size="0.9rem"></ng-icon>
-                                <input type="file" accept="image/*" multiple class="hidden" (change)="onExtraImagesSelected($event)" />
-                            </label>
-                        }
+                @if (!editingProductId()) {
+                    <div class="flex flex-col gap-2">
+                        <span class="text-sm font-semibold text-slate-700 dark:text-slate-200">Extra photos (optional, up to 6)</span>
+                        <div class="flex flex-wrap gap-3">
+                            @for (preview of extraImagePreviews(); track $index) {
+                                <div class="group relative h-16 w-16 shrink-0 overflow-hidden rounded-lg border border-slate-200 dark:border-slate-700">
+                                    <img [src]="preview" alt="Extra product photo" class="h-full w-full object-cover" />
+                                    <button type="button" (click)="removeExtraImage($index)" class="absolute inset-0 flex items-center justify-center bg-black/50 text-white opacity-0 transition-opacity duration-150 group-hover:opacity-100">
+                                        <ng-icon name="faSolidXmark" size="0.9rem"></ng-icon>
+                                    </button>
+                                </div>
+                            }
+                            @if (extraImagePreviews().length < 6) {
+                                <label class="flex h-16 w-16 shrink-0 cursor-pointer items-center justify-center rounded-lg border-2 border-dashed border-slate-300 text-slate-400 transition-colors duration-150 hover:border-indigo-400 dark:border-slate-700">
+                                    <ng-icon name="faSolidPlus" size="0.9rem"></ng-icon>
+                                    <input type="file" accept="image/*" multiple class="hidden" (change)="onExtraImagesSelected($event)" />
+                                </label>
+                            }
+                        </div>
                     </div>
-                </div>
+                }
 
                 <div class="flex flex-col gap-2">
                     <div class="flex items-center justify-between gap-2">
@@ -163,13 +172,22 @@
                     <p class="text-sm font-medium text-red-600 dark:text-red-400">{{ addProductError() }}</p>
                 }
 
-                <button
-                    type="submit"
-                    [disabled]="addProductSubmitting()"
-                    class="self-end rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-indigo-700 disabled:opacity-60"
-                >
-                    {{ addProductSubmitting() ? 'Adding…' : 'Add product' }}
-                </button>
+                <div class="flex justify-end gap-2">
+                    <button
+                        type="button"
+                        (click)="toggleAddProduct()"
+                        class="rounded-lg border border-slate-200 px-4 py-2.5 text-sm font-semibold text-slate-700 transition-colors duration-150 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+                    >
+                        Cancel
+                    </button>
+                    <button
+                        type="submit"
+                        [disabled]="addProductSubmitting()"
+                        class="rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-indigo-700 disabled:opacity-60"
+                    >
+                        {{ editingProductId() ? (addProductSubmitting() ? 'Saving…' : 'Save changes') : (addProductSubmitting() ? 'Adding…' : 'Add product') }}
+                    </button>
+                </div>
             </form>
         }
 
@@ -194,6 +212,10 @@
                         </div>
                     </div>
                     <span class="shrink-0 font-semibold text-indigo-600 dark:text-indigo-400">{{ product.price }}</span>
+                    <div class="flex shrink-0 flex-col gap-1">
+                        <button type="button" (click)="startEditProduct(product)" class="rounded-lg border border-slate-200 px-2.5 py-1 text-xs font-semibold text-slate-700 transition-colors duration-150 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800">Edit</button>
+                        <button type="button" (click)="deleteProduct(product)" [disabled]="deletingProductId() === product.id" class="rounded-lg border border-rose-200 px-2.5 py-1 text-xs font-semibold text-rose-700 transition-colors duration-150 hover:bg-rose-50 disabled:opacity-60 dark:border-rose-500/30 dark:text-rose-400 dark:hover:bg-rose-500/10">{{ deletingProductId() === product.id ? '…' : 'Delete' }}</button>
+                    </div>
                 </div>
             } @empty {
                 <p class="px-4 py-8 text-center text-sm text-slate-500 dark:text-slate-400">No products listed yet.</p>
@@ -211,6 +233,7 @@
                         <th class="px-4 py-3">Photos</th>
                         <th class="px-4 py-3">Options</th>
                         <th class="px-4 py-3">Product ID</th>
+                        <th class="px-4 py-3">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -236,10 +259,16 @@
                                 </div>
                             </td>
                             <td class="px-4 py-3 text-slate-500 dark:text-slate-400">{{ product.id }}</td>
+                            <td class="px-4 py-3">
+                                <div class="flex gap-2">
+                                    <button type="button" (click)="startEditProduct(product)" class="rounded-lg border border-slate-200 px-2.5 py-1 text-xs font-semibold text-slate-700 transition-colors duration-150 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800">Edit</button>
+                                    <button type="button" (click)="deleteProduct(product)" [disabled]="deletingProductId() === product.id" class="rounded-lg border border-rose-200 px-2.5 py-1 text-xs font-semibold text-rose-700 transition-colors duration-150 hover:bg-rose-50 disabled:opacity-60 dark:border-rose-500/30 dark:text-rose-400 dark:hover:bg-rose-500/10">{{ deletingProductId() === product.id ? '…' : 'Delete' }}</button>
+                                </div>
+                            </td>
                         </tr>
                     } @empty {
                         <tr>
-                            <td colspan="4" class="px-4 py-8 text-center text-slate-500 dark:text-slate-400">No products listed yet.</td>
+                            <td colspan="8" class="px-4 py-8 text-center text-slate-500 dark:text-slate-400">No products listed yet.</td>
                         </tr>
                     }
                 </tbody>
