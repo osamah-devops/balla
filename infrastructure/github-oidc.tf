@@ -1,5 +1,10 @@
 locals {
-  github_repo = "osamah-devops/balla"
+  # GitHub issues OIDC tokens with owner/repo names suffixed by their
+  # permanent numeric IDs (immutable subject format), not the plain
+  # "owner/repo" slug, even though the customization API reports
+  # use_default = true. Confirmed by decoding an actual token's `sub` claim.
+  # See: GET /repos/osamah-devops/balla/actions/oidc/customization/sub
+  github_sub_prefix = "repo:osamah-devops@284515116/balla@1309445409"
 }
 
 # GitHub's OIDC discovery document is what IAM actually validates against; the
@@ -36,7 +41,7 @@ resource "aws_iam_role" "github_actions_plan" {
             "token.actions.githubusercontent.com:aud" = "sts.amazonaws.com"
           }
           StringLike = {
-            "token.actions.githubusercontent.com:sub" = "repo:${local.github_repo}:*"
+            "token.actions.githubusercontent.com:sub" = "${local.github_sub_prefix}:*"
           }
         }
       }
@@ -87,7 +92,7 @@ resource "aws_iam_role" "github_actions_deploy" {
         Condition = {
           StringEquals = {
             "token.actions.githubusercontent.com:aud" = "sts.amazonaws.com"
-            "token.actions.githubusercontent.com:sub" = "repo:${local.github_repo}:ref:refs/heads/main"
+            "token.actions.githubusercontent.com:sub" = "${local.github_sub_prefix}:ref:refs/heads/main"
           }
         }
       }
