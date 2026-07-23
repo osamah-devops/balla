@@ -182,6 +182,13 @@ public class UsersController(
         }
         if (profile.BlockedUserIds?.Remove(userId) == true)
         {
+            // BlockedUserIds persists as a DynamoDB string set, which can't be empty:
+            // saving one still holding an empty list silently no-ops that attribute
+            // instead of clearing it, so null it out to make the SDK emit a REMOVE.
+            if (profile.BlockedUserIds.Count == 0)
+            {
+                profile.BlockedUserIds = null;
+            }
             await userProfileRepository.PutAsync(profile, ct);
         }
         return NoContent();
