@@ -2,6 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { AbstractControl, FormBuilder, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { provideIcons, NgIcon } from '@ng-icons/core';
 import { faSolidBan, faSolidCamera, faSolidFloppyDisk, faSolidLocationDot, faSolidLock, faSolidShieldHalved, faSolidUser } from '@ng-icons/font-awesome/solid';
+import qrcode from 'qrcode-generator';
 import { AuthService } from '../../services/auth.service';
 import { UsersService } from '../../services/users.service';
 import { BlockedUsersService } from '../../services/blocked-users.service';
@@ -61,6 +62,7 @@ export class Profile {
   readonly mfaEnabled = signal(false);
   readonly mfaStatusLoaded = signal(false);
   readonly mfaSetup = signal<SetupMfaResponse | null>(null);
+  readonly mfaQrCodeDataUrl = signal<string | null>(null);
   readonly mfaBusy = signal(false);
   readonly mfaSuccess = signal('');
   readonly mfaError = signal('');
@@ -113,6 +115,10 @@ export class Profile {
       next: (setup) => {
         this.mfaBusy.set(false);
         this.mfaSetup.set(setup);
+        const qr = qrcode(0, 'M');
+        qr.addData(setup.otpAuthUrl);
+        qr.make();
+        this.mfaQrCodeDataUrl.set(qr.createDataURL(6, 8));
       },
       error: () => {
         this.mfaBusy.set(false);
@@ -123,6 +129,7 @@ export class Profile {
 
   cancelMfaSetup(): void {
     this.mfaSetup.set(null);
+    this.mfaQrCodeDataUrl.set(null);
     this.mfaCodeForm.reset({ code: '' });
     this.mfaError.set('');
   }
@@ -140,6 +147,7 @@ export class Profile {
         this.mfaBusy.set(false);
         this.mfaEnabled.set(true);
         this.mfaSetup.set(null);
+        this.mfaQrCodeDataUrl.set(null);
         this.mfaCodeForm.reset({ code: '' });
         this.mfaSuccess.set('Two-factor authentication is enabled.');
       },

@@ -128,6 +128,9 @@
             <p class="text-sm text-slate-400 dark:text-slate-500">Loading…</p>
         } @else if (mfaSetup(); as setup) {
             <p class="text-sm text-slate-500 dark:text-slate-400">Scan this in your authenticator app, or enter the code manually, then confirm with a 6-digit code.</p>
+            @if (mfaQrCodeDataUrl(); as qrCode) {
+                <img [src]="qrCode" alt="Two-factor authentication QR code" class="h-40 w-40 self-center rounded-lg border border-slate-200 bg-white p-2 dark:border-slate-700" />
+            }
             <p class="break-all rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 font-mono text-xs text-slate-700 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-200">{{ setup.secretCode }}</p>
 
             <form [formGroup]="mfaCodeForm" (ngSubmit)="verifyMfaSetup()" class="flex flex-col gap-4">
