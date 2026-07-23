@@ -12,6 +12,7 @@ public class Product
     public string Title { get; set; } = default!;
     public string Price { get; set; } = default!;
     public string Currency { get; set; } = "USD";
+    public decimal WeightLbs { get; set; }
     public string FullDescription { get; set; } = default!;
     public Dictionary<string, string>? Specifications { get; set; }
     public string Image { get; set; } = default!;

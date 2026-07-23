@@ -103,12 +103,43 @@ public class UsersController(
     [HttpPost("me/change-password")]
     public async Task<IActionResult> ChangePassword(ChangePasswordRequest request, CancellationToken ct)
     {
-        var authorizationHeader = Request.Headers.Authorization.ToString();
-        var accessToken = authorizationHeader.StartsWith("Bearer ", StringComparison.OrdinalIgnoreCase)
-            ? authorizationHeader["Bearer ".Length..]
-            : authorizationHeader;
+        await authService.ChangePasswordAsync(CurrentAccessToken, request.CurrentPassword, request.NewPassword, ct);
+        return NoContent();
+    }
 
-        await authService.ChangePasswordAsync(accessToken, request.CurrentPassword, request.NewPassword, ct);
+    [HttpGet("me/mfa/status")]
+    public async Task<ActionResult<MfaStatusResponse>> GetMfaStatus(CancellationToken ct)
+    {
+        var enabled = await authService.IsSoftwareTokenMfaEnabledAsync(CurrentAccessToken, ct);
+        return Ok(new MfaStatusResponse(enabled));
+    }
+
+    [HttpPost("me/mfa/setup")]
+    public async Task<ActionResult<SetupMfaResponse>> SetupMfa(CancellationToken ct)
+    {
+        var profile = await GetCurrentProfileAsync(ct);
+        if (profile is null)
+        {
+            return NotFound();
+        }
+
+        var secret = await authService.AssociateSoftwareTokenAsync(CurrentAccessToken, ct);
+        var otpAuthUrl = $"otpauth://totp/Balla:{Uri.EscapeDataString(profile.Email)}?secret={secret}&issuer=Balla";
+        return Ok(new SetupMfaResponse(secret, otpAuthUrl));
+    }
+
+    [HttpPost("me/mfa/verify")]
+    public async Task<IActionResult> VerifyMfa(VerifyMfaRequest request, CancellationToken ct)
+    {
+        await authService.VerifySoftwareTokenAsync(CurrentAccessToken, request.Code, ct);
+        await authService.SetSoftwareTokenMfaEnabledAsync(CurrentAccessToken, true, ct);
+        return NoContent();
+    }
+
+    [HttpPost("me/mfa/disable")]
+    public async Task<IActionResult> DisableMfa(CancellationToken ct)
+    {
+        await authService.SetSoftwareTokenMfaEnabledAsync(CurrentAccessToken, false, ct);
         return NoContent();
     }
 

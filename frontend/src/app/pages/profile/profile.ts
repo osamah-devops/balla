@@ -1,11 +1,12 @@
 import { Component, inject, signal } from '@angular/core';
 import { AbstractControl, FormBuilder, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
 import { provideIcons, NgIcon } from '@ng-icons/core';
-import { faSolidBan, faSolidCamera, faSolidFloppyDisk, faSolidLocationDot, faSolidLock, faSolidUser } from '@ng-icons/font-awesome/solid';
+import { faSolidBan, faSolidCamera, faSolidFloppyDisk, faSolidLocationDot, faSolidLock, faSolidShieldHalved, faSolidUser } from '@ng-icons/font-awesome/solid';
 import { AuthService } from '../../services/auth.service';
 import { UsersService } from '../../services/users.service';
 import { BlockedUsersService } from '../../services/blocked-users.service';
 import { US_STATES } from '../../data/us-states';
+import { SetupMfaResponse } from '../../models/auth.model';
 
 const ZIP_PATTERN = /^\d{5}(-\d{4})?$/;
 // Mirrors the Cognito user pool password policy in infrastructure/auth.tf.
@@ -23,7 +24,7 @@ function passwordsMatch(control: AbstractControl): ValidationErrors | null {
   imports: [ReactiveFormsModule, NgIcon],
   templateUrl: './profile.html',
   styleUrl: './profile.css',
-  providers: [provideIcons({ faSolidBan, faSolidCamera, faSolidFloppyDisk, faSolidLocationDot, faSolidLock, faSolidUser })],
+  providers: [provideIcons({ faSolidBan, faSolidCamera, faSolidFloppyDisk, faSolidLocationDot, faSolidLock, faSolidShieldHalved, faSolidUser })],
 })
 export class Profile {
   private readonly fb = inject(FormBuilder);
@@ -56,8 +57,20 @@ export class Profile {
     { validators: passwordsMatch },
   );
 
+  /** Loaded from the backend on init; setup/disable actions update it locally afterward. */
+  readonly mfaEnabled = signal(false);
+  readonly mfaStatusLoaded = signal(false);
+  readonly mfaSetup = signal<SetupMfaResponse | null>(null);
+  readonly mfaBusy = signal(false);
+  readonly mfaSuccess = signal('');
+  readonly mfaError = signal('');
+  readonly mfaCodeForm = this.fb.nonNullable.group({
+    code: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(6)]],
+  });
+
   constructor() {
     this.blockedUsersService.refresh();
+    this.loadMfaStatus();
   }
 
   changePassword(): void {
@@ -78,6 +91,78 @@ export class Profile {
       error: (err) => {
         this.changingPassword.set(false);
         this.passwordError.set((err as { error?: { message?: string } })?.error?.message || 'Could not change your password.');
+      },
+    });
+  }
+
+  private loadMfaStatus(): void {
+    this.usersService.getMfaStatus().subscribe({
+      next: (status) => {
+        this.mfaEnabled.set(status.enabled);
+        this.mfaStatusLoaded.set(true);
+      },
+      error: () => this.mfaStatusLoaded.set(true),
+    });
+  }
+
+  startMfaSetup(): void {
+    this.mfaBusy.set(true);
+    this.mfaSuccess.set('');
+    this.mfaError.set('');
+    this.usersService.setupMfa().subscribe({
+      next: (setup) => {
+        this.mfaBusy.set(false);
+        this.mfaSetup.set(setup);
+      },
+      error: () => {
+        this.mfaBusy.set(false);
+        this.mfaError.set('Could not start two-factor setup. Please try again.');
+      },
+    });
+  }
+
+  cancelMfaSetup(): void {
+    this.mfaSetup.set(null);
+    this.mfaCodeForm.reset({ code: '' });
+    this.mfaError.set('');
+  }
+
+  verifyMfaSetup(): void {
+    if (this.mfaCodeForm.invalid) {
+      this.mfaCodeForm.markAllAsTouched();
+      return;
+    }
+    const { code } = this.mfaCodeForm.getRawValue();
+    this.mfaBusy.set(true);
+    this.mfaError.set('');
+    this.usersService.verifyMfa(code).subscribe({
+      next: () => {
+        this.mfaBusy.set(false);
+        this.mfaEnabled.set(true);
+        this.mfaSetup.set(null);
+        this.mfaCodeForm.reset({ code: '' });
+        this.mfaSuccess.set('Two-factor authentication is enabled.');
+      },
+      error: (err) => {
+        this.mfaBusy.set(false);
+        this.mfaError.set((err as { error?: { message?: string } })?.error?.message || 'That code is invalid.');
+      },
+    });
+  }
+
+  disableMfa(): void {
+    this.mfaBusy.set(true);
+    this.mfaSuccess.set('');
+    this.mfaError.set('');
+    this.usersService.disableMfa().subscribe({
+      next: () => {
+        this.mfaBusy.set(false);
+        this.mfaEnabled.set(false);
+        this.mfaSuccess.set('Two-factor authentication is disabled.');
+      },
+      error: () => {
+        this.mfaBusy.set(false);
+        this.mfaError.set('Could not disable two-factor authentication. Please try again.');
       },
     });
   }

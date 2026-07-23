@@ -7,6 +7,7 @@ import {
   ConfirmRegistrationRequest,
   ForgotPasswordRequest,
   LoginResponse,
+  LoginResult,
   RegisterRequest,
   RegisterResponse,
   ResendConfirmationCodeRequest,
@@ -53,15 +54,39 @@ export class AuthService {
     return this.http.post<void>(`${API_BASE}/resend-code`, request);
   }
 
-  login(email: string, password: string, rememberMe = true): Observable<User> {
+  /** Resolves to a completed login, or an MFA challenge to hand off to completeMfaLogin(). */
+  login(email: string, password: string, rememberMe = true): Observable<LoginResult> {
     this.activeStorage = rememberMe ? localStorage : sessionStorage;
-    return this.http.post<LoginResponse>(`${API_BASE}/login`, { email, password }).pipe(
-      tap((response) => this.applyTokens(response)),
+    return this.http
+      .post<LoginResponse>(`${API_BASE}/login`, { email, password })
+      .pipe(map((response) => this.handleLoginResponse(response, email)));
+  }
+
+  /** Completes a login that was interrupted by an MFA challenge from login(). */
+  completeMfaLogin(email: string, session: string, code: string): Observable<User> {
+    return this.http.post<LoginResponse>(`${API_BASE}/mfa/login`, { email, session, code }).pipe(
       map((response) => {
-        this.currentUser.set(response.user);
-        return response.user;
+        const result = this.handleLoginResponse(response, email);
+        if (result.mfaRequired) {
+          throw new Error('Unexpected MFA challenge after completing MFA login.');
+        }
+        return result.user;
       }),
     );
+  }
+
+  private handleLoginResponse(response: LoginResponse, email: string): LoginResult {
+    if (response.mfaRequired) {
+      return { mfaRequired: true, email, session: response.mfaSession! };
+    }
+    this.applyTokens({
+      accessToken: response.accessToken!,
+      idToken: response.idToken!,
+      refreshToken: response.refreshToken,
+      expiresIn: response.expiresIn!,
+    });
+    this.currentUser.set(response.user!);
+    return { mfaRequired: false, user: response.user! };
   }
 
   forgotPassword(request: ForgotPasswordRequest): Observable<void> {

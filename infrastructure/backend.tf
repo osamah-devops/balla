@@ -301,8 +301,8 @@ resource "aws_iam_role_policy" "ecs_task_execution_ssm" {
     Version = "2012-10-17"
     Statement = [
       {
-        Action   = "ssm:GetParameters"
-        Effect   = "Allow"
+        Action = "ssm:GetParameters"
+        Effect = "Allow"
         Resource = [
           aws_ssm_parameter.stripe_secret_key.arn,
           aws_ssm_parameter.stripe_webhook_secret.arn,
@@ -382,7 +382,11 @@ resource "aws_iam_policy" "ecs_task_application" {
           "cognito-idp:ForgotPassword",
           "cognito-idp:ConfirmForgotPassword",
           "cognito-idp:ChangePassword",
-          "cognito-idp:GetUser"
+          "cognito-idp:GetUser",
+          "cognito-idp:AssociateSoftwareToken",
+          "cognito-idp:VerifySoftwareToken",
+          "cognito-idp:SetUserMFAPreference",
+          "cognito-idp:RespondToAuthChallenge"
         ]
         Effect   = "Allow"
         Resource = aws_cognito_user_pool.app_users.arn

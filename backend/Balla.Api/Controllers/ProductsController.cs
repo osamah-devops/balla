@@ -190,6 +190,7 @@ public class ProductsController(
             Title = form.Title,
             Price = form.Price,
             Currency = form.Currency,
+            WeightLbs = form.WeightLbs,
             FullDescription = form.FullDescription,
             Image = image,
             ExtraImages = extraImages,

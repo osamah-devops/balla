@@ -141,7 +141,16 @@ export class Register {
 
   private loginAfterConfirmation(email: string, password: string): void {
     this.authService.login(email, password).subscribe({
-      next: (user) => this.uploadImageThenRedirect(user.role === 'seller' ? '/seller-dashboard' : '/home'),
+      next: (result) => {
+        // A brand-new account can't have MFA enabled yet (it requires a signed-in
+        // session to set up), so this should always be a completed login.
+        if (result.mfaRequired) {
+          this.submitting.set(false);
+          this.router.navigateByUrl('/login');
+          return;
+        }
+        this.uploadImageThenRedirect(result.user.role === 'seller' ? '/seller-dashboard' : '/home');
+      },
       error: () => {
         this.submitting.set(false);
         this.router.navigateByUrl('/login');

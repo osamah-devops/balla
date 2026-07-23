@@ -24,6 +24,6 @@ public class S3FileStorage(IAmazonS3 s3Client, IOptions<AwsResourceOptions> opti
 
         await s3Client.PutObjectAsync(request, ct);
 
-        return $"{_options.PublicAssetsBaseUrl.TrimEnd('/')}/uploads/{key}";
+        return $"{_options.PublicAssetsBaseUrl.TrimEnd('/')}/{key}";
     }
 }

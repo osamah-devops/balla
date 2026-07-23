@@ -16,6 +16,7 @@ export interface Product {
   title: string;
   price: string;
   currency: string;
+  weightLbs: number;
   fullDescription: string;
   specifications?: Record<string, string>;
   owner: ProductOwnerRef;
@@ -33,6 +34,7 @@ export interface CreateProductRequest {
   categorySlug: string;
   price: string;
   currency: string;
+  weightLbs: number;
   fullDescription: string;
   image: File;
   extraImages?: File[];

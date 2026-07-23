@@ -16,6 +16,7 @@ public record OrderResponse(
     string SellerId,
     string SellerName,
     IReadOnlyList<OrderItemResponse> Items,
+    long ShippingCents,
     long TotalCents,
     string Currency,
     string Status,

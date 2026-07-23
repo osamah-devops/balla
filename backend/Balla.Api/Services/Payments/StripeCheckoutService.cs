@@ -10,21 +10,34 @@ public class StripeCheckoutService(IOptions<StripeOptions> options) : IStripeChe
     public async Task<Session> CreateCheckoutSessionAsync(IReadOnlyList<Order> orders, string buyerEmail, CancellationToken ct)
     {
         var lineItems = orders
-            .SelectMany(order => order.Items)
-            .Select(item => new SessionLineItemOptions
-            {
-                Quantity = item.Quantity,
-                PriceData = new SessionLineItemPriceDataOptions
+            .SelectMany(order => order.Items
+                .Select(item => new SessionLineItemOptions
                 {
-                    Currency = "usd",
-                    UnitAmount = item.UnitPriceCents,
-                    ProductData = new SessionLineItemPriceDataProductDataOptions
+                    Quantity = item.Quantity,
+                    PriceData = new SessionLineItemPriceDataOptions
                     {
-                        Name = item.ProductTitle,
-                        Images = [item.ProductImage],
+                        Currency = "usd",
+                        UnitAmount = item.UnitPriceCents,
+                        ProductData = new SessionLineItemPriceDataProductDataOptions
+                        {
+                            Name = item.ProductTitle,
+                            Images = [item.ProductImage],
+                        },
                     },
-                },
-            })
+                })
+                .Append(new SessionLineItemOptions
+                {
+                    Quantity = 1,
+                    PriceData = new SessionLineItemPriceDataOptions
+                    {
+                        Currency = "usd",
+                        UnitAmount = order.ShippingCents,
+                        ProductData = new SessionLineItemPriceDataProductDataOptions
+                        {
+                            Name = $"Shipping — {order.SellerName}",
+                        },
+                    },
+                }))
             .ToList();
 
         var sessionOptions = new SessionCreateOptions

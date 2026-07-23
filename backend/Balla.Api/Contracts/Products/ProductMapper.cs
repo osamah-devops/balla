@@ -1,4 +1,5 @@
 using Balla.Api.Models;
+using Balla.Api.Services.Payments;
 
 namespace Balla.Api.Contracts.Products;
 
@@ -9,8 +10,9 @@ public static class ProductMapper
         product.Category,
         product.CategorySlug,
         product.Title,
-        product.Price,
+        CommissionPricing.ApplyToDisplayPrice(product.Price),
         product.Currency,
+        product.WeightLbs,
         product.FullDescription,
         product.Specifications,
         product.Image,

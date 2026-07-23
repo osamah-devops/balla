@@ -11,6 +11,7 @@ public record ProductResponse(
     string Title,
     string Price,
     string Currency,
+    decimal WeightLbs,
     string FullDescription,
     Dictionary<string, string>? Specifications,
     string Image,

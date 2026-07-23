@@ -77,3 +77,8 @@ output "dynamodb_favorites_table_name" {
 output "dynamodb_reports_table_name" {
   value = aws_dynamodb_table.reports.name
 }
+
+output "alerts_topic_arn" {
+  description = "SNS topic CloudWatch alarms publish to; subscribe Slack/PagerDuty here alongside the email subscription."
+  value       = aws_sns_topic.alerts.arn
+}

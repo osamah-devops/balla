@@ -2,9 +2,17 @@
 .DS_Store
 Thumbs.db
 
-# Local Claude Code settings (machine-specific)
-.claude/settings.local.json
-.claude/scheduled_tasks.lock
+# Local Claude Code settings (machine-specific). Unanchored so this also
+# catches per-package copies (frontend/.claude/..., backend/Balla.Api/.claude/...),
+# not just the repo root's.
+**/.claude/settings.local.json
+**/.claude/scheduled_tasks.lock
+
+# Claude Code skill cache: downloaded skill docs and the machine-local
+# absolute-path symlinks/lockfile that reference them. Regenerated per machine.
+.agents/
+**/.claude/skills/
+**/skills-lock.json
 
 # Stray Playwright MCP artifacts if ever created at repo root
 /.playwright-mcp

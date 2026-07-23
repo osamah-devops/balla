@@ -31,6 +31,7 @@ public class Order
     public string SellerId { get; set; } = default!;
     public string SellerName { get; set; } = default!;
     public List<OrderItem> Items { get; set; } = [];
+    public long ShippingCents { get; set; }
     public long TotalCents { get; set; }
     public string Currency { get; set; } = "usd";
     public string Status { get; set; } = OrderStatus.PendingPayment;

@@ -68,7 +68,24 @@ public class AuthController(ICognitoAuthService authService, IUserProfileReposit
     [HttpPost("login")]
     public async Task<ActionResult<LoginResponse>> Login(LoginRequest request, CancellationToken ct)
     {
-        var tokens = await authService.LoginAsync(request.Email, request.Password, ct);
+        var outcome = await authService.LoginAsync(request.Email, request.Password, ct);
+        if (outcome.MfaRequired)
+        {
+            return Ok(new LoginResponse(true, outcome.MfaSession, null, null, null, null, null));
+        }
+
+        return Ok(await BuildLoginResponseAsync(outcome.Tokens!, ct));
+    }
+
+    [HttpPost("mfa/login")]
+    public async Task<ActionResult<LoginResponse>> CompleteMfaLogin(MfaLoginRequest request, CancellationToken ct)
+    {
+        var tokens = await authService.RespondToMfaChallengeAsync(request.Email, request.Session, request.Code, ct);
+        return Ok(await BuildLoginResponseAsync(tokens, ct));
+    }
+
+    private async Task<LoginResponse> BuildLoginResponseAsync(AuthTokens tokens, CancellationToken ct)
+    {
         var userId = await authService.GetUserIdAsync(tokens.AccessToken, ct);
 
         var profile = await userProfileRepository.GetAsync(userId, ct);
@@ -81,7 +98,7 @@ public class AuthController(ICognitoAuthService authService, IUserProfileReposit
             throw new AuthException("ACCOUNT_SUSPENDED", 403, "This account has been suspended.");
         }
 
-        return Ok(new LoginResponse(tokens.AccessToken, tokens.IdToken, tokens.RefreshToken, tokens.ExpiresIn, profile.ToResponse()));
+        return new LoginResponse(false, null, tokens.AccessToken, tokens.IdToken, tokens.RefreshToken, tokens.ExpiresIn, profile.ToResponse());
     }
 
     [HttpPost("refresh")]

@@ -1,5 +1,5 @@
 locals {
-  name = "ex-${basename(path.cwd)}"
+  name = "balla"
   tags = {
     Terraform   = "true"
     Environment = "dev"

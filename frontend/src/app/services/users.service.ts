@@ -1,6 +1,7 @@
 import { Injectable, inject, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, shareReplay, tap } from 'rxjs';
+import { MfaStatusResponse, SetupMfaResponse } from '../models/auth.model';
 import { UpdateProfileRequest, User, UserStatus } from '../models/user.model';
 
 /**
@@ -45,5 +46,21 @@ export class UsersService {
 
   changePassword(currentPassword: string, newPassword: string): Observable<void> {
     return this.http.post<void>('/api/users/me/change-password', { currentPassword, newPassword });
+  }
+
+  getMfaStatus(): Observable<MfaStatusResponse> {
+    return this.http.get<MfaStatusResponse>('/api/users/me/mfa/status');
+  }
+
+  setupMfa(): Observable<SetupMfaResponse> {
+    return this.http.post<SetupMfaResponse>('/api/users/me/mfa/setup', {});
+  }
+
+  verifyMfa(code: string): Observable<void> {
+    return this.http.post<void>('/api/users/me/mfa/verify', { code });
+  }
+
+  disableMfa(): Observable<void> {
+    return this.http.post<void>('/api/users/me/mfa/disable', {});
   }
 }

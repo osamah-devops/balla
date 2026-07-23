@@ -16,6 +16,7 @@ export interface Order {
   sellerId: string;
   sellerName: string;
   items: OrderItem[];
+  shippingCents: number;
   totalCents: number;
   currency: string;
   status: OrderStatus;

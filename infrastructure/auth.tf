@@ -20,6 +20,14 @@ resource "aws_cognito_user_pool" "app_users" {
     default_email_option = "CONFIRM_WITH_CODE"
   }
 
+  # Optional (not required) TOTP MFA: users can turn it on for their own account via
+  # AssociateSoftwareToken/VerifySoftwareToken, but it isn't forced on everyone.
+  mfa_configuration = "OPTIONAL"
+
+  software_token_mfa_configuration {
+    enabled = true
+  }
+
   schema {
     attribute_data_type = "String"
     mutable             = true

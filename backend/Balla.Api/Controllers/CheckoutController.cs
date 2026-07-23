@@ -37,7 +37,9 @@ public class CheckoutController(
 
         // Group requested items by seller: a Stripe Checkout Session is one payment, but
         // each seller still needs their own Order record to manage/fulfill independently.
-        var itemsBySeller = new Dictionary<string, (string SellerName, List<OrderItem> Items)>();
+        // Shipping weight is accumulated per seller too, since each seller's items ship as
+        // their own package (see ShippingPricing).
+        var itemsBySeller = new Dictionary<string, (string SellerName, List<OrderItem> Items, decimal TotalWeightLbs)>();
         foreach (var requested in request.Items)
         {
             var product = await productRepository.GetAsync(requested.ProductId, ct);
@@ -45,16 +47,15 @@ public class CheckoutController(
             {
                 return BadRequest(new { error = "PRODUCT_NOT_FOUND", message = "A product in your cart is no longer available." });
             }
-            if (!PriceParser.TryParseToCents(product.Price, out var unitCents))
+            if (!PriceParser.TryParseToCents(product.Price, out var baseCents))
             {
                 return BadRequest(new { error = "INVALID_PRICE", message = $"\"{product.Title}\" can't be purchased right now." });
             }
+            var unitCents = CommissionPricing.ApplyToCents(baseCents);
 
-            if (!itemsBySeller.TryGetValue(product.OwnerId, out var group))
-            {
-                group = (product.OwnerName, []);
-                itemsBySeller[product.OwnerId] = group;
-            }
+            (string SellerName, List<OrderItem> Items, decimal TotalWeightLbs) group = itemsBySeller.TryGetValue(product.OwnerId, out var existing)
+                ? existing
+                : (product.OwnerName, new List<OrderItem>(), 0m);
             group.Items.Add(new OrderItem
             {
                 ProductId = product.Id,
@@ -64,6 +65,7 @@ public class CheckoutController(
                 Quantity = requested.Quantity,
                 SelectedOptions = requested.SelectedOptions,
             });
+            itemsBySeller[product.OwnerId] = (group.SellerName, group.Items, group.TotalWeightLbs + product.WeightLbs * requested.Quantity);
         }
 
         if (itemsBySeller.Count == 0)
@@ -72,19 +74,25 @@ public class CheckoutController(
         }
 
         var now = DateTime.UtcNow.ToString("O");
-        var orders = itemsBySeller.Select(kvp => new Order
+        var orders = itemsBySeller.Select(kvp =>
         {
-            OrderId = $"ORDER-{Guid.NewGuid():N}",
-            BuyerId = buyer.UserId,
-            BuyerName = buyer.Name,
-            SellerId = kvp.Key,
-            SellerName = kvp.Value.SellerName,
-            Items = kvp.Value.Items,
-            TotalCents = kvp.Value.Items.Sum(i => i.UnitPriceCents * i.Quantity),
-            Currency = "usd",
-            Status = OrderStatus.PendingPayment,
-            CreatedAt = now,
-            UpdatedAt = now,
+            var itemsSubtotalCents = kvp.Value.Items.Sum(i => i.UnitPriceCents * i.Quantity);
+            var shippingCents = ShippingPricing.CalculateCents(kvp.Value.TotalWeightLbs);
+            return new Order
+            {
+                OrderId = $"ORDER-{Guid.NewGuid():N}",
+                BuyerId = buyer.UserId,
+                BuyerName = buyer.Name,
+                SellerId = kvp.Key,
+                SellerName = kvp.Value.SellerName,
+                Items = kvp.Value.Items,
+                ShippingCents = shippingCents,
+                TotalCents = itemsSubtotalCents + shippingCents,
+                Currency = "usd",
+                Status = OrderStatus.PendingPayment,
+                CreatedAt = now,
+                UpdatedAt = now,
+            };
         }).ToList();
 
         foreach (var order in orders)

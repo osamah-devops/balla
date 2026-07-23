@@ -49,7 +49,7 @@ resource "aws_cloudfront_distribution" "frontend" {
   is_ipv6_enabled     = true
   comment             = "Frontend distribution for ${local.name}"
   default_root_object = "index.html"
-  aliases             = [local.frontend_domain]
+  aliases             = [local.frontend_domain, local.frontend_apex_domain]
 
   default_cache_behavior {
     allowed_methods  = ["GET", "HEAD"]

@@ -92,7 +92,7 @@ public class CognitoAuthService(IAmazonCognitoIdentityProvider client, IOptions<
         }
     }
 
-    public async Task<AuthTokens> LoginAsync(string email, string password, CancellationToken ct)
+    public async Task<LoginOutcome> LoginAsync(string email, string password, CancellationToken ct)
     {
         var request = new InitiateAuthRequest
         {
@@ -108,7 +108,11 @@ public class CognitoAuthService(IAmazonCognitoIdentityProvider client, IOptions<
         try
         {
             var response = await client.InitiateAuthAsync(request, ct);
-            return ToAuthTokens(response.AuthenticationResult);
+            if (response.ChallengeName == ChallengeNameType.SOFTWARE_TOKEN_MFA)
+            {
+                return new LoginOutcome { MfaRequired = true, MfaSession = response.Session };
+            }
+            return new LoginOutcome { Tokens = ToAuthTokens(response.AuthenticationResult) };
         }
         catch (UserNotConfirmedException ex)
         {
@@ -122,6 +126,82 @@ public class CognitoAuthService(IAmazonCognitoIdentityProvider client, IOptions<
         {
             throw new AuthException("INVALID_CREDENTIALS", 401, "Incorrect email or password.", ex);
         }
+    }
+
+    public async Task<AuthTokens> RespondToMfaChallengeAsync(string email, string session, string code, CancellationToken ct)
+    {
+        var request = new RespondToAuthChallengeRequest
+        {
+            ClientId = _options.ClientId,
+            ChallengeName = ChallengeNameType.SOFTWARE_TOKEN_MFA,
+            Session = session,
+            ChallengeResponses = new Dictionary<string, string>
+            {
+                ["USERNAME"] = email,
+                ["SOFTWARE_TOKEN_MFA_CODE"] = code,
+            },
+        };
+
+        try
+        {
+            var response = await client.RespondToAuthChallengeAsync(request, ct);
+            return ToAuthTokens(response.AuthenticationResult);
+        }
+        catch (CodeMismatchException ex)
+        {
+            throw new AuthException("INVALID_CODE", 400, "That code is invalid.", ex);
+        }
+        catch (ExpiredCodeException ex)
+        {
+            throw new AuthException("CODE_EXPIRED", 400, "That code has expired.", ex);
+        }
+        catch (NotAuthorizedException ex)
+        {
+            throw new AuthException("SESSION_EXPIRED", 401, "Your session has expired. Please sign in again.", ex);
+        }
+    }
+
+    public async Task<string> AssociateSoftwareTokenAsync(string accessToken, CancellationToken ct)
+    {
+        var response = await client.AssociateSoftwareTokenAsync(new AssociateSoftwareTokenRequest { AccessToken = accessToken }, ct);
+        return response.SecretCode;
+    }
+
+    public async Task VerifySoftwareTokenAsync(string accessToken, string code, CancellationToken ct)
+    {
+        var request = new VerifySoftwareTokenRequest { AccessToken = accessToken, UserCode = code };
+        try
+        {
+            var response = await client.VerifySoftwareTokenAsync(request, ct);
+            if (response.Status != VerifySoftwareTokenResponseType.SUCCESS)
+            {
+                throw new AuthException("INVALID_CODE", 400, "That code is invalid.");
+            }
+        }
+        catch (EnableSoftwareTokenMFAException ex)
+        {
+            throw new AuthException("INVALID_CODE", 400, "That code is invalid.", ex);
+        }
+        catch (CodeMismatchException ex)
+        {
+            throw new AuthException("INVALID_CODE", 400, "That code is invalid.", ex);
+        }
+    }
+
+    public Task SetSoftwareTokenMfaEnabledAsync(string accessToken, bool enabled, CancellationToken ct)
+    {
+        var request = new SetUserMFAPreferenceRequest
+        {
+            AccessToken = accessToken,
+            SoftwareTokenMfaSettings = new SoftwareTokenMfaSettingsType { Enabled = enabled, PreferredMfa = enabled },
+        };
+        return client.SetUserMFAPreferenceAsync(request, ct);
+    }
+
+    public async Task<bool> IsSoftwareTokenMfaEnabledAsync(string accessToken, CancellationToken ct)
+    {
+        var response = await client.GetUserAsync(new GetUserRequest { AccessToken = accessToken }, ct);
+        return response.UserMFASettingList?.Contains("SOFTWARE_TOKEN_MFA") ?? false;
     }
 
     public async Task<AuthTokens> RefreshAsync(string refreshToken, CancellationToken ct)

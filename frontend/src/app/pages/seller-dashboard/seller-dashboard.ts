@@ -113,6 +113,7 @@ export class SellerDashboard {
     categorySlug: ['', [Validators.required]],
     price: ['', [Validators.required]],
     currency: ['USD', [Validators.required]],
+    weightLbs: [1, [Validators.required, Validators.min(0.01)]],
     fullDescription: ['', [Validators.required, Validators.minLength(10)]],
   });
 
@@ -241,7 +242,7 @@ export class SellerDashboard {
       return;
     }
 
-    const { title, categorySlug, price, currency, fullDescription } = this.productForm.getRawValue();
+    const { title, categorySlug, price, currency, weightLbs, fullDescription } = this.productForm.getRawValue();
     const category = this.categories.find((c) => c.slug === categorySlug)?.name ?? categorySlug;
     const options = this.optionRows()
       .map((row) => ({ name: row.name.trim(), values: row.values.split(',').map((v) => v.trim()).filter((v) => v.length > 0) }))
@@ -256,6 +257,7 @@ export class SellerDashboard {
         categorySlug,
         price,
         currency,
+        weightLbs,
         fullDescription,
         image: this.productImageFile,
         extraImages: this.extraImageFiles,
@@ -266,7 +268,7 @@ export class SellerDashboard {
           this.addedProducts.update((list) => [product, ...list]);
           this.addProductSubmitting.set(false);
           this.showAddProduct.set(false);
-          this.productForm.reset({ title: '', categorySlug: '', price: '', currency: 'USD', fullDescription: '' });
+          this.productForm.reset({ title: '', categorySlug: '', price: '', currency: 'USD', weightLbs: 1, fullDescription: '' });
           this.productImageFile = null;
           this.productImagePreview.set(null);
           this.extraImageFiles = [];

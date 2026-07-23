@@ -46,6 +46,7 @@ export class ProductsService {
     formData.append('categorySlug', request.categorySlug);
     formData.append('price', request.price);
     formData.append('currency', request.currency);
+    formData.append('weightLbs', request.weightLbs.toString());
     formData.append('fullDescription', request.fullDescription);
     formData.append('image', request.image);
     for (const extraImage of request.extraImages ?? []) {

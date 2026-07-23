@@ -19,6 +19,11 @@ public class CreateProductForm
 
     public string Currency { get; set; } = "USD";
 
+    /// <summary>Shipping weight in pounds, used to price shipping off carrier-style weight
+    /// tiers at checkout (see <see cref="Services.Payments.ShippingPricing"/>).</summary>
+    [Required, Range(0.01, 10_000)]
+    public required decimal WeightLbs { get; set; }
+
     [Required, MinLength(10)]
     public required string FullDescription { get; set; }
 

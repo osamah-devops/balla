@@ -15,3 +15,9 @@ variable "stripe_webhook_secret" {
   type        = string
   sensitive   = true
 }
+
+variable "alert_email" {
+  description = "Email address subscribed to the CloudWatch alarm SNS topic (deploy failures, 5xx spikes, ECS crash loops). AWS sends a confirmation link to this address on first apply."
+  type        = string
+  default     = "oneamah@gmail.com"
+}

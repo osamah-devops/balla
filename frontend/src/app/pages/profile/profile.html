@@ -118,6 +118,78 @@
         </button>
     </form>
 
+    <div class="flex flex-col gap-4 rounded-xl bg-white p-5 ring-1 ring-slate-200 shadow-sm dark:bg-slate-900 dark:ring-slate-800">
+        <h2 class="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white">
+            <ng-icon name="faSolidShieldHalved" size="0.85rem" class="text-indigo-600 dark:text-indigo-400"></ng-icon>
+            Two-factor authentication
+        </h2>
+
+        @if (!mfaStatusLoaded()) {
+            <p class="text-sm text-slate-400 dark:text-slate-500">Loading…</p>
+        } @else if (mfaSetup(); as setup) {
+            <p class="text-sm text-slate-500 dark:text-slate-400">Scan this in your authenticator app, or enter the code manually, then confirm with a 6-digit code.</p>
+            <p class="break-all rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 font-mono text-xs text-slate-700 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-200">{{ setup.secretCode }}</p>
+
+            <form [formGroup]="mfaCodeForm" (ngSubmit)="verifyMfaSetup()" class="flex flex-col gap-4">
+                <label class="flex flex-col gap-1.5">
+                    <span class="text-sm font-semibold text-slate-700 dark:text-slate-200">Authentication code</span>
+                    <input
+                        type="text"
+                        inputmode="numeric"
+                        autocomplete="one-time-code"
+                        formControlName="code"
+                        placeholder="123456"
+                        class="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-indigo-500 dark:border-slate-700 dark:bg-slate-950 dark:text-white"
+                    />
+                </label>
+
+                <div class="flex gap-2">
+                    <button
+                        type="submit"
+                        [disabled]="mfaBusy()"
+                        class="flex items-center justify-center gap-2 rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-indigo-700 disabled:opacity-60"
+                    >
+                        {{ mfaBusy() ? 'Verifying…' : 'Confirm' }}
+                    </button>
+                    <button
+                        type="button"
+                        (click)="cancelMfaSetup()"
+                        class="rounded-lg border border-slate-200 px-4 py-2.5 text-sm font-semibold text-slate-700 transition-colors duration-150 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+                    >
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        } @else if (mfaEnabled()) {
+            <p class="text-sm text-slate-500 dark:text-slate-400">Two-factor authentication is on. You'll need a code from your authenticator app to sign in.</p>
+            <button
+                type="button"
+                [disabled]="mfaBusy()"
+                (click)="disableMfa()"
+                class="self-start rounded-lg border border-slate-200 px-4 py-2.5 text-sm font-semibold text-slate-700 transition-colors duration-150 hover:bg-slate-100 disabled:opacity-60 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+            >
+                {{ mfaBusy() ? 'Disabling…' : 'Disable two-factor authentication' }}
+            </button>
+        } @else {
+            <p class="text-sm text-slate-500 dark:text-slate-400">Add an extra layer of security by requiring a code from an authenticator app when you sign in.</p>
+            <button
+                type="button"
+                [disabled]="mfaBusy()"
+                (click)="startMfaSetup()"
+                class="self-start flex items-center justify-center gap-2 rounded-lg bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white transition-colors duration-150 hover:bg-indigo-700 disabled:opacity-60"
+            >
+                {{ mfaBusy() ? 'Starting…' : 'Set up two-factor authentication' }}
+            </button>
+        }
+
+        @if (mfaSuccess()) {
+            <p class="text-sm font-medium text-emerald-600 dark:text-emerald-400">{{ mfaSuccess() }}</p>
+        }
+        @if (mfaError()) {
+            <p class="text-sm font-medium text-red-600 dark:text-red-400">{{ mfaError() }}</p>
+        }
+    </div>
+
     @if (blockedUsersService.blockedIds().size > 0) {
         <div class="flex flex-col gap-3 rounded-xl bg-white p-5 ring-1 ring-slate-200 shadow-sm dark:bg-slate-900 dark:ring-slate-800">
             <h2 class="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white">

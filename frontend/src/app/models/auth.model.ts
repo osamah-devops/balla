@@ -34,8 +34,35 @@ export interface AuthTokens {
   expiresIn: number;
 }
 
-export interface LoginResponse extends AuthTokens {
-  user: User;
+export interface LoginResponse {
+  mfaRequired: boolean;
+  mfaSession?: string;
+  accessToken?: string;
+  idToken?: string;
+  refreshToken?: string;
+  expiresIn?: number;
+  user?: User;
+}
+
+export interface MfaLoginRequest {
+  email: string;
+  session: string;
+  code: string;
+}
+
+export interface SetupMfaResponse {
+  secretCode: string;
+  otpAuthUrl: string;
+}
+
+export interface VerifyMfaRequest {
+  code: string;
+}
+
+export type LoginResult = { mfaRequired: true; email: string; session: string } | { mfaRequired: false; user: User };
+
+export interface MfaStatusResponse {
+  enabled: boolean;
 }
 
 export interface RefreshRequest {

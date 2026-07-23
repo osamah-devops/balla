@@ -1,0 +1,68 @@
+name: Frontend
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "frontend/**"
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: frontend-deploy
+  cancel-in-progress: false
+
+env:
+  AWS_REGION: us-east-1
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        working-directory: frontend
+        # @ngrx/effects still declares a peer dep on @angular/core ^21 while
+        # the app is on ^22; the committed lockfile was resolved the same way.
+        run: npm ci --legacy-peer-deps
+
+      - name: Build
+        working-directory: frontend
+        run: npm run build -- --configuration production
+
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_GHA_DEPLOY_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Resolve frontend bucket and distribution
+        id: resolve
+        run: |
+          set -euo pipefail
+          bucket=$(aws s3api list-buckets \
+            --query "Buckets[?starts_with(Name, 'balla-frontend-')].Name | [0]" \
+            --output text)
+          dist_id=$(aws cloudfront list-distributions \
+            --query "DistributionList.Items[?Comment=='Frontend distribution for balla'].Id | [0]" \
+            --output text)
+          echo "bucket=$bucket" >> "$GITHUB_OUTPUT"
+          echo "dist_id=$dist_id" >> "$GITHUB_OUTPUT"
+
+      - name: Sync to S3
+        run: |
+          aws s3 sync frontend/dist/frontend/browser "s3://${{ steps.resolve.outputs.bucket }}" --delete
+
+      - name: Invalidate CloudFront
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id "${{ steps.resolve.outputs.dist_id }}" \
+            --paths "/*"

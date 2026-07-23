@@ -1,5 +1,8 @@
 locals {
   frontend_domain = "www.marmil.co"
+  # The bare domain, so both marmil.co and www.marmil.co resolve instead of
+  # the apex 404ing with NXDOMAIN.
+  frontend_apex_domain = "marmil.co"
 }
 
 data "aws_route53_zone" "primary" {
@@ -9,8 +12,9 @@ data "aws_route53_zone" "primary" {
 # CloudFront requires the certificate in us-east-1; the whole provider already targets
 # us-east-1 (see providers.tf), so no aliased provider is needed here.
 resource "aws_acm_certificate" "frontend" {
-  domain_name       = local.frontend_domain
-  validation_method = "DNS"
+  domain_name               = local.frontend_domain
+  subject_alternative_names = [local.frontend_apex_domain]
+  validation_method         = "DNS"
 
   lifecycle {
     create_before_destroy = true
@@ -55,6 +59,30 @@ resource "aws_route53_record" "frontend_alias_a" {
 resource "aws_route53_record" "frontend_alias_aaaa" {
   zone_id = data.aws_route53_zone.primary.zone_id
   name    = local.frontend_domain
+  type    = "AAAA"
+
+  alias {
+    name                   = aws_cloudfront_distribution.frontend.domain_name
+    zone_id                = aws_cloudfront_distribution.frontend.hosted_zone_id
+    evaluate_target_health = false
+  }
+}
+
+resource "aws_route53_record" "frontend_apex_alias_a" {
+  zone_id = data.aws_route53_zone.primary.zone_id
+  name    = local.frontend_apex_domain
+  type    = "A"
+
+  alias {
+    name                   = aws_cloudfront_distribution.frontend.domain_name
+    zone_id                = aws_cloudfront_distribution.frontend.hosted_zone_id
+    evaluate_target_health = false
+  }
+}
+
+resource "aws_route53_record" "frontend_apex_alias_aaaa" {
+  zone_id = data.aws_route53_zone.primary.zone_id
+  name    = local.frontend_apex_domain
   type    = "AAAA"
 
   alias {
