@@ -47,15 +47,27 @@ public class OrdersController(
     public async Task<ActionResult<OrderResponse>> UpdateStatus(string orderId, UpdateOrderStatusRequest request, CancellationToken ct)
     {
         var profile = await GetCurrentProfileAsync(ct);
-        if (profile is null || string.IsNullOrEmpty(profile.OwnerId))
+        if (profile is null)
         {
             return NotFound();
         }
 
         var order = await orderRepository.GetAsync(orderId, ct);
-        if (order is null || order.SellerId != profile.OwnerId)
+        if (order is null)
         {
             return NotFound();
+        }
+
+        var isSeller = !string.IsNullOrEmpty(profile.OwnerId) && order.SellerId == profile.OwnerId;
+        var isBuyer = order.BuyerId == profile.UserId;
+        if (!isSeller && !isBuyer)
+        {
+            return NotFound();
+        }
+        // Buyers may only cancel their own order; shipping/delivery updates stay seller-only.
+        if (isBuyer && !isSeller && request.Status != OrderStatus.Cancelled)
+        {
+            return StatusCode(403, new { error = "FORBIDDEN", message = "Only the seller can update this order's status." });
         }
         if (!IsValidTransition(order.Status, request.Status))
         {
@@ -66,10 +78,14 @@ public class OrdersController(
         order.UpdatedAt = DateTime.UtcNow.ToString("O");
         await orderRepository.PutAsync(order, ct);
 
+        var (recipientId, message) = isSeller
+            ? (order.BuyerId, $"Your order from {order.SellerName} is now {request.Status}")
+            : (order.SellerId, $"{order.BuyerName} cancelled their order");
+
         await notificationDispatcher.DispatchAsync(
-            order.BuyerId,
+            recipientId,
             NotificationType.Order,
-            $"Your order from {order.SellerName} is now {request.Status}",
+            message,
             conversationId: null,
             productId: null,
             productTitle: null,

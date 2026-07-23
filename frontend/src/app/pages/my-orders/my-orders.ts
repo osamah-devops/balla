@@ -16,6 +16,7 @@ export class MyOrders {
   private readonly ordersService = inject(OrdersService);
 
   readonly orders = signal<Order[]>([]);
+  readonly cancelling = signal<string | null>(null);
 
   constructor() {
     this.ordersService.getMyOrders().subscribe((orders) => this.orders.set(orders));
@@ -32,5 +33,16 @@ export class MyOrders {
       case 'cancelled':
         return 'bg-rose-50 text-rose-700 dark:bg-rose-500/10 dark:text-rose-400';
     }
+  }
+
+  cancelOrder(order: Order): void {
+    this.cancelling.set(order.id);
+    this.ordersService.updateStatus(order.id, { status: 'cancelled' }).subscribe({
+      next: (updated) => {
+        this.cancelling.set(null);
+        this.orders.update((list) => list.map((o) => (o.id === updated.id ? updated : o)));
+      },
+      error: () => this.cancelling.set(null),
+    });
   }
 }
