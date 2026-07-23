@@ -40,6 +40,6 @@ export class AdminService {
   }
 
   updateReportStatus(reportId: string, status: ReportStatus): Observable<Report> {
-    return this.http.patch<Report>(`/api/admin/reports/${reportId}/status`, { status });
+    return this.http.patch<Report>(`/api/admin/reports/${encodeURIComponent(reportId)}/status`, { status });
   }
 }

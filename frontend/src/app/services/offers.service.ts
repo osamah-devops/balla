@@ -16,6 +16,6 @@ export class OffersService {
   }
 
   updateStatus(offerId: string, status: Extract<OfferStatus, 'accepted' | 'rejected'>): Observable<Offer> {
-    return this.http.patch<Offer>(`/api/offers/${offerId}`, { status });
+    return this.http.patch<Offer>(`/api/offers/${encodeURIComponent(offerId)}`, { status });
   }
 }

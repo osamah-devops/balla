@@ -61,7 +61,7 @@ export class NotificationsService {
 
   markRead(notificationId: string): void {
     this.notifications.update((list) => list.map((n) => (n.id === notificationId ? { ...n, read: true } : n)));
-    this.http.post<void>(`/api/notifications/${notificationId}/read`, {}).subscribe();
+    this.http.post<void>(`/api/notifications/${encodeURIComponent(notificationId)}/read`, {}).subscribe();
   }
 
   markAllRead(): void {
