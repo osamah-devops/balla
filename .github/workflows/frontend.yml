@@ -39,10 +39,11 @@ jobs:
         working-directory: frontend
         run: npm run build -- --configuration production
 
-      - uses: aws-actions/configure-aws-credentials@v4
+      - uses: aws-actions/configure-aws-credentials@v6
         with:
           role-to-assume: ${{ secrets.AWS_GHA_DEPLOY_ROLE_ARN }}
           aws-region: ${{ env.AWS_REGION }}
+          audience: sts.amazonaws.com
 
       - name: Resolve frontend bucket and distribution
         id: resolve

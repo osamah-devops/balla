@@ -38,10 +38,11 @@ jobs:
         with:
           terraform_version: "1.15.6"
 
-      - uses: aws-actions/configure-aws-credentials@v4
+      - uses: aws-actions/configure-aws-credentials@v6
         with:
           role-to-assume: ${{ secrets.AWS_GHA_PLAN_ROLE_ARN }}
           aws-region: ${{ env.AWS_REGION }}
+          audience: sts.amazonaws.com
 
       - run: terraform fmt -check -recursive
       - run: terraform init -input=false
@@ -74,10 +75,11 @@ jobs:
         with:
           terraform_version: "1.15.6"
 
-      - uses: aws-actions/configure-aws-credentials@v4
+      - uses: aws-actions/configure-aws-credentials@v6
         with:
           role-to-assume: ${{ secrets.AWS_GHA_DEPLOY_ROLE_ARN }}
           aws-region: ${{ env.AWS_REGION }}
+          audience: sts.amazonaws.com
 
       - run: terraform init -input=false
       - run: terraform apply -input=false -auto-approve
